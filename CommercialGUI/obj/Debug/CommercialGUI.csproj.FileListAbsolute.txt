@@ -1,0 +1,6 @@
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.csproj.AssemblyReference.cache
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.csproj.SuggestedBindingRedirects.cache
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.FrmConnexion.resources
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.Properties.Resources.resources
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.csproj.GenerateResource.cache
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.csproj.CoreCompileInputs.cache
