@@ -1,0 +1,12 @@
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\bin\Debug\net6.0\CommercialBLL.deps.json
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\bin\Debug\net6.0\CommercialBLL.dll
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\bin\Debug\net6.0\CommercialBLL.pdb
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\obj\Debug\net6.0\CommercialBLL.csproj.AssemblyReference.cache
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\obj\Debug\net6.0\CommercialBLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\obj\Debug\net6.0\CommercialBLL.AssemblyInfoInputs.cache
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\obj\Debug\net6.0\CommercialBLL.AssemblyInfo.cs
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\obj\Debug\net6.0\CommercialBLL.csproj.CoreCompileInputs.cache
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\obj\Debug\net6.0\CommercialBLL.dll
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\obj\Debug\net6.0\refint\CommercialBLL.dll
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\obj\Debug\net6.0\CommercialBLL.pdb
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\obj\Debug\net6.0\ref\CommercialBLL.dll

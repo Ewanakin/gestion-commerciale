@@ -1,0 +1,12 @@
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBO\bin\Debug\net6.0\CommercialBO.deps.json
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBO\bin\Debug\net6.0\CommercialBO.dll
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBO\bin\Debug\net6.0\CommercialBO.pdb
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBO\obj\Debug\net6.0\CommercialBO.csproj.AssemblyReference.cache
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBO\obj\Debug\net6.0\CommercialBO.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBO\obj\Debug\net6.0\CommercialBO.AssemblyInfoInputs.cache
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBO\obj\Debug\net6.0\CommercialBO.AssemblyInfo.cs
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBO\obj\Debug\net6.0\CommercialBO.csproj.CoreCompileInputs.cache
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBO\obj\Debug\net6.0\CommercialBO.dll
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBO\obj\Debug\net6.0\refint\CommercialBO.dll
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBO\obj\Debug\net6.0\CommercialBO.pdb
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBO\obj\Debug\net6.0\ref\CommercialBO.dll
