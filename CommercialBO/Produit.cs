@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CommercialBO
 {
-    internal class Produit
+    public class Produit
     {
         private int code;
         private string libelle;
