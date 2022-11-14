@@ -1,0 +1,6 @@
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBO\bin\Debug\CommercialBO.dll
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBO\bin\Debug\CommercialBO.pdb
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBO\obj\Debug\CommercialBO.csproj.AssemblyReference.cache
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBO\obj\Debug\CommercialBO.csproj.CoreCompileInputs.cache
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBO\obj\Debug\CommercialBO.dll
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBO\obj\Debug\CommercialBO.pdb

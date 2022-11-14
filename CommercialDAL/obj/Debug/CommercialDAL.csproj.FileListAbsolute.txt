@@ -1,0 +1,6 @@
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialDAL\bin\Debug\CommercialDAL.dll
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialDAL\bin\Debug\CommercialDAL.pdb
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.csproj.AssemblyReference.cache
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.csproj.CoreCompileInputs.cache
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.dll
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.pdb
