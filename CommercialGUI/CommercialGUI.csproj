@@ -81,6 +81,26 @@
     <Compile Include="FrmViewProduct.Designer.cs">
       <DependentUpon>FrmViewProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="gestion_commercialeDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gestion_commercialeDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="gestion_commercialeDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gestion_commercialeDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="gestion_commercialeDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gestion_commercialeDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="gestion_commercialeDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gestion_commercialeDataSet3.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmConnexion.resx">
@@ -98,6 +118,50 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="gestion_commercialeDataSet.xsc">
+      <DependentUpon>gestion_commercialeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="gestion_commercialeDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>gestion_commercialeDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="gestion_commercialeDataSet.xss">
+      <DependentUpon>gestion_commercialeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="gestion_commercialeDataSet1.xsc">
+      <DependentUpon>gestion_commercialeDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="gestion_commercialeDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>gestion_commercialeDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="gestion_commercialeDataSet1.xss">
+      <DependentUpon>gestion_commercialeDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="gestion_commercialeDataSet2.xsc">
+      <DependentUpon>gestion_commercialeDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="gestion_commercialeDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>gestion_commercialeDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="gestion_commercialeDataSet2.xss">
+      <DependentUpon>gestion_commercialeDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="gestion_commercialeDataSet3.xsc">
+      <DependentUpon>gestion_commercialeDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="gestion_commercialeDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>gestion_commercialeDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="gestion_commercialeDataSet3.xss">
+      <DependentUpon>gestion_commercialeDataSet3.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -121,6 +185,9 @@
       <Project>{ed667250-6aa2-4847-8484-e9c1e7d2193d}</Project>
       <Name>CommercialBO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
