@@ -34,36 +34,33 @@
             this.lblError = new System.Windows.Forms.Label();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSubmitCo
             // 
-            this.btnSubmitCo.Location = new System.Drawing.Point(525, 460);
-            this.btnSubmitCo.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSubmitCo.Location = new System.Drawing.Point(788, 719);
             this.btnSubmitCo.Name = "btnSubmitCo";
-            this.btnSubmitCo.Size = new System.Drawing.Size(173, 70);
+            this.btnSubmitCo.Size = new System.Drawing.Size(260, 109);
             this.btnSubmitCo.TabIndex = 0;
             this.btnSubmitCo.Text = "Se connecter";
             this.btnSubmitCo.UseVisualStyleBackColor = true;
+            this.btnSubmitCo.Click += new System.EventHandler(this.btnSubmitCo_Click);
             // 
             // lblUser
             // 
             this.lblUser.AutoSize = true;
-            this.lblUser.Location = new System.Drawing.Point(414, 140);
-            this.lblUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUser.Location = new System.Drawing.Point(621, 219);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(76, 16);
+            this.lblUser.Size = new System.Drawing.Size(122, 25);
             this.lblUser.TabIndex = 1;
             this.lblUser.Text = "Username :";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(414, 216);
-            this.lblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPassword.Location = new System.Drawing.Point(621, 338);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(73, 16);
+            this.lblPassword.Size = new System.Drawing.Size(118, 25);
             this.lblPassword.TabIndex = 2;
             this.lblPassword.Text = "Password :";
             // 
@@ -71,53 +68,37 @@
             // 
             this.lblError.AutoSize = true;
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(588, 407);
-            this.lblError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblError.Location = new System.Drawing.Point(882, 636);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(43, 16);
+            this.lblError.Size = new System.Drawing.Size(0, 25);
             this.lblError.TabIndex = 3;
-            this.lblError.Text = "Erreur";
             this.lblError.Click += new System.EventHandler(this.lblError_Click);
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(417, 173);
-            this.txtUser.Margin = new System.Windows.Forms.Padding(2);
+            this.txtUser.Location = new System.Drawing.Point(626, 270);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(199, 22);
+            this.txtUser.Size = new System.Drawing.Size(296, 31);
             this.txtUser.TabIndex = 4;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(417, 254);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPassword.Location = new System.Drawing.Point(626, 397);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(199, 22);
+            this.txtPassword.Size = new System.Drawing.Size(296, 31);
             this.txtPassword.TabIndex = 5;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(868, 44);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FrmConnexion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1191, 641);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1786, 1002);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.btnSubmitCo);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmConnexion";
             this.Text = "Gestion_Commerciale";
             this.Load += new System.EventHandler(this.FrmConnexion_Load);
@@ -134,7 +115,6 @@
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Button button1;
     }
 }
 
