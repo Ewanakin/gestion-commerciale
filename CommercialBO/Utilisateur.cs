@@ -2,17 +2,17 @@
 {
     public class Utilisateur
     {
-        private string username;
+        private string mail;
         private string password;
 
 
-        public Utilisateur(string _Username, string _Password)
+        public Utilisateur(string _Mail, string _Password)
         {
-            username = _Username;
+            mail = _Mail;
             password = _Password;
         }
 
-        public string Username1 { get => username; set => username = value; }
-        public string Password1 { get => password; set => password = value; }
+        public string Mail { get => mail; set => mail = value; }
+        public string Password { get => password; set => password = value; }
     }
 }

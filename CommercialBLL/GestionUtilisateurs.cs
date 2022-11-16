@@ -22,7 +22,13 @@ namespace CommercialBLL
             }
             return uneGestionUtilisateurs;
         }
-        public static int CreerUtilisateur(Utilisateur ut)
+        // Définit la chaîne de connexion grâce à la méthode SetchaineConnexion de la DAL
+        public static void SetChaineConnexion(ConnectionStringSettings chset)
+        {
+            string chaine = chset.ConnectionString;
+            ConnexionBD.GetConnexionBD().SetchaineConnexion(chaine);
+        }
+        public static bool CheckUtilisateur(Utilisateur ut)
         {
             return UtilisateurDAO.CheckUtilisateur(ut);
         }
