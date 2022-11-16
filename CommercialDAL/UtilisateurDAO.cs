@@ -1,10 +1,9 @@
-﻿using System;
+﻿using CommercialBO;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CommercialBO;
+using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Messaging;
 
 
 namespace CommercialDAL
@@ -20,21 +19,30 @@ namespace CommercialDAL
             }
             return unUtilisateurDAO;
         }
-        public static int CheckUtilisateur(Utilisateur unUtilisateur)
+        public static bool CheckUtilisateur(Utilisateur unUtilisateur)
         {
-            int nbEnr;
+            bool isValid = false;
+
             // Connexion à la BD
             SqlConnection maConnexion =
             ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "SELECT * FROM Utilisateur WHERE Username = @Name and Password = @Password";
-            cmd.Parameters.Add(new SqlParameter("Name", unUtilisateur.Username1));
-            cmd.Parameters.Add(new SqlParameter("Password", unUtilisateur.Password1));
-            nbEnr = cmd.ExecuteNonQuery();
+            cmd.CommandText = "SELECT * FROM Utilisateurs WHERE mail_uti = @Mail and mdp_uti = @Password";
+            cmd.Parameters.Add(new SqlParameter("Mail", unUtilisateur.Mail));
+            cmd.Parameters.Add(new SqlParameter("Password", unUtilisateur.Password));
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                int test = (Int32.Parse(reader["code_uti"].ToString()));
+                if (test >= 0)
+                {
+                    isValid = true;
+                }
+            }
             // Fermeture de la connexion
             maConnexion.Close();
-            return nbEnr;
+            return isValid;
         }
     }
 }
