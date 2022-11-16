@@ -54,6 +54,9 @@ namespace CommercialGUI
             liste = GestionProduits.GetProduits();
             // Rattachement de la List à la source de données du datagridview
             dtgProducts.DataSource = liste;
+
+            lstCategProduct.Items.Add("qsdqsd");
+            lstCategProduct.ValueMember = "2";
         }
 
         private void btnNewProduct_Click(object sender, EventArgs e)

@@ -26,7 +26,7 @@ namespace CommercialDAL
         public static List<Produit> GetProduits()
         {
             int id, libelleCateg;
-            string libelle;
+            string libelle, libelleCategorie;
             float prixHT;
             Produit unProduit;
             // Connexion à la BD
@@ -35,7 +35,7 @@ namespace CommercialDAL
             List<Produit> lesUtilisateurs = new List<Produit>();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = " SELECT * FROM Produit";
+            cmd.CommandText = " SELECT * FROM Produit INNER JOIN Categorie_produit ON Produit.code_categ = Categorie_produit.code_categ";
             SqlDataReader monReader = cmd.ExecuteReader();
             // Remplissage de la liste
             while (monReader.Read())
@@ -43,7 +43,7 @@ namespace CommercialDAL
                 // récupération du code produit
                 id = Int32.Parse(monReader["code_pro"].ToString());
                 //récupération du libelle du produit
-                if (monReader["lib_pro"] == DBNull.Value)
+                if (monReader["code_categ"] == DBNull.Value)
                 {
                     libelle = default(string);
                 }
@@ -60,8 +60,17 @@ namespace CommercialDAL
                 {
                     float.TryParse(monReader["prix_vente_ht_pro"].ToString(), out prixHT);
                 }
-                libelleCateg = Int32.Parse(monReader["code_pro"].ToString());
-                unProduit = new Produit(id, libelle, prixHT, libelleCateg);
+                //libelleCateg = Int32.Parse(monReader["code_categ"].ToString());
+                if (monReader["lib_categ"] == DBNull.Value)
+                {
+                    libelleCategorie = default(string);
+                }
+                else
+                {
+                    libelleCategorie = monReader["lib_categ"].ToString();
+                    Console.WriteLine(libelleCategorie);
+                }
+                unProduit = new Produit(id, libelle, prixHT, libelleCategorie);
                 lesUtilisateurs.Add(unProduit);
             }
             // Fermeture de la connexion
