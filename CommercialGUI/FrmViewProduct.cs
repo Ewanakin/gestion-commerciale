@@ -18,16 +18,6 @@ namespace CommercialGUI
 {
     public partial class FrmViewProduct : Form
     {
-        public class ListItem
-        {
-            public string Name { get; set; }
-            public int Value { get; set; }
-
-            public override string ToString()
-            {
-                return Name;
-            }
-        }
         public FrmViewProduct()
         {
             InitializeComponent();
