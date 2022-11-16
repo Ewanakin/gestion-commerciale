@@ -36,7 +36,7 @@
             this.lblPrixHTProduct = new System.Windows.Forms.Label();
             this.txtPrixHTProduct = new System.Windows.Forms.TextBox();
             this.btnAddProduct = new System.Windows.Forms.Button();
-            this.lstCategProduct = new System.Windows.Forms.ListBox();
+            this.cmbCategProduct = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,10 +80,10 @@
             // 
             // txtLabelProduct
             // 
-            this.txtLabelProduct.Location = new System.Drawing.Point(969, 270);
+            this.txtLabelProduct.Location = new System.Drawing.Point(957, 270);
             this.txtLabelProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtLabelProduct.Name = "txtLabelProduct";
-            this.txtLabelProduct.Size = new System.Drawing.Size(112, 26);
+            this.txtLabelProduct.Size = new System.Drawing.Size(124, 26);
             this.txtLabelProduct.TabIndex = 4;
             // 
             // lblPrixHTProduct
@@ -97,15 +97,15 @@
             // 
             // txtPrixHTProduct
             // 
-            this.txtPrixHTProduct.Location = new System.Drawing.Point(790, 270);
+            this.txtPrixHTProduct.Location = new System.Drawing.Point(765, 270);
             this.txtPrixHTProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPrixHTProduct.Name = "txtPrixHTProduct";
-            this.txtPrixHTProduct.Size = new System.Drawing.Size(112, 26);
+            this.txtPrixHTProduct.Size = new System.Drawing.Size(162, 26);
             this.txtPrixHTProduct.TabIndex = 7;
             // 
             // btnAddProduct
             // 
-            this.btnAddProduct.Location = new System.Drawing.Point(969, 328);
+            this.btnAddProduct.Location = new System.Drawing.Point(802, 529);
             this.btnAddProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(112, 29);
@@ -113,23 +113,20 @@
             this.btnAddProduct.Text = "Ajouter";
             this.btnAddProduct.UseVisualStyleBackColor = true;
             // 
-            // lstCategProduct
+            // cmbCategProduct
             // 
-            this.lstCategProduct.FormattingEnabled = true;
-            this.lstCategProduct.ItemHeight = 20;
-            this.lstCategProduct.Location = new System.Drawing.Point(790, 328);
-            this.lstCategProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.lstCategProduct.Name = "lstCategProduct";
-            this.lstCategProduct.Size = new System.Drawing.Size(112, 84);
-            this.lstCategProduct.TabIndex = 9;
-            this.lstCategProduct.SelectedIndexChanged += new System.EventHandler(this.lstCategProduct_SelectedIndexChanged);
+            this.cmbCategProduct.FormattingEnabled = true;
+            this.cmbCategProduct.Location = new System.Drawing.Point(765, 349);
+            this.cmbCategProduct.Name = "cmbCategProduct";
+            this.cmbCategProduct.Size = new System.Drawing.Size(162, 28);
+            this.cmbCategProduct.TabIndex = 9;
             // 
             // FrmViewProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1096, 734);
-            this.Controls.Add(this.lstCategProduct);
+            this.Controls.Add(this.cmbCategProduct);
             this.Controls.Add(this.btnAddProduct);
             this.Controls.Add(this.txtPrixHTProduct);
             this.Controls.Add(this.lblPrixHTProduct);
@@ -158,6 +155,6 @@
         private System.Windows.Forms.Label lblPrixHTProduct;
         private System.Windows.Forms.TextBox txtPrixHTProduct;
         private System.Windows.Forms.Button btnAddProduct;
-        private System.Windows.Forms.ListBox lstCategProduct;
+        private System.Windows.Forms.ComboBox cmbCategProduct;
     }
 }

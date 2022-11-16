@@ -9,7 +9,7 @@ namespace CommercialBO
     public class Produit
     {
         private int code;
-        private string libelle, libcat;
+        private string libelle, libCat;
         private float prixHT;
         private int libelleCategorie;
 
@@ -20,12 +20,12 @@ namespace CommercialBO
             this.prixHT = prixHT;
             this.libelleCategorie = libelleCategorie;
         }
-        public Produit(int code, string libelle, float prixHT, string libcat)
+        public Produit(int code, string libelle, float prixHT, string libCat)
         {
             this.code = code;
             this.libelle = libelle;
             this.prixHT = prixHT;
-            this.libcat = libcat;
+            this.libCat = libCat;
         }
         public int getCode() { return code; }
         public string getLibelle()
@@ -67,10 +67,10 @@ namespace CommercialBO
         }
 
         // set get prixHT
-        public string Libcat
+        public string LibCat
         {
-            get { return libcat; }
-            set { libcat = value; }
+            get { return libCat; }
+            set { libCat = value; }
         }
     }
 }

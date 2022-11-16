@@ -6,7 +6,6 @@ C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\bin\Debug\Commer
 C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.csproj.AssemblyReference.cache
 C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.csproj.SuggestedBindingRedirects.cache
 C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.FrmConnexion.resources
-C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.FrmViewProduct.resources
 C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.Properties.Resources.resources
 C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.csproj.GenerateResource.cache
 C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.csproj.CoreCompileInputs.cache
@@ -36,3 +35,17 @@ C:\Users\losko\Desktop\test\git\gestion-commerciale\CommercialGUI\obj\Debug\Comm
 C:\Users\losko\Desktop\test\git\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.csproj.CopyComplete
 C:\Users\losko\Desktop\test\git\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.exe
 C:\Users\losko\Desktop\test\git\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.pdb
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\bin\Debug\System.Web.Helpers.dll
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\bin\Debug\System.Web.Mvc.dll
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\bin\Debug\System.Web.Razor.dll
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\bin\Debug\System.Web.WebPages.dll
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\bin\Debug\System.Web.Helpers.xml
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\bin\Debug\System.Web.Mvc.xml
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\bin\Debug\System.Web.Razor.xml
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\bin\Debug\System.Web.WebPages.xml
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.FrmViewProduct.resources

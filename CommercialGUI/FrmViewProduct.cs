@@ -10,11 +10,24 @@ using System.Windows.Forms;
 using System.Configuration;
 using CommercialBO;
 using CommercialBLL;
+using System.Windows;
+using System.Windows.Documents;
+using System.Windows.Controls;
 
 namespace CommercialGUI
 {
     public partial class FrmViewProduct : Form
     {
+        public class ListItem
+        {
+            public string Name { get; set; }
+            public int Value { get; set; }
+
+            public override string ToString()
+            {
+                return Name;
+            }
+        }
         public FrmViewProduct()
         {
             InitializeComponent();
@@ -55,16 +68,20 @@ namespace CommercialGUI
             // Rattachement de la List à la source de données du datagridview
             dtgProducts.DataSource = liste;
 
-            lstCategProduct.Items.Add("qsdqsd");
-            lstCategProduct.ValueMember = "2";
+            List<CategorieProduit> listeCategorieProduit = new List<CategorieProduit>();
+            listeCategorieProduit = GestionCategorieProduits.GetCategorieProduits();
+            foreach(CategorieProduit test in listeCategorieProduit)
+            {
+                cmbCategProduct.Items.Add(test.Libelle);
+            }
+            
         }
 
         private void btnNewProduct_Click(object sender, EventArgs e)
         {
             float prixHT;
             float.TryParse(txtPrixHTProduct.Text, out prixHT);
-            this.Hide();
-            Produit unProduit = new Produit(0, txtLabelProduct.Text, prixHT, 2);
+            Produit unProduit = new Produit(0, txtLabelProduct.Text, prixHT, cmbCategProduct.Text);
             GestionProduits.CreerUtilisateur(unProduit);
         }
 

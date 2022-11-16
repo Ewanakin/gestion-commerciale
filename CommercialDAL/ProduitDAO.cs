@@ -60,7 +60,7 @@ namespace CommercialDAL
                 {
                     float.TryParse(monReader["prix_vente_ht_pro"].ToString(), out prixHT);
                 }
-                //libelleCateg = Int32.Parse(monReader["code_categ"].ToString());
+                libelleCateg = Int32.Parse(monReader["code_categ"].ToString());
                 if (monReader["lib_categ"] == DBNull.Value)
                 {
                     libelleCategorie = default(string);
@@ -70,7 +70,7 @@ namespace CommercialDAL
                     libelleCategorie = monReader["lib_categ"].ToString();
                     Console.WriteLine(libelleCategorie);
                 }
-                unProduit = new Produit(id, libelle, prixHT, libelleCategorie);
+                unProduit = new Produit(id, libelle, prixHT, libelleCateg);
                 lesUtilisateurs.Add(unProduit);
             }
             // Fermeture de la connexion
@@ -81,14 +81,24 @@ namespace CommercialDAL
         // Cette méthode insert un nouveau Produit passé en paramètre dans la BD
         public static int AjoutProduit(Produit unProduit)
         {
+            int id = 0;
             int nbEnr;
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand cmdLibelle = new SqlCommand("SELECT code_categ FROM Categorie_produit WHERE lib_categ LIKE '" + unProduit.LibCat + "'", maConnexion);
+            SqlDataReader monReader = cmdLibelle.ExecuteReader();
+            while (monReader.Read())
+            {
+                // récupération du code produit
+                id = Int32.Parse(monReader["code_categ"].ToString());
+            }
+            monReader.Close();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "INSERT INTO Produit values('" + unProduit.getLibelle() + "'," +
-                "                                           '" + unProduit.getPrixHT() + "'," +
-                "                                           '" + unProduit.getLibelleCategegorie() + "')";
+            cmd.CommandText = "INSERT INTO Produit(lib_pro, prix_vente_ht_pro, code_categ) VALUES(@libellePro, @prixHTPro, @codeCategPro)";
+            cmd.Parameters.Add(new SqlParameter("libellePro", unProduit.getLibelle()));
+            cmd.Parameters.Add(new SqlParameter("prixHTPro", unProduit.getPrixHT()));
+            cmd.Parameters.Add(new SqlParameter("codeCategPro", id));
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();
