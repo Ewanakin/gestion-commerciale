@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -89,6 +90,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommercialBLL\CommercialBLL.csproj">
+      <Project>{0c7f9cbd-5d92-4612-b730-2641d37baa55}</Project>
+      <Name>CommercialBLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CommercialBO\CommercialBO.csproj">
       <Project>{ed667250-6aa2-4847-8484-e9c1e7d2193d}</Project>
       <Name>CommercialBO</Name>

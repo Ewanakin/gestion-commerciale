@@ -35,13 +35,13 @@ namespace CommercialDAL
             List<Produit> lesUtilisateurs = new List<Produit>();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = " SELECT * FROM T_Produit";
+            cmd.CommandText = " SELECT * FROM Produit";
             SqlDataReader monReader = cmd.ExecuteReader();
             // Remplissage de la liste
             while (monReader.Read())
             {
                 // récupération du code produit
-                id = Int32.Parse(monReader["code_produit"].ToString());
+                id = Int32.Parse(monReader["code_pro"].ToString());
                 //récupération du libelle du produit
                 if (monReader["lib_pro"] == DBNull.Value)
                 {
@@ -60,16 +60,8 @@ namespace CommercialDAL
                 {
                     float.TryParse(monReader["prix_vente_ht_pro"].ToString(), out prixHT);
                 }
-                // récupération du code de catégorie Produit
-                if (monReader["code_categ"] == DBNull.Value)
-                {
-                    libelleCateg = default(int);
-                }
-                else
-                {
-                    libelle = monReader["code_categ"].ToString();
-                }
-                unProduit = new Produit(id, libelle, prixHT, "sdf");
+                libelleCateg = Int32.Parse(monReader["code_pro"].ToString());
+                unProduit = new Produit(id, libelle, prixHT, libelleCateg);
                 lesUtilisateurs.Add(unProduit);
             }
             // Fermeture de la connexion
@@ -85,9 +77,9 @@ namespace CommercialDAL
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "INSERT INTO T_Produit values('" + unProduit.getLibelle() + "'," +
+            cmd.CommandText = "INSERT INTO Produit values('" + unProduit.getLibelle() + "'," +
                 "                                           '" + unProduit.getPrixHT() + "'," +
-                "                                           '" + unProduit.getLibelleCateg() + "')";
+                "                                           '" + unProduit.getLibelleCategegorie() + "')";
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();
@@ -98,14 +90,14 @@ namespace CommercialDAL
         public static int UpdateProduit(Produit unProduit)
         {
             int nbEnr = 0;
-            //// Connexion à la BD
-            //SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
-            //SqlCommand cmd = new SqlCommand();
-            //cmd.Connection = maConnexion;
-            //cmd.CommandText = "UPDATE T_Identification SET Nom_utilisateur = '" + unUtilisateur.getName() + "' WHERE Id_utilisateur = " + unUtilisateur.getId();
-            //nbEnr = cmd.ExecuteNonQuery();
-            //// Fermeture de la connexion
-            //maConnexion.Close();
+            //Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "UPDATE Produit SET Nom_utilisateur = '" + unProduit.getLibelle() + "' WHERE Id_utilisateur = " + unProduit.getCode();
+            nbEnr = cmd.ExecuteNonQuery();
+            // Fermeture de la connexion
+            maConnexion.Close();
             return nbEnr;
         }
 

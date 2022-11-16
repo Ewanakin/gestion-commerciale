@@ -42,9 +42,10 @@
             // 
             // btnNewProduct
             // 
-            this.btnNewProduct.Location = new System.Drawing.Point(641, 83);
+            this.btnNewProduct.Location = new System.Drawing.Point(812, 116);
+            this.btnNewProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNewProduct.Name = "btnNewProduct";
-            this.btnNewProduct.Size = new System.Drawing.Size(138, 23);
+            this.btnNewProduct.Size = new System.Drawing.Size(155, 29);
             this.btnNewProduct.TabIndex = 0;
             this.btnNewProduct.Text = "Nouveau";
             this.btnNewProduct.UseVisualStyleBackColor = true;
@@ -53,19 +54,20 @@
             // dtgProducts
             // 
             this.dtgProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgProducts.Location = new System.Drawing.Point(164, 173);
+            this.dtgProducts.Location = new System.Drawing.Point(12, 94);
+            this.dtgProducts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtgProducts.Name = "dtgProducts";
             this.dtgProducts.RowHeadersWidth = 51;
             this.dtgProducts.RowTemplate.Height = 24;
-            this.dtgProducts.Size = new System.Drawing.Size(240, 150);
+            this.dtgProducts.Size = new System.Drawing.Size(710, 487);
             this.dtgProducts.TabIndex = 1;
             // 
             // lblProduct
             // 
             this.lblProduct.AutoSize = true;
-            this.lblProduct.Location = new System.Drawing.Point(777, 173);
+            this.lblProduct.Location = new System.Drawing.Point(965, 228);
             this.lblProduct.Name = "lblProduct";
-            this.lblProduct.Size = new System.Drawing.Size(47, 16);
+            this.lblProduct.Size = new System.Drawing.Size(54, 20);
             this.lblProduct.TabIndex = 2;
             this.lblProduct.Text = "Libelle";
             // 
@@ -73,37 +75,40 @@
             // 
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.Size = new System.Drawing.Size(112, 29);
             this.label1.TabIndex = 5;
             // 
             // txtLabelProduct
             // 
-            this.txtLabelProduct.Location = new System.Drawing.Point(780, 206);
+            this.txtLabelProduct.Location = new System.Drawing.Point(969, 270);
+            this.txtLabelProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtLabelProduct.Name = "txtLabelProduct";
-            this.txtLabelProduct.Size = new System.Drawing.Size(100, 22);
+            this.txtLabelProduct.Size = new System.Drawing.Size(112, 26);
             this.txtLabelProduct.TabIndex = 4;
             // 
             // lblPrixHTProduct
             // 
             this.lblPrixHTProduct.AutoSize = true;
-            this.lblPrixHTProduct.Location = new System.Drawing.Point(618, 173);
+            this.lblPrixHTProduct.Location = new System.Drawing.Point(786, 228);
             this.lblPrixHTProduct.Name = "lblPrixHTProduct";
-            this.lblPrixHTProduct.Size = new System.Drawing.Size(51, 16);
+            this.lblPrixHTProduct.Size = new System.Drawing.Size(59, 20);
             this.lblPrixHTProduct.TabIndex = 6;
             this.lblPrixHTProduct.Text = "Prix HT";
             // 
             // txtPrixHTProduct
             // 
-            this.txtPrixHTProduct.Location = new System.Drawing.Point(621, 206);
+            this.txtPrixHTProduct.Location = new System.Drawing.Point(790, 270);
+            this.txtPrixHTProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPrixHTProduct.Name = "txtPrixHTProduct";
-            this.txtPrixHTProduct.Size = new System.Drawing.Size(100, 22);
+            this.txtPrixHTProduct.Size = new System.Drawing.Size(112, 26);
             this.txtPrixHTProduct.TabIndex = 7;
             // 
             // btnAddProduct
             // 
-            this.btnAddProduct.Location = new System.Drawing.Point(780, 253);
+            this.btnAddProduct.Location = new System.Drawing.Point(969, 328);
+            this.btnAddProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(100, 23);
+            this.btnAddProduct.Size = new System.Drawing.Size(112, 29);
             this.btnAddProduct.TabIndex = 8;
             this.btnAddProduct.Text = "Ajouter";
             this.btnAddProduct.UseVisualStyleBackColor = true;
@@ -111,18 +116,19 @@
             // lstCategProduct
             // 
             this.lstCategProduct.FormattingEnabled = true;
-            this.lstCategProduct.ItemHeight = 16;
-            this.lstCategProduct.Location = new System.Drawing.Point(621, 253);
+            this.lstCategProduct.ItemHeight = 20;
+            this.lstCategProduct.Location = new System.Drawing.Point(790, 328);
+            this.lstCategProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lstCategProduct.Name = "lstCategProduct";
-            this.lstCategProduct.Size = new System.Drawing.Size(100, 68);
+            this.lstCategProduct.Size = new System.Drawing.Size(112, 84);
             this.lstCategProduct.TabIndex = 9;
             this.lstCategProduct.SelectedIndexChanged += new System.EventHandler(this.lstCategProduct_SelectedIndexChanged);
             // 
             // FrmViewProduct
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(974, 587);
+            this.ClientSize = new System.Drawing.Size(1096, 734);
             this.Controls.Add(this.lstCategProduct);
             this.Controls.Add(this.btnAddProduct);
             this.Controls.Add(this.txtPrixHTProduct);
@@ -132,6 +138,7 @@
             this.Controls.Add(this.lblProduct);
             this.Controls.Add(this.dtgProducts);
             this.Controls.Add(this.btnNewProduct);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmViewProduct";
             this.Text = "FrmViewProduct";
             this.Load += new System.EventHandler(this.FrmViewProduct_Load);

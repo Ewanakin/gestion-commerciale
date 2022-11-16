@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 using CommercialBO;
 using CommercialDAL;
 
@@ -27,7 +28,7 @@ namespace CommercialBLL
             ConnexionBD.GetConnexionBD().SetchaineConnexion(chaine);
         }
         // Méthode qui renvoit une List d'objets Utilisateur en faisant appel à la méthode GetUtilisateurs() de la DAL
-        public static List<Produit> GetUtilisateurs()
+        public static List<Produit> GetProduits()
         {
             return ProduitDAO.GetProduits();
         }
