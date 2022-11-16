@@ -20,7 +20,18 @@ namespace CommercialBO
             this.prixHT = prixHT;
             this.libelleCategorie = libelleCategorie;
         }
-
+        public string getLibelle()
+        {
+            return this.libelle;
+        }
+        public float getPrixHT()
+        {
+            return this.prixHT;
+        }
+        public string getLibelleCateg()
+        {
+            return this.libelleCategorie;
+        }
         // set get code
         public int Code
         {

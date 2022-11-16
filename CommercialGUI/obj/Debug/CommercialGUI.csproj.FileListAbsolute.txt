@@ -1,3 +1,8 @@
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\bin\Debug\CommercialGUI.exe.config
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\bin\Debug\CommercialGUI.exe
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\bin\Debug\CommercialGUI.pdb
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\bin\Debug\CommercialBO.dll
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\bin\Debug\CommercialBO.pdb
 C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.csproj.AssemblyReference.cache
 C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.csproj.SuggestedBindingRedirects.cache
 C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.FrmConnexion.resources
@@ -5,11 +10,6 @@ C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\obj\Debug\Commer
 C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.Properties.Resources.resources
 C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.csproj.GenerateResource.cache
 C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.csproj.CoreCompileInputs.cache
-C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\bin\Debug\CommercialGUI.exe.config
-C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\bin\Debug\CommercialGUI.exe
-C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\bin\Debug\CommercialGUI.pdb
-C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\bin\Debug\CommercialBO.dll
-C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\bin\Debug\CommercialBO.pdb
 C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.csproj.CopyComplete
 C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.exe
 C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.pdb
