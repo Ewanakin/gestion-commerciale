@@ -36,14 +36,17 @@
             this.lblPrixHTProduct = new System.Windows.Forms.Label();
             this.txtPrixHTProduct = new System.Windows.Forms.TextBox();
             this.btnAddProduct = new System.Windows.Forms.Button();
-            this.cmbCategProduct = new System.Windows.Forms.ComboBox();
             this.cmbCategorieProduct = new System.Windows.Forms.ComboBox();
+            this.btnRefreshDTG = new System.Windows.Forms.Button();
+            this.btnUpdateProduct = new System.Windows.Forms.Button();
+            this.btnDelProduct = new System.Windows.Forms.Button();
+            this.txtCodeSupprPro = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProducts)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNewProduct
             // 
-            this.btnNewProduct.Location = new System.Drawing.Point(722, 93);
+            this.btnNewProduct.Location = new System.Drawing.Point(680, 104);
             this.btnNewProduct.Name = "btnNewProduct";
             this.btnNewProduct.Size = new System.Drawing.Size(138, 23);
             this.btnNewProduct.TabIndex = 0;
@@ -103,19 +106,13 @@
             // 
             // btnAddProduct
             // 
-            this.btnAddProduct.Location = new System.Drawing.Point(713, 423);
+            this.btnAddProduct.Location = new System.Drawing.Point(851, 286);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(100, 23);
             this.btnAddProduct.TabIndex = 8;
-            this.btnAddProduct.Text = "Ajouter";
+            this.btnAddProduct.Text = "Enregistrer";
             this.btnAddProduct.UseVisualStyleBackColor = true;
-            // 
-            // cmbCategProduct
-            // 
-            this.cmbCategProduct.Location = new System.Drawing.Point(0, 0);
-            this.cmbCategProduct.Name = "cmbCategProduct";
-            this.cmbCategProduct.Size = new System.Drawing.Size(121, 24);
-            this.cmbCategProduct.TabIndex = 0;
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
             // cmbCategorieProduct
             // 
@@ -125,13 +122,53 @@
             this.cmbCategorieProduct.Size = new System.Drawing.Size(144, 24);
             this.cmbCategorieProduct.TabIndex = 9;
             // 
+            // btnRefreshDTG
+            // 
+            this.btnRefreshDTG.Location = new System.Drawing.Point(12, 36);
+            this.btnRefreshDTG.Name = "btnRefreshDTG";
+            this.btnRefreshDTG.Size = new System.Drawing.Size(100, 23);
+            this.btnRefreshDTG.TabIndex = 10;
+            this.btnRefreshDTG.Text = "Refresh";
+            this.btnRefreshDTG.UseVisualStyleBackColor = true;
+            this.btnRefreshDTG.Click += new System.EventHandler(this.btnRefreshDTG_Click);
+            // 
+            // btnUpdateProduct
+            // 
+            this.btnUpdateProduct.Location = new System.Drawing.Point(846, 332);
+            this.btnUpdateProduct.Name = "btnUpdateProduct";
+            this.btnUpdateProduct.Size = new System.Drawing.Size(105, 30);
+            this.btnUpdateProduct.TabIndex = 11;
+            this.btnUpdateProduct.Text = "Modifier";
+            this.btnUpdateProduct.UseVisualStyleBackColor = true;
+            this.btnUpdateProduct.Click += new System.EventHandler(this.btnUpdateProduct_Click);
+            // 
+            // btnDelProduct
+            // 
+            this.btnDelProduct.Location = new System.Drawing.Point(680, 435);
+            this.btnDelProduct.Name = "btnDelProduct";
+            this.btnDelProduct.Size = new System.Drawing.Size(123, 30);
+            this.btnDelProduct.TabIndex = 12;
+            this.btnDelProduct.Text = "Supprimer";
+            this.btnDelProduct.UseVisualStyleBackColor = true;
+            this.btnDelProduct.Click += new System.EventHandler(this.btnDelProduct_Click);
+            // 
+            // txtCodeSupprPro
+            // 
+            this.txtCodeSupprPro.Location = new System.Drawing.Point(680, 392);
+            this.txtCodeSupprPro.Name = "txtCodeSupprPro";
+            this.txtCodeSupprPro.Size = new System.Drawing.Size(111, 22);
+            this.txtCodeSupprPro.TabIndex = 13;
+            // 
             // FrmViewProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(974, 587);
+            this.Controls.Add(this.txtCodeSupprPro);
+            this.Controls.Add(this.btnDelProduct);
+            this.Controls.Add(this.btnUpdateProduct);
+            this.Controls.Add(this.btnRefreshDTG);
             this.Controls.Add(this.cmbCategorieProduct);
-            this.Controls.Add(this.cmbCategProduct);
             this.Controls.Add(this.btnAddProduct);
             this.Controls.Add(this.txtPrixHTProduct);
             this.Controls.Add(this.lblPrixHTProduct);
@@ -159,7 +196,10 @@
         private System.Windows.Forms.Label lblPrixHTProduct;
         private System.Windows.Forms.TextBox txtPrixHTProduct;
         private System.Windows.Forms.Button btnAddProduct;
-        private System.Windows.Forms.ComboBox cmbCategProduct;
         private System.Windows.Forms.ComboBox cmbCategorieProduct;
+        private System.Windows.Forms.Button btnRefreshDTG;
+        private System.Windows.Forms.Button btnUpdateProduct;
+        private System.Windows.Forms.Button btnDelProduct;
+        private System.Windows.Forms.TextBox txtCodeSupprPro;
     }
 }

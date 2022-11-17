@@ -45,7 +45,7 @@ namespace CommercialDAL
                 float.TryParse(monReader["prix_vente_ht_pro"].ToString(), out prixHT);
                 libelleCategorie = monReader["lib_categ"].ToString();
                 //unProduit = new Produit(id, libelle, prixHT, libelleCateg);
-                unProduit = new Produit(0, libelle,prixHT, libelleCategorie);
+                unProduit = new Produit(code, libelle,prixHT, libelleCategorie);
                 lesUtilisateurs.Add(unProduit);
             }
             // Fermeture de la connexion
@@ -71,9 +71,9 @@ namespace CommercialDAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
             cmd.CommandText = "INSERT INTO Produit(lib_pro, prix_vente_ht_pro, code_categ) VALUES(@libellePro, @prixHTPro, @codeCategPro)";
-            cmd.Parameters.Add(new SqlParameter("libellePro", unProduit.getLibelle()));
-            cmd.Parameters.Add(new SqlParameter("prixHTPro", unProduit.getPrixHT()));
-            cmd.Parameters.Add(new SqlParameter("codeCategPro", id));
+            cmd.Parameters.Add(new SqlParameter("libellePro", unProduit.Libelle));
+            cmd.Parameters.Add(new SqlParameter("prixHTPro", unProduit.PrixHT));
+            cmd.Parameters.Add(new SqlParameter("codeCategPro", unProduit.LibelleCategorie));
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();
@@ -88,7 +88,7 @@ namespace CommercialDAL
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "UPDATE T_Produit SET lib_pro = '" + unProduit.Libelle + "', prix_vente_ht_pro = '" + unProduit.PrixHT + "', code_categ = '" + unProduit.LibelleCategorie + "' WHERE  = " + unProduit.Code;
+            cmd.CommandText = "UPDATE Produit SET lib_pro = '" + unProduit.Libelle + "', prix_vente_ht_pro = '" + unProduit.PrixHT + "', code_categ = '" + unProduit.LibelleCategorie + "' WHERE  = '" + unProduit.Code + "'";
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();
@@ -103,7 +103,7 @@ namespace CommercialDAL
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "DELETE FROM T_Produit WHERE Id_utilisateur = " + id;
+            cmd.CommandText = "DELETE FROM Produit WHERE code_pro = " + id;
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();
