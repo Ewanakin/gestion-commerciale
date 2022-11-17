@@ -119,7 +119,11 @@ namespace CommercialGUI
 
         private void btnDelProduct_Click(object sender, EventArgs e)
         {
-
+            int codeCateg;
+            string validMessage;
+            int.TryParse(cmbCategorieProduct.SelectedIndex.ToString(), out codeCateg);
+            validMessage = GestionProduits.SupprimerProduit(codeCateg);
+            lblValidationMessage.Text = validMessage;
         }
 
         private void btnUpdateProduct_Click(object sender, EventArgs e)
@@ -133,5 +137,7 @@ namespace CommercialGUI
             Produit updtProduit = new Produit(codePro, txtLabelProduct.Text, prixHT, codeCateg);
             GestionProduits.ModifierUtilisateur(updtProduit);
         }
+
+       
     }
 }

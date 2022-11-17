@@ -44,7 +44,7 @@ namespace CommercialBLL
             return ProduitDAO.UpdateProduit(pd);
         }
         // Méthode qui supprime un Utilisateur avec la méthode DeleteUtilisateur de la DAL
-        public static int SupprimerProduit(int id)
+        public static string SupprimerProduit(int id)
         {
             return ProduitDAO.DeleteProduit(id);
         }

@@ -96,18 +96,32 @@ namespace CommercialDAL
         }
 
         // Cette méthode supprime de la BD un utilisateur dont l'id est passé en paramètre
-        public static int DeleteProduit(int id)
+        public static string DeleteProduit(int id)
         {
             int nbEnr;
+            int result;
+            string valid = "";
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand sql = new SqlCommand();           
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "DELETE FROM Produit WHERE code_pro = " + id;
-            nbEnr = cmd.ExecuteNonQuery();
+            cmd.CommandText = "SELECT * FROM ProduitDevis WHERE code_pro = " + id;
+            result= cmd.ExecuteNonQuery();
+            if(result > 0)
+            {
+                cmd.Connection = maConnexion;
+                cmd.CommandText = "DELETE FROM Produit WHERE code_pro = " + id;
+                nbEnr = cmd.ExecuteNonQuery();
+                valid = "Le produit a bien été supprimé.";
+            }
+            else
+            {
+                valid = "Le produit ne peut pas être supprimé car correspond à un devis.";
+            }
             // Fermeture de la connexion
             maConnexion.Close();
-            return nbEnr;
+            return valid;
         }
     }
 }

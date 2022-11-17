@@ -41,6 +41,7 @@
             this.btnUpdateProduct = new System.Windows.Forms.Button();
             this.btnDelProduct = new System.Windows.Forms.Button();
             this.txtCodeSupprPro = new System.Windows.Forms.TextBox();
+            this.lblValidationMessage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -159,11 +160,20 @@
             this.txtCodeSupprPro.Size = new System.Drawing.Size(111, 22);
             this.txtCodeSupprPro.TabIndex = 13;
             // 
+            // lblValidationMessage
+            // 
+            this.lblValidationMessage.AutoSize = true;
+            this.lblValidationMessage.Location = new System.Drawing.Point(680, 36);
+            this.lblValidationMessage.Name = "lblValidationMessage";
+            this.lblValidationMessage.Size = new System.Drawing.Size(0, 16);
+            this.lblValidationMessage.TabIndex = 14;
+            // 
             // FrmViewProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(974, 587);
+            this.Controls.Add(this.lblValidationMessage);
             this.Controls.Add(this.txtCodeSupprPro);
             this.Controls.Add(this.btnDelProduct);
             this.Controls.Add(this.btnUpdateProduct);
@@ -201,5 +211,6 @@
         private System.Windows.Forms.Button btnUpdateProduct;
         private System.Windows.Forms.Button btnDelProduct;
         private System.Windows.Forms.TextBox txtCodeSupprPro;
+        private System.Windows.Forms.Label lblValidationMessage;
     }
 }
