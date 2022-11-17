@@ -103,10 +103,22 @@ namespace CommercialGUI
         {
             int code;
             float prixHT;
-            int.TryParse(cmbCategorieProduct.SelectedIndex.ToString(), out code);
-            float.TryParse(txtPrixHTProduct.Text, out prixHT);
-            Produit unProduit = new Produit(0, txtLabelProduct.Text, prixHT, code);
-            GestionProduits.CreerUtilisateur(unProduit);
+            string errorMsg = "";
+            if (txtLabelProduct.Text.Length <= 0 || txtLabelProduct.Text.Length <= 0)
+            {
+                errorMsg = "Merci de renseigner tout les champs \n";
+                lblError.Visible = true;
+                lblError.Text= errorMsg;
+            }
+            else
+            {
+                int.TryParse(cmbCategorieProduct.SelectedIndex.ToString(), out code);
+                float.TryParse(txtPrixHTProduct.Text, out prixHT);
+                Produit unProduit = new Produit(0, txtLabelProduct.Text, prixHT, code);
+                GestionProduits.CreerProduit(unProduit);
+                lblError.Visible = false;
+                lblError.Text = "insertion réussie";
+            }
         }
 
         private void btnRefreshDTG_Click(object sender, EventArgs e)
@@ -138,6 +150,9 @@ namespace CommercialGUI
             GestionProduits.ModifierUtilisateur(updtProduit);
         }
 
-       
+        private void lblError_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

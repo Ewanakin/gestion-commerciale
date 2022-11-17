@@ -42,14 +42,16 @@
             this.btnDelProduct = new System.Windows.Forms.Button();
             this.txtCodeSupprPro = new System.Windows.Forms.TextBox();
             this.lblValidationMessage = new System.Windows.Forms.Label();
+            this.lblError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProducts)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNewProduct
             // 
-            this.btnNewProduct.Location = new System.Drawing.Point(680, 104);
+            this.btnNewProduct.Location = new System.Drawing.Point(765, 130);
+            this.btnNewProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNewProduct.Name = "btnNewProduct";
-            this.btnNewProduct.Size = new System.Drawing.Size(138, 23);
+            this.btnNewProduct.Size = new System.Drawing.Size(155, 29);
             this.btnNewProduct.TabIndex = 0;
             this.btnNewProduct.Text = "Nouveau";
             this.btnNewProduct.UseVisualStyleBackColor = true;
@@ -58,20 +60,21 @@
             // dtgProducts
             // 
             this.dtgProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgProducts.Location = new System.Drawing.Point(11, 75);
+            this.dtgProducts.Location = new System.Drawing.Point(12, 94);
+            this.dtgProducts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtgProducts.Name = "dtgProducts";
             this.dtgProducts.RowHeadersWidth = 51;
             this.dtgProducts.RowTemplate.Height = 24;
-            this.dtgProducts.Size = new System.Drawing.Size(584, 390);
+            this.dtgProducts.Size = new System.Drawing.Size(657, 488);
             this.dtgProducts.TabIndex = 1;
             this.dtgProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgProducts_CellContentClick);
             // 
             // lblProduct
             // 
             this.lblProduct.AutoSize = true;
-            this.lblProduct.Location = new System.Drawing.Point(858, 182);
+            this.lblProduct.Location = new System.Drawing.Point(965, 228);
             this.lblProduct.Name = "lblProduct";
-            this.lblProduct.Size = new System.Drawing.Size(47, 16);
+            this.lblProduct.Size = new System.Drawing.Size(54, 20);
             this.lblProduct.TabIndex = 2;
             this.lblProduct.Text = "Libelle";
             // 
@@ -79,37 +82,40 @@
             // 
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.Size = new System.Drawing.Size(112, 29);
             this.label1.TabIndex = 5;
             // 
             // txtLabelProduct
             // 
-            this.txtLabelProduct.Location = new System.Drawing.Point(851, 216);
+            this.txtLabelProduct.Location = new System.Drawing.Point(957, 270);
+            this.txtLabelProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtLabelProduct.Name = "txtLabelProduct";
-            this.txtLabelProduct.Size = new System.Drawing.Size(111, 22);
+            this.txtLabelProduct.Size = new System.Drawing.Size(124, 26);
             this.txtLabelProduct.TabIndex = 4;
             // 
             // lblPrixHTProduct
             // 
             this.lblPrixHTProduct.AutoSize = true;
-            this.lblPrixHTProduct.Location = new System.Drawing.Point(699, 182);
+            this.lblPrixHTProduct.Location = new System.Drawing.Point(786, 228);
             this.lblPrixHTProduct.Name = "lblPrixHTProduct";
-            this.lblPrixHTProduct.Size = new System.Drawing.Size(51, 16);
+            this.lblPrixHTProduct.Size = new System.Drawing.Size(59, 20);
             this.lblPrixHTProduct.TabIndex = 6;
             this.lblPrixHTProduct.Text = "Prix HT";
             // 
             // txtPrixHTProduct
             // 
-            this.txtPrixHTProduct.Location = new System.Drawing.Point(680, 216);
+            this.txtPrixHTProduct.Location = new System.Drawing.Point(765, 270);
+            this.txtPrixHTProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPrixHTProduct.Name = "txtPrixHTProduct";
-            this.txtPrixHTProduct.Size = new System.Drawing.Size(144, 22);
+            this.txtPrixHTProduct.Size = new System.Drawing.Size(162, 26);
             this.txtPrixHTProduct.TabIndex = 7;
             // 
             // btnAddProduct
             // 
-            this.btnAddProduct.Location = new System.Drawing.Point(851, 286);
+            this.btnAddProduct.Location = new System.Drawing.Point(957, 358);
+            this.btnAddProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(100, 23);
+            this.btnAddProduct.Size = new System.Drawing.Size(112, 29);
             this.btnAddProduct.TabIndex = 8;
             this.btnAddProduct.Text = "Enregistrer";
             this.btnAddProduct.UseVisualStyleBackColor = true;
@@ -118,16 +124,18 @@
             // cmbCategorieProduct
             // 
             this.cmbCategorieProduct.FormattingEnabled = true;
-            this.cmbCategorieProduct.Location = new System.Drawing.Point(680, 286);
+            this.cmbCategorieProduct.Location = new System.Drawing.Point(765, 358);
+            this.cmbCategorieProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbCategorieProduct.Name = "cmbCategorieProduct";
-            this.cmbCategorieProduct.Size = new System.Drawing.Size(144, 24);
+            this.cmbCategorieProduct.Size = new System.Drawing.Size(162, 28);
             this.cmbCategorieProduct.TabIndex = 9;
             // 
             // btnRefreshDTG
             // 
-            this.btnRefreshDTG.Location = new System.Drawing.Point(12, 36);
+            this.btnRefreshDTG.Location = new System.Drawing.Point(14, 45);
+            this.btnRefreshDTG.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRefreshDTG.Name = "btnRefreshDTG";
-            this.btnRefreshDTG.Size = new System.Drawing.Size(100, 23);
+            this.btnRefreshDTG.Size = new System.Drawing.Size(112, 29);
             this.btnRefreshDTG.TabIndex = 10;
             this.btnRefreshDTG.Text = "Refresh";
             this.btnRefreshDTG.UseVisualStyleBackColor = true;
@@ -135,9 +143,10 @@
             // 
             // btnUpdateProduct
             // 
-            this.btnUpdateProduct.Location = new System.Drawing.Point(846, 332);
+            this.btnUpdateProduct.Location = new System.Drawing.Point(951, 447);
+            this.btnUpdateProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUpdateProduct.Name = "btnUpdateProduct";
-            this.btnUpdateProduct.Size = new System.Drawing.Size(105, 30);
+            this.btnUpdateProduct.Size = new System.Drawing.Size(118, 38);
             this.btnUpdateProduct.TabIndex = 11;
             this.btnUpdateProduct.Text = "Modifier";
             this.btnUpdateProduct.UseVisualStyleBackColor = true;
@@ -145,9 +154,10 @@
             // 
             // btnDelProduct
             // 
-            this.btnDelProduct.Location = new System.Drawing.Point(680, 435);
+            this.btnDelProduct.Location = new System.Drawing.Point(765, 544);
+            this.btnDelProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDelProduct.Name = "btnDelProduct";
-            this.btnDelProduct.Size = new System.Drawing.Size(123, 30);
+            this.btnDelProduct.Size = new System.Drawing.Size(138, 38);
             this.btnDelProduct.TabIndex = 12;
             this.btnDelProduct.Text = "Supprimer";
             this.btnDelProduct.UseVisualStyleBackColor = true;
@@ -155,24 +165,37 @@
             // 
             // txtCodeSupprPro
             // 
-            this.txtCodeSupprPro.Location = new System.Drawing.Point(680, 392);
+            this.txtCodeSupprPro.Location = new System.Drawing.Point(765, 490);
+            this.txtCodeSupprPro.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCodeSupprPro.Name = "txtCodeSupprPro";
-            this.txtCodeSupprPro.Size = new System.Drawing.Size(111, 22);
+            this.txtCodeSupprPro.Size = new System.Drawing.Size(124, 26);
             this.txtCodeSupprPro.TabIndex = 13;
             // 
             // lblValidationMessage
             // 
             this.lblValidationMessage.AutoSize = true;
-            this.lblValidationMessage.Location = new System.Drawing.Point(680, 36);
+            this.lblValidationMessage.Location = new System.Drawing.Point(765, 45);
             this.lblValidationMessage.Name = "lblValidationMessage";
-            this.lblValidationMessage.Size = new System.Drawing.Size(0, 16);
+            this.lblValidationMessage.Size = new System.Drawing.Size(0, 20);
             this.lblValidationMessage.TabIndex = 14;
+            // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.Location = new System.Drawing.Point(913, 405);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(51, 20);
+            this.lblError.TabIndex = 15;
+            this.lblError.Text = "label2";
+            this.lblError.Visible = false;
+            this.lblError.Click += new System.EventHandler(this.lblError_Click);
             // 
             // FrmViewProduct
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(974, 587);
+            this.ClientSize = new System.Drawing.Size(1096, 734);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblValidationMessage);
             this.Controls.Add(this.txtCodeSupprPro);
             this.Controls.Add(this.btnDelProduct);
@@ -187,6 +210,7 @@
             this.Controls.Add(this.lblProduct);
             this.Controls.Add(this.dtgProducts);
             this.Controls.Add(this.btnNewProduct);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmViewProduct";
             this.Text = "FrmViewProduct";
             this.Load += new System.EventHandler(this.FrmViewProduct_Load);
@@ -212,5 +236,6 @@
         private System.Windows.Forms.Button btnDelProduct;
         private System.Windows.Forms.TextBox txtCodeSupprPro;
         private System.Windows.Forms.Label lblValidationMessage;
+        private System.Windows.Forms.Label lblError;
     }
 }

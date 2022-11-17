@@ -34,7 +34,7 @@ namespace CommercialBLL
         }
         // Méthode qui renvoi l’objet Utilisateur en l'ajoutant à la
         // BD avec la méthode AjoutUtilisateur de la DAL
-        public static int CreerUtilisateur(Produit pd)
+        public static int CreerProduit(Produit pd)
         {
             return ProduitDAO.AjoutProduit(pd);
         }
