@@ -88,7 +88,7 @@ namespace CommercialDAL
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "UPDATE Produit SET lib_pro = '" + unProduit.Libelle + "', prix_vente_ht_pro = '" + unProduit.PrixHT + "', code_categ = '" + unProduit.LibelleCategorie + "' WHERE  = '" + unProduit.Code + "'";
+            cmd.CommandText = "UPDATE Produit SET lib_pro = '" + unProduit.Libelle + "', prix_vente_ht_pro = '" + unProduit.PrixHT + "', code_categ = '" + unProduit.LibelleCategorie + "' WHERE  code_pro = '" + unProduit.Code + "'";
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();
