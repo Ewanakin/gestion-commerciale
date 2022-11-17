@@ -15,6 +15,7 @@ using System.Windows.Documents;
 using System.Windows.Controls;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Application = System.Windows.Forms.Application;
 
 namespace CommercialGUI
 {
@@ -85,6 +86,17 @@ namespace CommercialGUI
 
         private void dtgProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void dtgProducts_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dtgProducts.Rows[e.RowIndex];
+                txtLabelProduct.Text = row.Cells[1].Value.ToString();
+                txtPrixHTProduct.Text = row.Cells[0].Value.ToString();
+            }
 
         }
     }

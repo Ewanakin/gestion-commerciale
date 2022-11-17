@@ -16,3 +16,12 @@ C:\Users\losko\Desktop\test\git\gestion-commerciale\CommercialDAL\obj\Debug\Comm
 C:\Users\losko\Desktop\test\git\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.csproj.CopyComplete
 C:\Users\losko\Desktop\test\git\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.dll
 C:\Users\losko\Desktop\test\git\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.pdb
+C:\Users\sdron\Documents\projetCsharpBis\gestion-commerciale\CommercialDAL\bin\Debug\CommercialDAL.dll
+C:\Users\sdron\Documents\projetCsharpBis\gestion-commerciale\CommercialDAL\bin\Debug\CommercialDAL.pdb
+C:\Users\sdron\Documents\projetCsharpBis\gestion-commerciale\CommercialDAL\bin\Debug\CommercialBO.dll
+C:\Users\sdron\Documents\projetCsharpBis\gestion-commerciale\CommercialDAL\bin\Debug\CommercialBO.pdb
+C:\Users\sdron\Documents\projetCsharpBis\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.csproj.AssemblyReference.cache
+C:\Users\sdron\Documents\projetCsharpBis\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.csproj.CoreCompileInputs.cache
+C:\Users\sdron\Documents\projetCsharpBis\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.csproj.CopyComplete
+C:\Users\sdron\Documents\projetCsharpBis\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.dll
+C:\Users\sdron\Documents\projetCsharpBis\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.pdb
