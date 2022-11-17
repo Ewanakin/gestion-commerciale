@@ -25,7 +25,7 @@ namespace CommercialDAL
         // contenus dans la table Identification
         public static List<Produit> GetProduits()
         {
-            int id, libelleCateg;
+            int code;
             string libelle, libelleCategorie;
             float prixHT;
             Produit unProduit;
@@ -35,14 +35,17 @@ namespace CommercialDAL
             List<Produit> lesUtilisateurs = new List<Produit>();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = " SELECT lib_categ FROM Produit INNER JOIN Categorie_produit ON Produit.code_categ = Categorie_produit.code_categ";
+            cmd.CommandText = " SELECT * FROM Produit INNER JOIN Categorie_produit ON Produit.code_categ = Categorie_produit.code_categ";
             SqlDataReader monReader = cmd.ExecuteReader();
             // Remplissage de la liste
             while (monReader.Read())
             {
+                code = Int32.Parse(monReader["code_pro"].ToString());
+                libelle = monReader["lib_pro"].ToString();
+                float.TryParse(monReader["prix_vente_ht_pro"].ToString(), out prixHT);
                 libelleCategorie = monReader["lib_categ"].ToString();
                 //unProduit = new Produit(id, libelle, prixHT, libelleCateg);
-                unProduit = new Produit(0, "test", 0.25f, libelleCategorie);
+                unProduit = new Produit(0, libelle,prixHT, libelleCategorie);
                 lesUtilisateurs.Add(unProduit);
             }
             // Fermeture de la connexion
