@@ -44,7 +44,6 @@ namespace CommercialDAL
                 libelle = monReader["lib_pro"].ToString();
                 float.TryParse(monReader["prix_vente_ht_pro"].ToString(), out prixHT);
                 libelleCategorie = monReader["lib_categ"].ToString();
-                //unProduit = new Produit(id, libelle, prixHT, libelleCateg);
                 unProduit = new Produit(code, libelle,prixHT, libelleCategorie);
                 lesUtilisateurs.Add(unProduit);
             }
@@ -99,28 +98,31 @@ namespace CommercialDAL
         public static string DeleteProduit(int id)
         {
             int nbEnr;
-            int result;
+            SqlDataReader result;
             string valid = "";
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
-            SqlCommand sql = new SqlCommand();           
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "SELECT * FROM ProduitDevis WHERE code_pro = " + id;
-            result= cmd.ExecuteNonQuery();
-            if(result > 0)
+            cmd.CommandText = "SELECT * FROM ProduitDevis WHERE code_pro = '" + id + "'";
+            result= cmd.ExecuteReader();
+            if (!result.HasRows)
             {
-                cmd.Connection = maConnexion;
-                cmd.CommandText = "DELETE FROM Produit WHERE code_pro = " + id;
-                nbEnr = cmd.ExecuteNonQuery();
+                maConnexion.Close();
+                SqlConnection maConnexionDel = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+                SqlCommand cmdDel = new SqlCommand();
+                cmdDel.Connection = maConnexionDel;
+                cmdDel.CommandText = "DELETE FROM Produit WHERE code_pro = '" + id + "'";
+                nbEnr = cmdDel.ExecuteNonQuery();
                 valid = "Le produit a bien été supprimé.";
+                maConnexionDel.Close();
             }
             else
             {
+                maConnexion.Close();
                 valid = "Le produit ne peut pas être supprimé car correspond à un devis.";
             }
             // Fermeture de la connexion
-            maConnexion.Close();
             return valid;
         }
     }

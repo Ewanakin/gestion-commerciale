@@ -119,10 +119,10 @@ namespace CommercialGUI
 
         private void btnDelProduct_Click(object sender, EventArgs e)
         {
-            int codeCateg;
+            int codePro;
             string validMessage;
-            int.TryParse(cmbCategorieProduct.SelectedIndex.ToString(), out codeCateg);
-            validMessage = GestionProduits.SupprimerProduit(codeCateg);
+            int.TryParse(txtCodeSupprPro.Text, out codePro); ;
+            validMessage = GestionProduits.SupprimerProduit(codePro);
             lblValidationMessage.Text = validMessage;
         }
 
