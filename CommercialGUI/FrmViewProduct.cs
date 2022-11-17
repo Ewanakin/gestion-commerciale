@@ -108,7 +108,7 @@ namespace CommercialGUI
             {
                 errorMsg = "Merci de renseigner tout les champs \n";
                 lblError.Visible = true;
-                lblError.Text= errorMsg;
+                lblError.Text = errorMsg;
             }
             else
             {

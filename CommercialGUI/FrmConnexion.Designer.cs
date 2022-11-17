@@ -38,18 +38,21 @@
             // 
             // btnSubmitCo
             // 
-            this.btnSubmitCo.Location = new System.Drawing.Point(788, 719);
+            this.btnSubmitCo.BackColor = System.Drawing.Color.SpringGreen;
+            this.btnSubmitCo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.btnSubmitCo.ForeColor = System.Drawing.Color.Black;
+            this.btnSubmitCo.Location = new System.Drawing.Point(825, 549);
             this.btnSubmitCo.Name = "btnSubmitCo";
-            this.btnSubmitCo.Size = new System.Drawing.Size(260, 109);
+            this.btnSubmitCo.Size = new System.Drawing.Size(192, 76);
             this.btnSubmitCo.TabIndex = 0;
             this.btnSubmitCo.Text = "Se connecter";
-            this.btnSubmitCo.UseVisualStyleBackColor = true;
+            this.btnSubmitCo.UseVisualStyleBackColor = false;
             this.btnSubmitCo.Click += new System.EventHandler(this.btnSubmitCo_Click);
             // 
             // lblUser
             // 
             this.lblUser.AutoSize = true;
-            this.lblUser.Location = new System.Drawing.Point(621, 219);
+            this.lblUser.Location = new System.Drawing.Point(766, 244);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(122, 25);
             this.lblUser.TabIndex = 1;
@@ -58,7 +61,7 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(621, 338);
+            this.lblPassword.Location = new System.Drawing.Point(766, 363);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(118, 25);
             this.lblPassword.TabIndex = 2;
@@ -68,23 +71,25 @@
             // 
             this.lblError.AutoSize = true;
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(882, 636);
+            this.lblError.Location = new System.Drawing.Point(766, 488);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(0, 25);
             this.lblError.TabIndex = 3;
+            this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblError.Click += new System.EventHandler(this.lblError_Click);
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(626, 270);
+            this.txtUser.Location = new System.Drawing.Point(771, 295);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(296, 31);
             this.txtUser.TabIndex = 4;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(626, 397);
+            this.txtPassword.Location = new System.Drawing.Point(771, 422);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(296, 31);
             this.txtPassword.TabIndex = 5;
             // 
@@ -92,6 +97,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1786, 1002);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUser);
@@ -99,6 +105,7 @@
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.btnSubmitCo);
+            this.ForeColor = System.Drawing.Color.SpringGreen;
             this.Name = "FrmConnexion";
             this.Text = "Gestion_Commerciale";
             this.Load += new System.EventHandler(this.FrmConnexion_Load);
