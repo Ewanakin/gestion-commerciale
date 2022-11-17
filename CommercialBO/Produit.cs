@@ -27,19 +27,6 @@ namespace CommercialBO
             this.prixHT = prixHT;
             this.libCat = libCat;
         }
-        public int getCode() { return code; }
-        public string getLibelle()
-        {
-            return this.libelle;
-        }
-        public float getPrixHT()
-        {
-            return this.prixHT;
-        }
-        public int getLibelleCategegorie()
-        {
-            return this.libelleCategorie;
-        }
         // set get code
         public int Code
         {

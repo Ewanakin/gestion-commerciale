@@ -67,10 +67,8 @@ namespace CommercialGUI
 
         private void btnNewProduct_Click(object sender, EventArgs e)
         {
-            float prixHT;
-            float.TryParse(txtPrixHTProduct.Text, out prixHT);
-            Produit unProduit = new Produit(0, txtLabelProduct.Text, prixHT, cmbCategorieProduct.Text);
-            GestionProduits.CreerUtilisateur(unProduit);
+            txtLabelProduct.Clear();
+            txtPrixHTProduct.Clear();
         }
 
         private void lstCategProduct_SelectedIndexChanged(object sender, EventArgs e)
@@ -86,6 +84,24 @@ namespace CommercialGUI
         private void dtgProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnAddProduct_Click(object sender, EventArgs e)
+        {
+            int code;
+            float prixHT;
+            int.TryParse(cmbCategorieProduct.SelectedIndex.ToString(), out code);
+            float.TryParse(txtPrixHTProduct.Text, out prixHT);
+            Produit unProduit = new Produit(0, txtLabelProduct.Text, prixHT, code);
+            GestionProduits.CreerUtilisateur(unProduit);
+        }
+
+        private void btnRefreshDTG_Click(object sender, EventArgs e)
+        {
+            List<Produit> liste = new List<Produit>();
+            liste = GestionProduits.GetProduits();
+            // Rattachement de la List à la source de données du datagridview
+            dtgProducts.DataSource = liste;
         }
     }
 }

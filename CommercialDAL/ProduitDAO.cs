@@ -71,9 +71,9 @@ namespace CommercialDAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
             cmd.CommandText = "INSERT INTO Produit(lib_pro, prix_vente_ht_pro, code_categ) VALUES(@libellePro, @prixHTPro, @codeCategPro)";
-            cmd.Parameters.Add(new SqlParameter("libellePro", unProduit.getLibelle()));
-            cmd.Parameters.Add(new SqlParameter("prixHTPro", unProduit.getPrixHT()));
-            cmd.Parameters.Add(new SqlParameter("codeCategPro", id));
+            cmd.Parameters.Add(new SqlParameter("libellePro", unProduit.Libelle));
+            cmd.Parameters.Add(new SqlParameter("prixHTPro", unProduit.PrixHT));
+            cmd.Parameters.Add(new SqlParameter("codeCategPro", unProduit.LibelleCategorie));
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();
@@ -88,7 +88,7 @@ namespace CommercialDAL
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "UPDATE Produit SET Nom_utilisateur = '" + unProduit.getLibelle() + "' WHERE Id_utilisateur = " + unProduit.getCode();
+            cmd.CommandText = "UPDATE Produit SET Nom_utilisateur = '" + unProduit.Libelle + "' WHERE Id_utilisateur = " + unProduit.Code;
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();

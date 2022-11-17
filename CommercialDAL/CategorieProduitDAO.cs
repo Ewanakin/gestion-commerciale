@@ -64,9 +64,9 @@ namespace CommercialDAL
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "INSERT INTO Produit values('" + unProduit.getLibelle() + "'," +
-                "                                           '" + unProduit.getPrixHT() + "'," +
-                "                                           '" + unProduit.getLibelleCategegorie() + "')";
+            cmd.CommandText = "INSERT INTO Produit values('" + unProduit.Libelle + "'," +
+                "                                           '" + unProduit.PrixHT + "'," +
+                "                                           '" + unProduit.LibelleCategorie + "')";
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();
@@ -81,7 +81,7 @@ namespace CommercialDAL
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "UPDATE Produit SET Nom_utilisateur = '" + unProduit.getLibelle() + "' WHERE Id_utilisateur = " + unProduit.getCode();
+            cmd.CommandText = "UPDATE Produit SET Nom_utilisateur = '" + unProduit.Libelle + "' WHERE Id_utilisateur = " + unProduit.Code;
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();
