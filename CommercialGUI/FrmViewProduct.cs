@@ -135,19 +135,32 @@ namespace CommercialGUI
             string validMessage;
             int.TryParse(txtCodeSupprPro.Text, out codePro); ;
             validMessage = GestionProduits.SupprimerProduit(codePro);
-            lblValidationMessage.Text = validMessage;
+            lblError.Visible = true;
+            lblError.Text = validMessage;
         }
 
         private void btnUpdateProduct_Click(object sender, EventArgs e)
         {
-            int codeCateg;
-            int codePro;
-            float prixHT;
-            int.TryParse(cmbCategorieProduct.SelectedIndex.ToString(), out codeCateg);
-            int.TryParse(txtCodeSupprPro.Text, out codePro);
-            float.TryParse (txtPrixHTProduct.Text, out prixHT);
-            Produit updtProduit = new Produit(codePro, txtLabelProduct.Text, prixHT, codeCateg);
-            GestionProduits.ModifierUtilisateur(updtProduit);
+            string errorMsg = "";
+            if (txtLabelProduct.Text.Length <= 0 || txtLabelProduct.Text.Length <= 0)
+            {
+                errorMsg = "Merci de renseigner tout les champs \n";
+                lblError.Visible = true;
+            }
+            else
+            {
+                int codeCateg;
+                int codePro;
+                float prixHT;
+                int.TryParse(cmbCategorieProduct.SelectedIndex.ToString(), out codeCateg);
+                int.TryParse(txtCodeSupprPro.Text, out codePro);
+                float.TryParse(txtPrixHTProduct.Text, out prixHT);
+                Produit updtProduit = new Produit(codePro, txtLabelProduct.Text, prixHT, codeCateg);
+                GestionProduits.ModifierUtilisateur(updtProduit);
+                lblError.Visible = true;
+                lblError.Text = "Modification réussie";
+            }
+
         }
 
         private void lblError_Click(object sender, EventArgs e)
