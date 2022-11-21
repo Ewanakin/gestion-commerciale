@@ -141,7 +141,7 @@ namespace CommercialGUI
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FrmViewClients viewClients = new FrmViewClients();
+            FrmViewCustomer viewClients = new FrmViewCustomer();
             viewClients.ShowDialog(); // ouverture du formulaire*
         }
     }

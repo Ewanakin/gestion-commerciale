@@ -34,25 +34,23 @@
             // 
             // dtgCustomer
             // 
-            this.dtgCustomer.BackgroundColor = System.Drawing.Color.Honeydew;
             this.dtgCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgCustomer.Location = new System.Drawing.Point(134, 183);
-            this.dtgCustomer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtgCustomer.Location = new System.Drawing.Point(24, 35);
             this.dtgCustomer.Name = "dtgCustomer";
-            this.dtgCustomer.RowHeadersWidth = 51;
-            this.dtgCustomer.RowTemplate.Height = 24;
-            this.dtgCustomer.Size = new System.Drawing.Size(876, 609);
-            this.dtgCustomer.TabIndex = 2;
-            this.dtgCustomer.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgCustomer_CellContentClick_1);
+            this.dtgCustomer.RowHeadersWidth = 82;
+            this.dtgCustomer.RowTemplate.Height = 33;
+            this.dtgCustomer.Size = new System.Drawing.Size(2428, 837);
+            this.dtgCustomer.TabIndex = 0;
+            this.dtgCustomer.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgCustomer_CellContentClick);
             // 
             // FrmViewCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2152, 1042);
+            this.ClientSize = new System.Drawing.Size(2839, 1457);
             this.Controls.Add(this.dtgCustomer);
             this.Name = "FrmViewCustomer";
-            this.Text = "Form1";
+            this.Text = "FrmViewCustomer";
             ((System.ComponentModel.ISupportInitialize)(this.dtgCustomer)).EndInit();
             this.ResumeLayout(false);
 

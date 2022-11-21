@@ -1,6 +1,4 @@
-﻿using CommercialBLL;
-using CommercialBO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -10,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CommercialBLL;
+using CommercialBO;
 
 namespace CommercialGUI
 {
