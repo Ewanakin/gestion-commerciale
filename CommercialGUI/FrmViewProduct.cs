@@ -18,9 +18,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CommercialGUI
 {
-    public partial class FrmViewProduct : Form
+    public partial class FrmViewClients : Form
     {
-        public FrmViewProduct()
+        public FrmViewClients()
         {
             InitializeComponent();
             // Récupération de chaîne de connexion à la BD à l'ouverture du formulaire
@@ -103,22 +103,10 @@ namespace CommercialGUI
         {
             int code;
             float prixHT;
-            string errorMsg = "";
-            if (txtLabelProduct.Text.Length <= 0 || txtLabelProduct.Text.Length <= 0)
-            {
-                errorMsg = "Merci de renseigner tout les champs \n";
-                lblError.Visible = true;
-                lblError.Text = errorMsg;
-            }
-            else
-            {
-                int.TryParse(cmbCategorieProduct.SelectedIndex.ToString(), out code);
-                float.TryParse(txtPrixHTProduct.Text, out prixHT);
-                Produit unProduit = new Produit(0, txtLabelProduct.Text, prixHT, code);
-                GestionProduits.CreerProduit(unProduit);
-                lblError.Visible = false;
-                lblError.Text = "insertion réussie";
-            }
+            int.TryParse(cmbCategorieProduct.SelectedIndex.ToString(), out code);
+            float.TryParse(txtPrixHTProduct.Text, out prixHT);
+            Produit unProduit = new Produit(0, txtLabelProduct.Text, prixHT, code);
+            GestionProduits.CreerUtilisateur(unProduit);
         }
 
         private void btnRefreshDTG_Click(object sender, EventArgs e)
@@ -135,37 +123,26 @@ namespace CommercialGUI
             string validMessage;
             int.TryParse(txtCodeSupprPro.Text, out codePro); ;
             validMessage = GestionProduits.SupprimerProduit(codePro);
-            lblError.Visible = true;
-            lblError.Text = validMessage;
+            lblValidationMessage.Text = validMessage;
         }
 
         private void btnUpdateProduct_Click(object sender, EventArgs e)
         {
-            string errorMsg = "";
-            if (txtLabelProduct.Text.Length <= 0 || txtLabelProduct.Text.Length <= 0)
-            {
-                errorMsg = "Merci de renseigner tout les champs \n";
-                lblError.Visible = true;
-            }
-            else
-            {
-                int codeCateg;
-                int codePro;
-                float prixHT;
-                int.TryParse(cmbCategorieProduct.SelectedIndex.ToString(), out codeCateg);
-                int.TryParse(txtCodeSupprPro.Text, out codePro);
-                float.TryParse(txtPrixHTProduct.Text, out prixHT);
-                Produit updtProduit = new Produit(codePro, txtLabelProduct.Text, prixHT, codeCateg);
-                GestionProduits.ModifierUtilisateur(updtProduit);
-                lblError.Visible = true;
-                lblError.Text = "Modification réussie";
-            }
-
+            int codeCateg;
+            int codePro;
+            float prixHT;
+            int.TryParse(cmbCategorieProduct.SelectedIndex.ToString(), out codeCateg);
+            int.TryParse(txtCodeSupprPro.Text, out codePro);
+            float.TryParse (txtPrixHTProduct.Text, out prixHT);
+            Produit updtProduit = new Produit(codePro, txtLabelProduct.Text, prixHT, codeCateg);
+            GestionProduits.ModifierUtilisateur(updtProduit);
         }
 
-        private void lblError_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            FrmViewClients viewClients = new FrmViewClients();
+            viewClients.ShowDialog(); // ouverture du formulaire*
         }
     }
 }

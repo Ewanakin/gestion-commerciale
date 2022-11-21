@@ -47,7 +47,7 @@ namespace CommercialGUI
             else
             {
                 this.Hide();
-                FrmViewProduct viewProduct = new FrmViewProduct();
+                FrmViewClients viewProduct = new FrmViewClients();
                 viewProduct.ShowDialog(); // ouverture du formulaire*
             }
         }
