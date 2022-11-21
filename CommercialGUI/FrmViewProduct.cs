@@ -18,9 +18,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CommercialGUI
 {
-    public partial class FrmViewClients : Form
+    public partial class FrmViewProduct : Form
     {
-        public FrmViewClients()
+        public FrmViewProduct()
         {
             InitializeComponent();
             // Récupération de chaîne de connexion à la BD à l'ouverture du formulaire

@@ -1,6 +1,6 @@
 ﻿namespace CommercialGUI
 {
-    partial class FrmViewClients
+    partial class FrmViewProduct
     {
         /// <summary>
         /// Required designer variable.
