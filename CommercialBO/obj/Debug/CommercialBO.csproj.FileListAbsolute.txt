@@ -16,9 +16,18 @@ C:\Users\losko\Desktop\test\temp\gestion-commerciale\CommercialBO\obj\Debug\Comm
 C:\Users\losko\Desktop\test\temp\gestion-commerciale\CommercialBO\obj\Debug\CommercialBO.csproj.CoreCompileInputs.cache
 C:\Users\losko\Desktop\test\temp\gestion-commerciale\CommercialBO\obj\Debug\CommercialBO.dll
 C:\Users\losko\Desktop\test\temp\gestion-commerciale\CommercialBO\obj\Debug\CommercialBO.pdb
+<<<<<<< HEAD
 C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialBO\bin\Debug\CommercialBO.dll
 C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialBO\bin\Debug\CommercialBO.pdb
 C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialBO\obj\Debug\CommercialBO.csproj.AssemblyReference.cache
 C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialBO\obj\Debug\CommercialBO.csproj.CoreCompileInputs.cache
 C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialBO\obj\Debug\CommercialBO.dll
 C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialBO\obj\Debug\CommercialBO.pdb
+=======
+C:\Users\quioc\Desktop\v2 ppe\gestion-commerciale\CommercialBO\bin\Debug\CommercialBO.dll
+C:\Users\quioc\Desktop\v2 ppe\gestion-commerciale\CommercialBO\bin\Debug\CommercialBO.pdb
+C:\Users\quioc\Desktop\v2 ppe\gestion-commerciale\CommercialBO\obj\Debug\CommercialBO.csproj.AssemblyReference.cache
+C:\Users\quioc\Desktop\v2 ppe\gestion-commerciale\CommercialBO\obj\Debug\CommercialBO.csproj.CoreCompileInputs.cache
+C:\Users\quioc\Desktop\v2 ppe\gestion-commerciale\CommercialBO\obj\Debug\CommercialBO.dll
+C:\Users\quioc\Desktop\v2 ppe\gestion-commerciale\CommercialBO\obj\Debug\CommercialBO.pdb
+>>>>>>> f03f2fa82959b2cd461dbeceaaa093c5bd4aea28

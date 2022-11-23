@@ -25,10 +25,9 @@ namespace CommercialDAL
         // contenus dans la table Identification
         public static List<Produit> GetProduits()
         {
-            int code;
+            int code, codeCateg;
             string libelle, libelleCategorie;
             float prixHT;
-            Produit unProduit;
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             // Création d'une liste vide d'objets Produits
@@ -41,10 +40,12 @@ namespace CommercialDAL
             while (monReader.Read())
             {
                 code = Int32.Parse(monReader["code_pro"].ToString());
+                codeCateg = Int32.Parse(monReader["code_categ"].ToString());
                 libelle = monReader["lib_pro"].ToString();
                 float.TryParse(monReader["prix_vente_ht_pro"].ToString(), out prixHT);
                 libelleCategorie = monReader["lib_categ"].ToString();
-                unProduit = new Produit(code, libelle,prixHT, libelleCategorie);
+                CategorieProduit uneCategPro = new CategorieProduit(codeCateg, libelleCategorie);
+                Produit unProduit = new Produit(code, libelle, prixHT, uneCategPro);
                 lesUtilisateurs.Add(unProduit);
             }
             // Fermeture de la connexion

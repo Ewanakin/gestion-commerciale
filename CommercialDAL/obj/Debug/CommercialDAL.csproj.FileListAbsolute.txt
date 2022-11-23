@@ -34,6 +34,7 @@ C:\Users\losko\Desktop\test\temp\gestion-commerciale\CommercialDAL\obj\Debug\Com
 C:\Users\losko\Desktop\test\temp\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.csproj.CopyComplete
 C:\Users\losko\Desktop\test\temp\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.dll
 C:\Users\losko\Desktop\test\temp\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.pdb
+<<<<<<< HEAD
 C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialDAL\bin\Debug\CommercialDAL.dll
 C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialDAL\bin\Debug\CommercialDAL.pdb
 C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialDAL\bin\Debug\CommercialBO.dll
@@ -43,3 +44,14 @@ C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialDAL\obj\Debu
 C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.csproj.CopyComplete
 C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.dll
 C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.pdb
+=======
+C:\Users\quioc\Desktop\v2 ppe\gestion-commerciale\CommercialDAL\bin\Debug\CommercialDAL.dll
+C:\Users\quioc\Desktop\v2 ppe\gestion-commerciale\CommercialDAL\bin\Debug\CommercialDAL.pdb
+C:\Users\quioc\Desktop\v2 ppe\gestion-commerciale\CommercialDAL\bin\Debug\CommercialBO.dll
+C:\Users\quioc\Desktop\v2 ppe\gestion-commerciale\CommercialDAL\bin\Debug\CommercialBO.pdb
+C:\Users\quioc\Desktop\v2 ppe\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.csproj.AssemblyReference.cache
+C:\Users\quioc\Desktop\v2 ppe\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.csproj.CoreCompileInputs.cache
+C:\Users\quioc\Desktop\v2 ppe\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.csproj.CopyComplete
+C:\Users\quioc\Desktop\v2 ppe\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.dll
+C:\Users\quioc\Desktop\v2 ppe\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.pdb
+>>>>>>> f03f2fa82959b2cd461dbeceaaa093c5bd4aea28

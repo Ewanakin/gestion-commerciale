@@ -31,22 +31,22 @@ namespace CommercialGUI
             // Création d'une en-tête de colonne pour la colonne 1
             DataGridViewTextBoxColumn CodeColumn = new DataGridViewTextBoxColumn();
             CodeColumn.Name = "code";
-            CodeColumn.DataPropertyName = "code";
+            CodeColumn.DataPropertyName = "Code";
             CodeColumn.HeaderText = "Code";
             // Création d'une en-tête de colonne pour la colonne 2
             DataGridViewTextBoxColumn LibelleColumn = new DataGridViewTextBoxColumn();
             LibelleColumn.Name = "libelle";
-            LibelleColumn.DataPropertyName = "libelle";
+            LibelleColumn.DataPropertyName = "Libelle";
             LibelleColumn.HeaderText = "Libelle";
             // Création d'une en-tête de colonne pour la colonne 3
             DataGridViewTextBoxColumn PrixHTColumn = new DataGridViewTextBoxColumn();
             PrixHTColumn.Name = "prixHT";
-            PrixHTColumn.DataPropertyName = "prixHT";
+            PrixHTColumn.DataPropertyName = "PrixHT";
             PrixHTColumn.HeaderText = "PrixHT";
             // Création d'une en-tête de colonne pour la colonne 4
             DataGridViewTextBoxColumn CodeLibelleCategColumn = new DataGridViewTextBoxColumn();
             CodeLibelleCategColumn.Name = "libCat";
-            CodeLibelleCategColumn.DataPropertyName = "libCat";
+            CodeLibelleCategColumn.DataPropertyName = "CategPro.LibCateg";
             CodeLibelleCategColumn.HeaderText = "Libelle cat";
             // Ajout des 4 en-têtes de colonne au datagridview
             dtgProducts.Columns.Add(CodeColumn);
@@ -70,8 +70,13 @@ namespace CommercialGUI
             listeCategPro = GestionCategorieProduits.GetCategorieProduits();
 
             cmbCategorieProduct.DataSource = listeCategPro;
-            cmbCategorieProduct.DisplayMember = "libelle";
+            cmbCategorieProduct.DisplayMember = "libCateg";
             cmbCategorieProduct.ValueMember = "code";
+
+
+            txtLabelProduct.Text = string.Empty;
+            txtPrixHTProduct.Text = string.Empty;
+            txtCodeSupprPro.Text = string.Empty;
 
         }
 
@@ -104,22 +109,49 @@ namespace CommercialGUI
         {
             int code;
             float prixHT;
-            int.TryParse(cmbCategorieProduct.SelectedIndex.ToString(), out code);
-            float.TryParse(txtPrixHTProduct.Text, out prixHT);
-            Produit unProduit = new Produit(0, txtLabelProduct.Text, prixHT, code);
-            GestionProduits.CreerUtilisateur(unProduit);
+            string errorMsg = "";
+            if (txtLabelProduct.Text.Length <= 0 || txtLabelProduct.Text.Length <= 0)
+            {
+                errorMsg = "Merci de renseigner tout les champs \n";
+                lblError.Visible = true;
+                lblError.Text = errorMsg;
+            }
+            else
+            {
+                int.TryParse(cmbCategorieProduct.SelectedIndex.ToString(), out code);
+                float.TryParse(txtPrixHTProduct.Text, out prixHT);
+                if (prixHT != 0)
+                {
+                    Produit unProduit = new Produit(0, txtLabelProduct.Text, prixHT, GestionCategorieProduits.GetUneCategPro(cmbCategorieProduct.SelectedIndex.ToString()));
+                    GestionProduits.CreerProduit(unProduit);
+                    lblError.Visible = true;
+                    errorMsg = "insertion réussie";
+                    lblError.Text = errorMsg;
+                    List<Produit> liste = new List<Produit>();
+                    liste = GestionProduits.GetProduits();
+                    // Rattachement de la List à la source de données du datagridview
+                    dtgProducts.DataSource = liste;
+                    lblError.Visible = false;
+                    txtLabelProduct.Text = string.Empty;
+                    txtPrixHTProduct.Text = string.Empty;
+                }
+                else
+                {
+                    lblError.Visible = true;
+                    errorMsg = "vous ne pouvez pas ajouter le produit car le champ prixHT \n est une chaine de caractère \n ou égale à 0";
+                    lblError.Text = errorMsg;
+                }
+            }
         }
 
         private void btnRefreshDTG_Click(object sender, EventArgs e)
         {
-            List<Produit> liste = new List<Produit>();
-            liste = GestionProduits.GetProduits();
-            // Rattachement de la List à la source de données du datagridview
-            dtgProducts.DataSource = liste;
+
         }
 
         private void btnDelProduct_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             string boxMessageDel = "Etes-vous certain de vouloir supprimer ce produit ";
             string boxTitleDel = "Supprimer";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
@@ -137,25 +169,48 @@ namespace CommercialGUI
                 lblValidationMessage.Text = "Le produit n'a pas été supprimé";
             }
             
+=======
+            int codePro;
+            string validMessage;
+            int.TryParse(txtCodeSupprPro.Text, out codePro); ;
+            validMessage = GestionProduits.SupprimerProduit(codePro);
+            lblError.Visible = true;
+            lblError.Text = validMessage;
+
+>>>>>>> f03f2fa82959b2cd461dbeceaaa093c5bd4aea28
         }
 
         private void btnUpdateProduct_Click(object sender, EventArgs e)
         {
-            int codeCateg;
-            int codePro;
-            float prixHT;
-            int.TryParse(cmbCategorieProduct.SelectedIndex.ToString(), out codeCateg);
-            int.TryParse(txtCodeSupprPro.Text, out codePro);
-            float.TryParse (txtPrixHTProduct.Text, out prixHT);
-            Produit updtProduit = new Produit(codePro, txtLabelProduct.Text, prixHT, codeCateg);
-            GestionProduits.ModifierUtilisateur(updtProduit);
-        }
+            string errorMsg = "";
+            if (txtLabelProduct.Text.Length <= 0 || txtLabelProduct.Text.Length <= 0)
+            {
+                errorMsg = "Merci de renseigner tout les champs \n";
+                lblError.Visible = true;
+                lblError.Text = errorMsg;
+            }
+            else
+            {
+                int codeCateg;
+                int codePro;
+                float prixHT;
+                int.TryParse(cmbCategorieProduct.SelectedIndex.ToString(), out codeCateg);
+                int.TryParse(txtCodeSupprPro.Text, out codePro);
+                float.TryParse(txtPrixHTProduct.Text, out prixHT);
+                if (prixHT != 0)
+                {
+                    //Produit updtProduit = new Produit(codePro, txtLabelProduct.Text, prixHT, codeCateg);
+                    //GestionProduits.ModifierUtilisateur(updtProduit);
+                    lblError.Visible = true;
+                    lblError.Text = "Modification réussie";
+                }
+                else
+                {
+                    lblError.Visible = true;
+                    lblError.Text = "Vous ne pouvez pas modifier car le champ HT \n est égale à 0 ou c'est une chaine \n de caractère";
+                }
+            }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FrmViewCustomer viewClients = new FrmViewCustomer();
-            viewClients.ShowDialog(); // ouverture du formulaire*
         }
     }
 }
