@@ -15,6 +15,7 @@ using System.Windows.Documents;
 using System.Windows.Controls;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace CommercialGUI
 {
@@ -119,11 +120,23 @@ namespace CommercialGUI
 
         private void btnDelProduct_Click(object sender, EventArgs e)
         {
-            int codePro;
-            string validMessage;
-            int.TryParse(txtCodeSupprPro.Text, out codePro); ;
-            validMessage = GestionProduits.SupprimerProduit(codePro);
-            lblValidationMessage.Text = validMessage;
+            string boxMessageDel = "Etes-vous certain de vouloir supprimer ce produit ";
+            string boxTitleDel = "Supprimer";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(boxMessageDel, boxTitleDel, buttons);
+            if (result == DialogResult.Yes)
+            {
+                int codePro;
+                string validMessage;
+                int.TryParse(txtCodeSupprPro.Text, out codePro); ;
+                validMessage = GestionProduits.SupprimerProduit(codePro);
+                lblValidationMessage.Text = validMessage;
+            }
+            else
+            {
+                lblValidationMessage.Text = "Le produit n'a pas été supprimé";
+            }
+            
         }
 
         private void btnUpdateProduct_Click(object sender, EventArgs e)
