@@ -55,5 +55,10 @@ namespace CommercialGUI
                 viewProduct.ShowDialog(); // ouverture du formulaire*
             }
         }
+
+        private void txtUser_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

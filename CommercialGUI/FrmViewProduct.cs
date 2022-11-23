@@ -103,6 +103,7 @@ namespace CommercialGUI
             txtLabelProduct.Text = dtgProducts.Rows[e.RowIndex].Cells["libelle"].Value.ToString();
             txtPrixHTProduct.Text = dtgProducts.Rows[e.RowIndex].Cells["prixHT"].Value.ToString();
             cmbCategorieProduct.Text = dtgProducts.Rows[e.RowIndex].Cells["libCat"].Value.ToString();
+            btnAddProduct.Visible = false;
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
@@ -162,6 +163,14 @@ namespace CommercialGUI
                 int.TryParse(txtCodeSupprPro.Text, out codePro); ;
                 validMessage = GestionProduits.SupprimerProduit(codePro);
                 lblValidationMessage.Text = validMessage;
+                List<Produit> liste = new List<Produit>();
+                liste = GestionProduits.GetProduits();
+                // Rattachement de la List à la source de données du datagridview
+                dtgProducts.DataSource = liste;
+                lblError.Visible = false;
+                txtLabelProduct.Text = string.Empty;
+                txtPrixHTProduct.Text = string.Empty;
+                btnAddProduct.Visible = true;
             }
             else
             {
@@ -193,6 +202,14 @@ namespace CommercialGUI
                     //GestionProduits.ModifierUtilisateur(updtProduit);
                     lblError.Visible = true;
                     lblError.Text = "Modification réussie";
+                    List<Produit> liste = new List<Produit>();
+                    liste = GestionProduits.GetProduits();
+                    // Rattachement de la List à la source de données du datagridview
+                    dtgProducts.DataSource = liste;
+                    lblError.Visible = false;
+                    txtLabelProduct.Text = string.Empty;
+                    txtPrixHTProduct.Text = string.Empty;
+                    btnAddProduct.Visible = true;
                 }
                 else
                 {

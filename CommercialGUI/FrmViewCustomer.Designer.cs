@@ -37,7 +37,7 @@
             // 
             this.dtgCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgCustomer.Location = new System.Drawing.Point(16, 22);
-            this.dtgCustomer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgCustomer.Margin = new System.Windows.Forms.Padding(2);
             this.dtgCustomer.Name = "dtgCustomer";
             this.dtgCustomer.RowHeadersWidth = 82;
             this.dtgCustomer.RowTemplate.Height = 33;
@@ -62,9 +62,10 @@
             this.ClientSize = new System.Drawing.Size(1283, 675);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dtgCustomer);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmViewCustomer";
             this.Text = "FrmViewCustomer";
+            this.Load += new System.EventHandler(this.FrmViewCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgCustomer)).EndInit();
             this.ResumeLayout(false);
 

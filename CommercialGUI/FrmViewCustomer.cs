@@ -131,5 +131,10 @@ namespace CommercialGUI
             FrmViewProduct viewProduct = new FrmViewProduct();
             viewProduct.ShowDialog(); // ouverture du formulaire*
         }
+
+        private void FrmViewCustomer_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
