@@ -124,5 +124,12 @@ namespace CommercialGUI
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmViewProduct viewProduct = new FrmViewProduct();
+            viewProduct.ShowDialog(); // ouverture du formulaire*
+        }
     }
 }

@@ -27,6 +27,12 @@ namespace CommercialBLL
             string chaine = chset.ConnectionString;
             ConnexionBD.GetConnexionBD().SetchaineConnexion(chaine);
         }
+
+        public static CategorieProduit GetUneCategPro(string libelleCateg)
+        {
+            return CategorieProduitDAO.GetUneCategorieProduit(libelleCateg);
+        }
+
         // Méthode qui renvoit une List d'objets Utilisateur en faisant appel à la méthode GetUtilisateurs() de la DAL
         public static List<CategorieProduit> GetCategorieProduits()
         {

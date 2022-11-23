@@ -9,12 +9,12 @@ namespace CommercialBO
     public class CategorieProduit
     {
         private int code;
-        private string libelle;
+        private string libCateg;
 
         public CategorieProduit(int code, string libelle)
         {
             this.code = code;
-            this.libelle = libelle;
+            this.libCateg = libelle;
         }
 
         public int Code
@@ -23,10 +23,10 @@ namespace CommercialBO
             set { code = value; }
         }
         // set get libelle
-        public string Libelle
+        public string LibCateg
         {
-            get { return libelle; }
-            set { libelle = value; }
+            get { return libCateg; }
+            set { libCateg = value; }
         }
     }
 }
