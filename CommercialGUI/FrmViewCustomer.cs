@@ -35,12 +35,12 @@ namespace CommercialGUI
             // Création d'une en-tête de colonne pour la colonne 3
             DataGridViewTextBoxColumn numTelColumn = new DataGridViewTextBoxColumn();
             numTelColumn.Name = "numTel";
-            numTelColumn.DataPropertyName = "numTel";
+            numTelColumn.DataPropertyName = "numeroTel";
             numTelColumn.HeaderText = "numTel";
             // Création d'une en-tête de colonne pour la colonne 4
             DataGridViewTextBoxColumn numFaxColumn = new DataGridViewTextBoxColumn();
             numFaxColumn.Name = "numFax";
-            numFaxColumn.DataPropertyName = "numFax";
+            numFaxColumn.DataPropertyName = "numeroFax";
             numFaxColumn.HeaderText = "numFax";
             // Création d'une en-tête de colonne pour la colonne 5
             DataGridViewTextBoxColumn emailColumn = new DataGridViewTextBoxColumn();
@@ -55,7 +55,7 @@ namespace CommercialGUI
             // Création d'une en-tête de colonne pour la colonne 7
             DataGridViewTextBoxColumn numAdresseFColumn = new DataGridViewTextBoxColumn();
             numAdresseFColumn.Name = "numAdresseFact";
-            numAdresseFColumn.DataPropertyName = "numAdresseFact";
+            numAdresseFColumn.DataPropertyName = "numAdresseFac";
             numAdresseFColumn.HeaderText = "numAdresseFact";
             // Création d'une en-tête de colonne pour la colonne 8
             DataGridViewTextBoxColumn rueAdresseLivColumn = new DataGridViewTextBoxColumn();
@@ -70,22 +70,22 @@ namespace CommercialGUI
             // Création d'une en-tête de colonne pour la colonne 10
             DataGridViewTextBoxColumn codePostalLivColumn = new DataGridViewTextBoxColumn();
             codePostalLivColumn.Name = "codePostalLiv";
-            codePostalLivColumn.DataPropertyName = "codePostalLiv";
+            codePostalLivColumn.DataPropertyName = "codePostalAdresseLiv";
             codePostalLivColumn.HeaderText = "codePostalLiv";
             // Création d'une en-tête de colonne pour la colonne 11
             DataGridViewTextBoxColumn codePostalFacColumn = new DataGridViewTextBoxColumn();
             codePostalFacColumn.Name = "codePostalFact";
-            codePostalFacColumn.DataPropertyName = "codePostalFact";
+            codePostalFacColumn.DataPropertyName = "codePostalAdresseFac";
             codePostalFacColumn.HeaderText = "codePostalFact";
             // Création d'une en-tête de colonne pour la colonne 12
             DataGridViewTextBoxColumn villeLivColumn = new DataGridViewTextBoxColumn();
             villeLivColumn.Name = "villeLiv";
-            villeLivColumn.DataPropertyName = "villeLiv";
+            villeLivColumn.DataPropertyName = "villeAdresseLiv";
             villeLivColumn.HeaderText = "villeLiv";
             // Création d'une en-tête de colonne pour la colonne 13
             DataGridViewTextBoxColumn villeFacColumn = new DataGridViewTextBoxColumn();
             villeFacColumn.Name = "villeFact";
-            villeFacColumn.DataPropertyName = "villeFact";
+            villeFacColumn.DataPropertyName = "villeAdresseFac";
             villeFacColumn.HeaderText = "villeFact";
 
             // Ajout des 13 en-têtes de colonne au datagridview
