@@ -59,5 +59,37 @@ namespace CommercialDAL
 
             return lesClients;
         }
+
+        public static string addClient(Client unCli)
+        {
+            int nbre;
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "INSERT INTO Client(num_cli, num_tel_cli, num_fax_cli, adresse_mail_cli, num_adresse_fact_cli, num_adresse_livr_cli, rue_adresse_liv_cli, rue_adresse_fact_cli, code_postal_fact_cli,  code_postal_livr_cli, ville_adresse_livr_cli, ville_adresse_fact_cli)" +
+                "VALUES( @num_cli, @num_tel,  @num_fax, @adresse_mail, @num_adr_fact, @num_adr_livr, @rue_adr_livr, @rue_adr_fact, @code_postal_fact, @code_postal_livr, @ville_adr_livr, @ville_adr_fact)";
+            cmd.Parameters.Add(new SqlParameter("num_cli", unCli.Nom));
+            cmd.Parameters.Add(new SqlParameter("num_tel", unCli.NumeroTel));
+            cmd.Parameters.Add(new SqlParameter("num_fax", unCli.NumeroFax));
+            cmd.Parameters.Add(new SqlParameter("adresse_mail", unCli.Email));
+            cmd.Parameters.Add(new SqlParameter("num_adr_fact", unCli.NumAdresseFac));
+            cmd.Parameters.Add(new SqlParameter("num_adr_liv", unCli.NumAdresseLiv));
+            cmd.Parameters.Add(new SqlParameter("rue_adr_livr", unCli.RueAdresseLiv));
+            cmd.Parameters.Add(new SqlParameter("rue_adr_fact", unCli.RueAdresseFac));
+            cmd.Parameters.Add(new SqlParameter("code_postal_fact", unCli.CodePostalAdresseFac));
+            cmd.Parameters.Add(new SqlParameter("code_postal_livr", unCli.CodePostalAdresseLiv));
+            cmd.Parameters.Add(new SqlParameter("ville_adr_livr", unCli.VilleAdresseLiv));
+            cmd.Parameters.Add(new SqlParameter("ville_adr_fact", unCli.VilleAdresseFac));
+            nbre = cmd.ExecuteNonQuery();
+            maConnexion.Close();
+            if (nbre == 1)
+            {
+                return "Le client a bien été ajouté";
+            }
+            else
+            {
+                return "Un problème est survenue.";
+            }
+        }
     }
 }
