@@ -151,7 +151,6 @@ namespace CommercialGUI
 
         private void btnDelProduct_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             string boxMessageDel = "Etes-vous certain de vouloir supprimer ce produit ";
             string boxTitleDel = "Supprimer";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
@@ -168,16 +167,7 @@ namespace CommercialGUI
             {
                 lblValidationMessage.Text = "Le produit n'a pas été supprimé";
             }
-            
-=======
-            int codePro;
-            string validMessage;
-            int.TryParse(txtCodeSupprPro.Text, out codePro); ;
-            validMessage = GestionProduits.SupprimerProduit(codePro);
-            lblError.Visible = true;
-            lblError.Text = validMessage;
-
->>>>>>> f03f2fa82959b2cd461dbeceaaa093c5bd4aea28
+           
         }
 
         private void btnUpdateProduct_Click(object sender, EventArgs e)
