@@ -114,6 +114,9 @@ namespace CommercialGUI
             liste = GestionClients.GetClients();
             // Rattachement de la List à la source de données du datagridview
             dtgCustomer.DataSource = liste;
+
+            txtNom.Text = string.Empty;
+
         }
 
         private void dtgCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -201,5 +204,59 @@ namespace CommercialGUI
         {
 
         }
+
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+            string generalMessage;
+            int codePostalLivr;
+            int codePostalFact;
+            int numTel;
+            int numFax;
+            int numRueFact;
+            int numRueLivr;
+            if (txtNom.Text.Length <= 0 || txtNumTel.Text.Length <=0 || txtNumFax.Text.Length <=0 || txtEmail.Text.Length <=0
+                || txtNumRue.Text.Length <=0 ||txtNomRueLivr.Text.Length <= 0 || txtCodePostalLivr.Text.Length <= 0 || txtVilleLivr.Text.Length <= 0
+                || txtNumRueFact.Text.Length <= 0 || txtNomRueFact.Text.Length <= 0 || txtCodePostalFact.Text.Length <= 0 || txtVilleFact.Text.Length <= 0)
+            {
+                generalMessage = "Veuillez remplir tous les champs avant de valider";
+                lblGeneralMessage.Text = generalMessage;
+            }
+            else
+            {
+                int.TryParse(txtCodePostalLivr.Text, out codePostalLivr);
+                int.TryParse(txtCodePostalFact.Text, out codePostalFact);
+                int.TryParse(txtNumTel.Text, out numTel);
+                int.TryParse(txtNumFax.Text, out numFax);
+                int.TryParse(txtNumRueFact.Text, out numRueFact);
+                int.TryParse(txtNumRue.Text, out numRueLivr);
+                Client unClient = new Client(0, txtNom.Text, numTel, numFax, txtEmail.Text, numRueLivr, numRueFact, txtNomRueLivr.Text, txtNomRueFact.Text, codePostalLivr, codePostalFact, txtVilleLivr.Text, txtVilleFact.Text);
+                GestionClients.AjouterClient(unClient);
+                generalMessage = "Ajout du client réussie";
+                lblGeneralMessage.Text = generalMessage;
+                List<Client> liste = new List<Client>();
+                liste = GestionClients.GetClients();
+                // Rattachement de la List à la source de données du datagridview
+                dtgCustomer.DataSource = liste;
+                btnAjouter.Visible = true;
+                // reset input
+                txtCodeCli.Text = string.Empty;
+                txtNom.Text = string.Empty;
+                txtNumTel.Text = string.Empty;
+                txtNumFax.Text = string.Empty;
+                txtEmail.Text = string.Empty;
+                txtNumRue.Text = string.Empty;
+                txtNomRueLivr.Text = string.Empty;
+                txtCodePostalLivr.Text = string.Empty;
+                txtVilleLivr.Text = string.Empty;
+                txtNumRueFact.Text = string.Empty;
+                txtNomRueFact.Text = string.Empty;
+                txtCodePostalFact.Text = string.Empty;
+                txtVilleFact.Text = string.Empty;
+            }
+
+
+        }
+
+        
     }
 }

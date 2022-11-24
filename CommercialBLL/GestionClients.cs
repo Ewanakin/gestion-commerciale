@@ -27,5 +27,10 @@ namespace CommercialBLL
         {
             return ClientDAO.DeleteClient(id);
         }
+
+        public static string AjouterClient(Client unCli)
+        {
+            return ClientDAO.addClient(unCli);
+        }
     }
 }

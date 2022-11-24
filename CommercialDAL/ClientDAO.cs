@@ -73,7 +73,7 @@ namespace CommercialDAL
             cmd.Parameters.Add(new SqlParameter("num_fax", unCli.NumeroFax));
             cmd.Parameters.Add(new SqlParameter("adresse_mail", unCli.Email));
             cmd.Parameters.Add(new SqlParameter("num_adr_fact", unCli.NumAdresseFac));
-            cmd.Parameters.Add(new SqlParameter("num_adr_liv", unCli.NumAdresseLiv));
+            cmd.Parameters.Add(new SqlParameter("num_adr_livr", unCli.NumAdresseLiv));
             cmd.Parameters.Add(new SqlParameter("rue_adr_livr", unCli.RueAdresseLiv));
             cmd.Parameters.Add(new SqlParameter("rue_adr_fact", unCli.RueAdresseFac));
             cmd.Parameters.Add(new SqlParameter("code_postal_fact", unCli.CodePostalAdresseFac));
