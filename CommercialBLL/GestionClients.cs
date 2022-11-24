@@ -22,5 +22,10 @@ namespace CommercialBLL
         {
             return ClientDAO.GetClients();
         }
+        // Méthode qui supprime un Client avec la méthode DeleteClient de la DAL
+        public static string SupprimerClient(int id)
+        {
+            return ClientDAO.DeleteClient(id);
+        }
     }
 }
