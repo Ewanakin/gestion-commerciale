@@ -32,5 +32,10 @@ namespace CommercialBLL
         {
             return ClientDAO.addClient(unCli);
         }
+
+        public static int ModifierClient(Client unCli)
+        {
+            return ClientDAO.UpdateClient(unCli);
+        }
     }
 }

@@ -124,5 +124,40 @@ namespace CommercialDAL
             // Fermeture de la connexion
             return valid;
         }
+
+        public static int UpdateClient(Client unCli)
+        {
+            int nbEnr = 0;
+            //Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "UPDATE Client SET num_cli = @numCli, " +
+                "num_tel_cli = @numTelCli, num_fax_cli = @numFaxCli, " +
+                "adresse_mail_cli = @mailCli, num_adresse_fact_cli = @numAdresseFactCli, " +
+                "num_adresse_livr_cli = @numAdresseLivrCli, rue_adresse_fact_cli = @rueAdresseFactCli, " +
+                "rue_adresse_liv_cli = @rueAdresseLivrCli, code_postal_fact_cli = @codePostalFactCli, " +
+                "code_postal_livr_cli = @codePostalLivrCli, ville_adresse_fact_cli = @villeAdresseFactCli, " +
+                "ville_adresse_livr_cli = @villeAdresseLivrCli " +
+                "WHERE code_cli = @codeCli";
+            cmd.Parameters.Add(new SqlParameter("numCli", unCli.Nom));
+            cmd.Parameters.Add(new SqlParameter("libellePro", unCli.Nom));
+            cmd.Parameters.Add(new SqlParameter("numTelCli", unCli.NumeroTel));
+            cmd.Parameters.Add(new SqlParameter("numFaxCli", unCli.NumeroFax));
+            cmd.Parameters.Add(new SqlParameter("mailCli", unCli.Email));
+            cmd.Parameters.Add(new SqlParameter("numAdresseFactCli", unCli.NumAdresseFac));
+            cmd.Parameters.Add(new SqlParameter("numAdresseLivrCli", unCli.NumAdresseLiv));
+            cmd.Parameters.Add(new SqlParameter("rueAdresseFactCli", unCli.RueAdresseFac));
+            cmd.Parameters.Add(new SqlParameter("rueAdresseLivrCli", unCli.RueAdresseLiv));
+            cmd.Parameters.Add(new SqlParameter("codePostalFactCli", unCli.CodePostalAdresseFac));
+            cmd.Parameters.Add(new SqlParameter("codePostalLivrCli", unCli.CodePostalAdresseLiv));
+            cmd.Parameters.Add(new SqlParameter("villeAdresseFactCli", unCli.VilleAdresseFac));
+            cmd.Parameters.Add(new SqlParameter("villeAdresseLivrCli", unCli.VilleAdresseLiv));
+            cmd.Parameters.Add(new SqlParameter("codeCli", unCli.Code));
+            nbEnr = cmd.ExecuteNonQuery();
+            // Fermeture de la connexion
+            maConnexion.Close();
+            return nbEnr;
+        }
     }
 }
