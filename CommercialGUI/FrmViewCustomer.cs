@@ -166,12 +166,17 @@ namespace CommercialGUI
             string boxMessageDel = "Etes-vous certain de vouloir supprimer ce Client ";
             string boxTitleDel = "Supprimer";
             string validMessage;
+            if (string.IsNullOrEmpty(txtCodeCli.Text))
+            {
+                lblStatus.Text = "Aucun client est selectionné";
+                return;
+            }
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result = MessageBox.Show(boxMessageDel, boxTitleDel, buttons);
             if (result == DialogResult.Yes)
             {
                 int codeCli;
-                int.TryParse(txtCodeCli.Text, out codeCli); ;
+                int.TryParse(txtCodeCli.Text, out codeCli);
                 validMessage = GestionClients.SupprimerClient(codeCli);
                 lblStatus.Text = validMessage;
                 List<Client> liste = new List<Client>();
