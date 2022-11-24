@@ -46,7 +46,7 @@ namespace CommercialGUI
             // Création d'une en-tête de colonne pour la colonne 4
             DataGridViewTextBoxColumn CodeLibelleCategColumn = new DataGridViewTextBoxColumn();
             CodeLibelleCategColumn.Name = "libCat";
-            CodeLibelleCategColumn.DataPropertyName = "CategPro.LibCateg";
+            CodeLibelleCategColumn.DataPropertyName = "CategPro";
             CodeLibelleCategColumn.HeaderText = "Libelle cat";
             // Ajout des 4 en-têtes de colonne au datagridview
             dtgProducts.Columns.Add(CodeColumn);
@@ -111,6 +111,7 @@ namespace CommercialGUI
             int code;
             float prixHT;
             string errorMsg = "";
+            
             if (txtLabelProduct.Text.Length <= 0 || txtLabelProduct.Text.Length <= 0)
             {
                 errorMsg = "Merci de renseigner tout les champs \n";
@@ -123,7 +124,9 @@ namespace CommercialGUI
                 float.TryParse(txtPrixHTProduct.Text, out prixHT);
                 if (prixHT != 0)
                 {
-                    Produit unProduit = new Produit(0, txtLabelProduct.Text, prixHT, GestionCategorieProduits.GetUneCategPro(cmbCategorieProduct.SelectedIndex.ToString()));
+                    int.TryParse(cmbCategorieProduct.SelectedIndex.ToString(), out code);
+                   
+                    Produit unProduit = new Produit(0, txtLabelProduct.Text, prixHT, GestionCategorieProduits.GetUneCategPro(code)[0]);
                     GestionProduits.CreerProduit(unProduit);
                     lblError.Visible = true;
                     errorMsg = "insertion réussie";
@@ -198,8 +201,8 @@ namespace CommercialGUI
                 float.TryParse(txtPrixHTProduct.Text, out prixHT);
                 if (prixHT != 0)
                 {
-                    //Produit updtProduit = new Produit(codePro, txtLabelProduct.Text, prixHT, codeCateg);
-                    //GestionProduits.ModifierUtilisateur(updtProduit);
+                    Produit updtProduit = new Produit(codePro, txtLabelProduct.Text, prixHT, GestionCategorieProduits.GetUneCategPro(codeCateg)[0]);
+                    GestionProduits.ModifierUtilisateur(updtProduit);
                     lblError.Visible = true;
                     lblError.Text = "Modification réussie";
                     List<Produit> liste = new List<Produit>();

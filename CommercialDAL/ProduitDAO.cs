@@ -91,7 +91,7 @@ namespace CommercialDAL
             cmd.CommandText = "UPDATE Produit SET lib_pro = @libellePro, prix_vente_ht_pro = @prixHTPro, code_categ = @codeCategPro WHERE  code_pro = @codePro";
             cmd.Parameters.Add(new SqlParameter("libellePro", unProduit.Libelle));
             cmd.Parameters.Add(new SqlParameter("prixHTPro", unProduit.PrixHT));
-            cmd.Parameters.Add(new SqlParameter("codeCategPro", unProduit.LibelleCategorie));
+            cmd.Parameters.Add(new SqlParameter("codeCategPro", unProduit.CategPro.Code));
             cmd.Parameters.Add(new SqlParameter("codePro", unProduit.Code));
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
