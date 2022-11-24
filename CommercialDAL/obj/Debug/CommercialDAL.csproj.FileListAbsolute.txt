@@ -7,3 +7,12 @@ C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialDAL\obj\Debu
 C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.csproj.CopyComplete
 C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.dll
 C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.pdb
+C:\Users\losko\Desktop\test\temp\gestion-commerciale\CommercialDAL\bin\Debug\CommercialDAL.dll
+C:\Users\losko\Desktop\test\temp\gestion-commerciale\CommercialDAL\bin\Debug\CommercialDAL.pdb
+C:\Users\losko\Desktop\test\temp\gestion-commerciale\CommercialDAL\bin\Debug\CommercialBO.dll
+C:\Users\losko\Desktop\test\temp\gestion-commerciale\CommercialDAL\bin\Debug\CommercialBO.pdb
+C:\Users\losko\Desktop\test\temp\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.csproj.AssemblyReference.cache
+C:\Users\losko\Desktop\test\temp\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.csproj.CoreCompileInputs.cache
+C:\Users\losko\Desktop\test\temp\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.csproj.CopyComplete
+C:\Users\losko\Desktop\test\temp\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.dll
+C:\Users\losko\Desktop\test\temp\gestion-commerciale\CommercialDAL\obj\Debug\CommercialDAL.pdb

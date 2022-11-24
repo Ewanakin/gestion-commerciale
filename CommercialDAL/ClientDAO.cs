@@ -91,5 +91,38 @@ namespace CommercialDAL
                 return "Un problème est survenue.";
             }
         }
+
+        // Cette méthode supprime de la BD un utilisateur dont l'id est passé en paramètre
+        public static string DeleteClient(int id)
+        {
+            SqlDataReader result;
+            string valid = "";
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "SELECT * FROM Client WHERE code_cli = @codeCli";
+            cmd.Parameters.Add(new SqlParameter("codeCli", id));
+            result = cmd.ExecuteReader();
+            if (!result.HasRows)
+            {
+                maConnexion.Close();
+                SqlConnection maConnexionDel = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+                SqlCommand cmdDel = new SqlCommand();
+                cmdDel.Connection = maConnexionDel;
+                cmdDel.CommandText = "DELETE FROM Client WHERE code_cli = @codeCli";
+                cmd.Parameters.Add(new SqlParameter("codeCli", id));
+                cmdDel.ExecuteNonQuery();
+                valid = "Le produit a bien été supprimé.";
+                maConnexionDel.Close();
+            }
+            else
+            {
+                maConnexion.Close();
+                valid = "Le Client ne peut pas être supprimé";
+            }
+            // Fermeture de la connexion
+            return valid;
+        }
     }
 }
