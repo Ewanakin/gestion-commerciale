@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -95,12 +96,12 @@ namespace CommercialGUI
             dtgCustomer.Columns.Add(numFaxColumn);
             dtgCustomer.Columns.Add(emailColumn);
             dtgCustomer.Columns.Add(numAdresseLColumn);
-            dtgCustomer.Columns.Add(numAdresseFColumn);
             dtgCustomer.Columns.Add(rueAdresseLivColumn);
-            dtgCustomer.Columns.Add(rueAdresseFacColumn);
             dtgCustomer.Columns.Add(codePostalLivColumn);
-            dtgCustomer.Columns.Add(codePostalFacColumn);
             dtgCustomer.Columns.Add(villeLivColumn);
+            dtgCustomer.Columns.Add(numAdresseFColumn);
+            dtgCustomer.Columns.Add(rueAdresseFacColumn);
+            dtgCustomer.Columns.Add(codePostalFacColumn);
             dtgCustomer.Columns.Add(villeFacColumn);
             // Définition du style apporté au datagridview
             dtgCustomer.ColumnHeadersVisible = true;
@@ -117,14 +118,24 @@ namespace CommercialGUI
 
         private void dtgCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            dtgCustomer.CurrentRow.Selected = true;
+            txtCodeCli.Text = dtgCustomer.Rows[e.RowIndex].Cells["code"].Value.ToString();
+            txtNom.Text = dtgCustomer.Rows[e.RowIndex].Cells["nom"].Value.ToString();
+            txtNumTel.Text = dtgCustomer.Rows[e.RowIndex].Cells["numTel"].Value.ToString();
+            txtNumFax.Text = dtgCustomer.Rows[e.RowIndex].Cells["numFax"].Value.ToString();
+            txtEmail.Text = dtgCustomer.Rows[e.RowIndex].Cells["email"].Value.ToString();
+            //livraison
+            txtNumRue.Text = dtgCustomer.Rows[e.RowIndex].Cells["numAdresseLiv"].Value.ToString();
+            txtNomRueLivr.Text = dtgCustomer.Rows[e.RowIndex].Cells["rueAdresseLiv"].Value.ToString();
+            txtCodePostalLivr.Text = dtgCustomer.Rows[e.RowIndex].Cells["codePostalLiv"].Value.ToString();
+            txtVilleLivr.Text = dtgCustomer.Rows[e.RowIndex].Cells["villeLiv"].Value.ToString();
+            //facturation
+            txtNumRueFact.Text = dtgCustomer.Rows[e.RowIndex].Cells["numAdresseFact"].Value.ToString();
+            txtNomRueFact.Text = dtgCustomer.Rows[e.RowIndex].Cells["rueAdresseFac"].Value.ToString();
+            txtCodePostalFact.Text = dtgCustomer.Rows[e.RowIndex].Cells["codePostalFact"].Value.ToString();
+            txtVilleFact.Text = dtgCustomer.Rows[e.RowIndex].Cells["villeFact"].Value.ToString();
+            btnAjouter.Visible = false;
         }
-
-        private void dtgCustomer_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -143,6 +154,50 @@ namespace CommercialGUI
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSupprimer_Click(object sender, EventArgs e)
+        {
+            string boxMessageDel = "Etes-vous certain de vouloir supprimer ce Client ";
+            string boxTitleDel = "Supprimer";
+            string validMessage;
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(boxMessageDel, boxTitleDel, buttons);
+            if (result == DialogResult.Yes)
+            {
+                int codeCli;
+                int.TryParse(txtCodeCli.Text, out codeCli); ;
+                validMessage = GestionClients.SupprimerClient(codeCli);
+                lblStatus.Text = validMessage;
+                List<Client> liste = new List<Client>();
+                liste = GestionClients.GetClients();
+                // Rattachement de la List à la source de données du datagridview
+                dtgCustomer.DataSource = liste;
+                btnAjouter.Visible = true;
+                // reset input
+                txtCodeCli.Text = string.Empty;
+                txtNom.Text = string.Empty;
+                txtNumTel.Text = string.Empty;
+                txtNumFax.Text = string.Empty;
+                txtEmail.Text = string.Empty;
+                txtNumRue.Text = string.Empty;
+                txtNomRueLivr.Text = string.Empty;
+                txtCodePostalLivr.Text = string.Empty;
+                txtVilleLivr.Text = string.Empty;
+                txtNumRueFact.Text = string.Empty;
+                txtNomRueFact.Text = string.Empty;
+                txtCodePostalFact.Text = string.Empty;
+                txtVilleFact.Text = string.Empty;
+            }
+            else
+            {
+                lblStatus.Text = "suppresion annulée";
+            }
+        }
+
+        private void lblCodeCli_Click(object sender, EventArgs e)
         {
 
         }
