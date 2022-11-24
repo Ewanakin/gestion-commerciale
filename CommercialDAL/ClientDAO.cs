@@ -101,7 +101,7 @@ namespace CommercialDAL
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "SELECT * FROM Client WHERE code_cli = @codeCli";
+            cmd.CommandText = "SELECT * FROM Devis WHERE code_cli = @codeCli";
             cmd.Parameters.Add(new SqlParameter("codeCli", id));
             result = cmd.ExecuteReader();
             if (!result.HasRows)
@@ -111,7 +111,7 @@ namespace CommercialDAL
                 SqlCommand cmdDel = new SqlCommand();
                 cmdDel.Connection = maConnexionDel;
                 cmdDel.CommandText = "DELETE FROM Client WHERE code_cli = @codeCli";
-                cmd.Parameters.Add(new SqlParameter("codeCli", id));
+                cmdDel.Parameters.Add(new SqlParameter("codeCli", id));
                 cmdDel.ExecuteNonQuery();
                 valid = "Le produit a bien été supprimé.";
                 maConnexionDel.Close();
@@ -119,7 +119,7 @@ namespace CommercialDAL
             else
             {
                 maConnexion.Close();
-                valid = "Le Client ne peut pas être supprimé";
+                valid = "Le Client ne peut pas être supprimé car il correspond à un devis.";
             }
             // Fermeture de la connexion
             return valid;
