@@ -95,12 +95,12 @@ namespace CommercialGUI
             dtgCustomer.Columns.Add(numFaxColumn);
             dtgCustomer.Columns.Add(emailColumn);
             dtgCustomer.Columns.Add(numAdresseLColumn);
-            dtgCustomer.Columns.Add(numAdresseFColumn);
             dtgCustomer.Columns.Add(rueAdresseLivColumn);
-            dtgCustomer.Columns.Add(rueAdresseFacColumn);
             dtgCustomer.Columns.Add(codePostalLivColumn);
-            dtgCustomer.Columns.Add(codePostalFacColumn);
             dtgCustomer.Columns.Add(villeLivColumn);
+            dtgCustomer.Columns.Add(numAdresseFColumn);
+            dtgCustomer.Columns.Add(rueAdresseFacColumn);
+            dtgCustomer.Columns.Add(codePostalFacColumn);
             dtgCustomer.Columns.Add(villeFacColumn);
             // Définition du style apporté au datagridview
             dtgCustomer.ColumnHeadersVisible = true;
