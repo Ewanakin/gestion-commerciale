@@ -62,6 +62,7 @@
             this.btnAjouter = new System.Windows.Forms.Button();
             this.lblCodeCli = new System.Windows.Forms.Label();
             this.txtCodeCli = new System.Windows.Forms.TextBox();
+            this.lblStatus = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgCustomer)).BeginInit();
             this.SuspendLayout();
             // 
@@ -385,12 +386,21 @@
             this.txtCodeCli.Size = new System.Drawing.Size(289, 31);
             this.txtCodeCli.TabIndex = 32;
             // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(1789, 1129);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(0, 25);
+            this.lblStatus.TabIndex = 33;
+            // 
             // FrmViewCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(2692, 1200);
+            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.txtCodeCli);
             this.Controls.Add(this.lblCodeCli);
             this.Controls.Add(this.btnAjouter);
@@ -470,5 +480,6 @@
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.Label lblCodeCli;
         private System.Windows.Forms.TextBox txtCodeCli;
+        private System.Windows.Forms.Label lblStatus;
     }
 }

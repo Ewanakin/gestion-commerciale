@@ -162,16 +162,38 @@ namespace CommercialGUI
         {
             string boxMessageDel = "Etes-vous certain de vouloir supprimer ce Client ";
             string boxTitleDel = "Supprimer";
+            string validMessage;
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result = MessageBox.Show(boxMessageDel, boxTitleDel, buttons);
             if (result == DialogResult.Yes)
             {
-                int clientPro;
-                string validMessage;
-             
+                int codeCli;
+                int.TryParse(txtCodeCli.Text, out codeCli); ;
+                validMessage = GestionClients.SupprimerClient(codeCli);
+                lblStatus.Text = validMessage;
+                List<Client> liste = new List<Client>();
+                liste = GestionClients.GetClients();
+                // Rattachement de la List à la source de données du datagridview
+                dtgCustomer.DataSource = liste;
+                btnAjouter.Visible = true;
+                // reset input
+                txtCodeCli.Text = string.Empty;
+                txtNom.Text = string.Empty;
+                txtNumTel.Text = string.Empty;
+                txtNumFax.Text = string.Empty;
+                txtEmail.Text = string.Empty;
+                txtNumRue.Text = string.Empty;
+                txtNomRueLivr.Text = string.Empty;
+                txtCodePostalLivr.Text = string.Empty;
+                txtVilleLivr.Text = string.Empty;
+                txtNumRueFact.Text = string.Empty;
+                txtNomRueFact.Text = string.Empty;
+                txtCodePostalFact.Text = string.Empty;
+                txtVilleFact.Text = string.Empty;
             }
             else
             {
+                lblStatus.Text = "suppresion annulée";
             }
         }
 
