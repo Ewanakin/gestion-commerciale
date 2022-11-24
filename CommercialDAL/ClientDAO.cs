@@ -113,7 +113,7 @@ namespace CommercialDAL
                 cmdDel.CommandText = "DELETE FROM Client WHERE code_cli = @codeCli";
                 cmdDel.Parameters.Add(new SqlParameter("codeCli", id));
                 cmdDel.ExecuteNonQuery();
-                valid = "Le produit a bien été supprimé.";
+                valid = "Le client a bien été supprimé.";
                 maConnexionDel.Close();
             }
             else
