@@ -198,8 +198,8 @@ namespace CommercialGUI
                 float.TryParse(txtPrixHTProduct.Text, out prixHT);
                 if (prixHT != 0)
                 {
-                    //Produit updtProduit = new Produit(codePro, txtLabelProduct.Text, prixHT, codeCateg);
-                    //GestionProduits.ModifierUtilisateur(updtProduit);
+                    Produit updtProduit = new Produit(codePro, txtLabelProduct.Text, prixHT, GestionCategorieProduits.GetUneCategPro(cmbCategorieProduct.SelectedIndex.ToString()));
+                    GestionProduits.ModifierUtilisateur(updtProduit);
                     lblError.Visible = true;
                     lblError.Text = "Modification réussie";
                     List<Produit> liste = new List<Produit>();
