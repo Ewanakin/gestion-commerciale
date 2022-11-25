@@ -34,8 +34,11 @@ namespace CommercialDAL
             SqlCommand cmd = new SqlCommand("SELECT * FROM Categorie_produit WHERE lib_categ LIKE @libCat", maConnexion);
             cmd.Parameters.Add(new SqlParameter("libCat", "Ecran"));
             SqlDataReader monReader = cmd.ExecuteReader();
-            code = Int32.Parse(monReader["code_categ"].ToString());
-            libelle = monReader["lib_categ"].ToString();
+            while(monReader.Read())
+            {
+                code = Int32.Parse(monReader["code_categ"].ToString());
+                libelle = monReader["lib_categ"].ToString();
+            }
             CategorieProduit newCategPro = new CategorieProduit(code, libelle);
             return newCategPro;
         }
