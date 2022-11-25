@@ -259,6 +259,11 @@ namespace CommercialGUI
                     txtCodePostalFact.Text = string.Empty;
                     txtVilleFact.Text = string.Empty;
                 }
+                else
+                {
+                    generalMessage = "Veuillez entrer uniquement des chiffres dans les champs code postal, num rue ,telephone, fax.";
+                    lblStatus.Text = generalMessage;
+                }
             }
 
 
