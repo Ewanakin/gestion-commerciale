@@ -201,6 +201,7 @@ namespace CommercialGUI
                 float.TryParse(txtPrixHTProduct.Text, out prixHT);
                 if (prixHT != 0)
                 {
+
                     Produit updtProduit = new Produit(codePro, txtLabelProduct.Text, prixHT, GestionCategorieProduits.GetUneCategPro(codeCateg)[0]);
                     GestionProduits.ModifierUtilisateur(updtProduit);
                     lblError.Visible = true;
@@ -221,13 +222,6 @@ namespace CommercialGUI
                 }
             }
 
-        }
-
-        private void btnPro_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FrmViewCustomer viewCustomer = new FrmViewCustomer();
-            viewCustomer.ShowDialog(); // ouverture du formulaire*
         }
     }
 }

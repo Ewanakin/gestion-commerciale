@@ -224,39 +224,45 @@ namespace CommercialGUI
                 || txtNumRueFact.Text.Length <= 0 || txtNomRueFact.Text.Length <= 0 || txtCodePostalFact.Text.Length <= 0 || txtVilleFact.Text.Length <= 0)
             {
                 generalMessage = "Veuillez remplir tous les champs avant de valider";
-                lblGeneralMessage.Text = generalMessage;
+                lblStatus.Text = generalMessage;
             }
             else
             {
-                int.TryParse(txtCodePostalLivr.Text, out codePostalLivr);
-                int.TryParse(txtCodePostalFact.Text, out codePostalFact);
-                int.TryParse(txtNumTel.Text, out numTel);
-                int.TryParse(txtNumFax.Text, out numFax);
-                int.TryParse(txtNumRueFact.Text, out numRueFact);
-                int.TryParse(txtNumRue.Text, out numRueLivr);
-                Client unClient = new Client(0, txtNom.Text, numTel, numFax, txtEmail.Text, numRueLivr, numRueFact, txtNomRueLivr.Text, txtNomRueFact.Text, codePostalLivr, codePostalFact, txtVilleLivr.Text, txtVilleFact.Text);
-                GestionClients.AjouterClient(unClient);
-                generalMessage = "Ajout du client réussie";
-                lblGeneralMessage.Text = generalMessage;
-                List<Client> liste = new List<Client>();
-                liste = GestionClients.GetClients();
-                // Rattachement de la List à la source de données du datagridview
-                dtgCustomer.DataSource = liste;
-                btnAjouter.Visible = true;
-                // reset input
-                txtCodeCli.Text = string.Empty;
-                txtNom.Text = string.Empty;
-                txtNumTel.Text = string.Empty;
-                txtNumFax.Text = string.Empty;
-                txtEmail.Text = string.Empty;
-                txtNumRue.Text = string.Empty;
-                txtNomRueLivr.Text = string.Empty;
-                txtCodePostalLivr.Text = string.Empty;
-                txtVilleLivr.Text = string.Empty;
-                txtNumRueFact.Text = string.Empty;
-                txtNomRueFact.Text = string.Empty;
-                txtCodePostalFact.Text = string.Empty;
-                txtVilleFact.Text = string.Empty;
+                if (int.TryParse(txtCodePostalLivr.Text, out codePostalLivr) &&
+                int.TryParse(txtCodePostalFact.Text, out codePostalFact) &&
+                int.TryParse(txtNumTel.Text, out numTel) &&
+                int.TryParse(txtNumFax.Text, out numFax) &&
+                int.TryParse(txtNumRueFact.Text, out numRueFact) &&
+                int.TryParse(txtNumRue.Text, out numRueLivr))
+                {
+                    Client unClient = new Client(0, txtNom.Text, numTel, numFax, txtEmail.Text, numRueLivr, numRueFact, txtNomRueLivr.Text, txtNomRueFact.Text, codePostalLivr, codePostalFact, txtVilleLivr.Text, txtVilleFact.Text);
+                    GestionClients.AjouterClient(unClient);
+                    generalMessage = "Ajout du client réussie";
+                    lblStatus.Text = generalMessage;
+                    List<Client> liste = new List<Client>();
+                    liste = GestionClients.GetClients();
+                    // Rattachement de la List à la source de données du datagridview
+                    dtgCustomer.DataSource = liste;
+                    btnAjouter.Visible = true;
+                    // reset input
+                    txtCodeCli.Text = string.Empty;
+                    txtNom.Text = string.Empty;
+                    txtNumTel.Text = string.Empty;
+                    txtNumFax.Text = string.Empty;
+                    txtEmail.Text = string.Empty;
+                    txtNumRue.Text = string.Empty;
+                    txtNomRueLivr.Text = string.Empty;
+                    txtCodePostalLivr.Text = string.Empty;
+                    txtVilleLivr.Text = string.Empty;
+                    txtNumRueFact.Text = string.Empty;
+                    txtNomRueFact.Text = string.Empty;
+                    txtCodePostalFact.Text = string.Empty;
+                    txtVilleFact.Text = string.Empty;
+                }
+                else
+                {
+                    generalMessage = "Veuillez renseigné uniquement des chiffres dans les champs code postal, telephone, fax, num rue.";
+                }
             }
 
 
