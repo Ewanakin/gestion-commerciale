@@ -46,7 +46,7 @@ namespace CommercialGUI
             // Création d'une en-tête de colonne pour la colonne 4
             DataGridViewTextBoxColumn CodeLibelleCategColumn = new DataGridViewTextBoxColumn();
             CodeLibelleCategColumn.Name = "libCat";
-            CodeLibelleCategColumn.DataPropertyName = "CategPro.LibCateg";
+            CodeLibelleCategColumn.DataPropertyName = "CategPro";
             CodeLibelleCategColumn.HeaderText = "Libelle cat";
             // Ajout des 4 en-têtes de colonne au datagridview
             dtgProducts.Columns.Add(CodeColumn);
@@ -103,6 +103,7 @@ namespace CommercialGUI
             txtLabelProduct.Text = dtgProducts.Rows[e.RowIndex].Cells["libelle"].Value.ToString();
             txtPrixHTProduct.Text = dtgProducts.Rows[e.RowIndex].Cells["prixHT"].Value.ToString();
             cmbCategorieProduct.Text = dtgProducts.Rows[e.RowIndex].Cells["libCat"].Value.ToString();
+            btnAddProduct.Visible = false;
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
@@ -110,6 +111,7 @@ namespace CommercialGUI
             int code;
             float prixHT;
             string errorMsg = "";
+            
             if (txtLabelProduct.Text.Length <= 0 || txtLabelProduct.Text.Length <= 0)
             {
                 errorMsg = "Merci de renseigner tout les champs \n";
@@ -122,7 +124,9 @@ namespace CommercialGUI
                 float.TryParse(txtPrixHTProduct.Text, out prixHT);
                 if (prixHT != 0)
                 {
-                    Produit unProduit = new Produit(0, txtLabelProduct.Text, prixHT, GestionCategorieProduits.GetUneCategPro(cmbCategorieProduct.SelectedIndex.ToString()));
+                    int.TryParse(cmbCategorieProduct.SelectedIndex.ToString(), out code);
+                   
+                    Produit unProduit = new Produit(0, txtLabelProduct.Text, prixHT, GestionCategorieProduits.GetUneCategPro(code)[0]);
                     GestionProduits.CreerProduit(unProduit);
                     lblError.Visible = true;
                     errorMsg = "insertion réussie";
@@ -151,13 +155,31 @@ namespace CommercialGUI
 
         private void btnDelProduct_Click(object sender, EventArgs e)
         {
-            int codePro;
-            string validMessage;
-            int.TryParse(txtCodeSupprPro.Text, out codePro); ;
-            validMessage = GestionProduits.SupprimerProduit(codePro);
-            lblError.Visible = true;
-            lblError.Text = validMessage;
-
+            string boxMessageDel = "Etes-vous certain de vouloir supprimer ce produit ";
+            string boxTitleDel = "Supprimer";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(boxMessageDel, boxTitleDel, buttons);
+            if (result == DialogResult.Yes)
+            {
+                int codePro;
+                string validMessage;
+                int.TryParse(txtCodeSupprPro.Text, out codePro); ;
+                validMessage = GestionProduits.SupprimerProduit(codePro);
+                lblValidationMessage.Text = validMessage;
+                List<Produit> liste = new List<Produit>();
+                liste = GestionProduits.GetProduits();
+                // Rattachement de la List à la source de données du datagridview
+                dtgProducts.DataSource = liste;
+                lblError.Visible = false;
+                txtLabelProduct.Text = string.Empty;
+                txtPrixHTProduct.Text = string.Empty;
+                btnAddProduct.Visible = true;
+            }
+            else
+            {
+                lblValidationMessage.Text = "Le produit n'a pas été supprimé";
+            }
+           
         }
 
         private void btnUpdateProduct_Click(object sender, EventArgs e)
@@ -179,10 +201,19 @@ namespace CommercialGUI
                 float.TryParse(txtPrixHTProduct.Text, out prixHT);
                 if (prixHT != 0)
                 {
-                    //Produit updtProduit = new Produit(codePro, txtLabelProduct.Text, prixHT, codeCateg);
-                    //GestionProduits.ModifierUtilisateur(updtProduit);
+
+                    Produit updtProduit = new Produit(codePro, txtLabelProduct.Text, prixHT, GestionCategorieProduits.GetUneCategPro(codeCateg)[0]);
+                    GestionProduits.ModifierUtilisateur(updtProduit);
                     lblError.Visible = true;
                     lblError.Text = "Modification réussie";
+                    List<Produit> liste = new List<Produit>();
+                    liste = GestionProduits.GetProduits();
+                    // Rattachement de la List à la source de données du datagridview
+                    dtgProducts.DataSource = liste;
+                    lblError.Visible = false;
+                    txtLabelProduct.Text = string.Empty;
+                    txtPrixHTProduct.Text = string.Empty;
+                    btnAddProduct.Visible = true;
                 }
                 else
                 {
@@ -191,6 +222,18 @@ namespace CommercialGUI
                 }
             }
 
+        }
+
+        private void btnPro_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmViewCustomer viewCustomer = new FrmViewCustomer();
+            viewCustomer.ShowDialog(); // ouverture du formulaire*
         }
     }
 }

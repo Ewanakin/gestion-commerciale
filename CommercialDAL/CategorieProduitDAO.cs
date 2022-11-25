@@ -23,7 +23,7 @@ namespace CommercialDAL
         }
         // Cette méthode retourne une List contenant les objets Utilisateurs
         // contenus dans la table Identification
-        public static CategorieProduit GetUneCategorieProduit(string libelleCateg)
+        public static List<CategorieProduit> GetUneCategorieProduit(int codeCateg)
         {
             int code;
             string libelle;
@@ -31,16 +31,20 @@ namespace CommercialDAL
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             // Création d'une liste vide d'objets Produits
             List<CategorieProduit> lesCategoriesProduits = new List<CategorieProduit>();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Categorie_produit WHERE lib_categ LIKE @libCat", maConnexion);
-            cmd.Parameters.Add(new SqlParameter("libCat", "Ecran"));
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "SELECT * FROM Categorie_produit WHERE code_categ = @codeCateg";
+            cmd.Parameters.Add(new SqlParameter("codeCateg", codeCateg));
             SqlDataReader monReader = cmd.ExecuteReader();
             while(monReader.Read())
             {
                 code = Int32.Parse(monReader["code_categ"].ToString());
                 libelle = monReader["lib_categ"].ToString();
+                CategorieProduit newCategPro = new CategorieProduit(code, libelle);
+                lesCategoriesProduits.Add(newCategPro);
             }
-            CategorieProduit newCategPro = new CategorieProduit(code, libelle);
-            return newCategPro;
+            maConnexion.Close();
+            return lesCategoriesProduits;
         }
         public static List<CategorieProduit> GetCategorieProduits()
         {

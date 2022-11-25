@@ -1,25 +1,14 @@
-C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\bin\Debug\CommercialBLL.dll
-C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\bin\Debug\CommercialBLL.pdb
-C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\bin\Debug\CommercialBO.dll
-C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\bin\Debug\CommercialDAL.dll
-C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\bin\Debug\CommercialBO.pdb
-C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\bin\Debug\CommercialDAL.pdb
-C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\obj\Debug\CommercialBLL.csproj.AssemblyReference.cache
-C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\obj\Debug\CommercialBLL.csproj.CoreCompileInputs.cache
-C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\obj\Debug\CommercialBLL.csproj.CopyComplete
-C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\obj\Debug\CommercialBLL.dll
-C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\obj\Debug\CommercialBLL.pdb
-C:\Users\sdron\Documents\projetCsharpBis\gestion-commerciale\CommercialBLL\bin\Debug\CommercialBLL.dll
-C:\Users\sdron\Documents\projetCsharpBis\gestion-commerciale\CommercialBLL\bin\Debug\CommercialBLL.pdb
-C:\Users\sdron\Documents\projetCsharpBis\gestion-commerciale\CommercialBLL\bin\Debug\CommercialBO.dll
-C:\Users\sdron\Documents\projetCsharpBis\gestion-commerciale\CommercialBLL\bin\Debug\CommercialDAL.dll
-C:\Users\sdron\Documents\projetCsharpBis\gestion-commerciale\CommercialBLL\bin\Debug\CommercialBO.pdb
-C:\Users\sdron\Documents\projetCsharpBis\gestion-commerciale\CommercialBLL\bin\Debug\CommercialDAL.pdb
-C:\Users\sdron\Documents\projetCsharpBis\gestion-commerciale\CommercialBLL\obj\Debug\CommercialBLL.csproj.AssemblyReference.cache
-C:\Users\sdron\Documents\projetCsharpBis\gestion-commerciale\CommercialBLL\obj\Debug\CommercialBLL.csproj.CoreCompileInputs.cache
-C:\Users\sdron\Documents\projetCsharpBis\gestion-commerciale\CommercialBLL\obj\Debug\CommercialBLL.csproj.CopyComplete
-C:\Users\sdron\Documents\projetCsharpBis\gestion-commerciale\CommercialBLL\obj\Debug\CommercialBLL.dll
-C:\Users\sdron\Documents\projetCsharpBis\gestion-commerciale\CommercialBLL\obj\Debug\CommercialBLL.pdb
+C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialBLL\bin\Debug\CommercialBLL.dll
+C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialBLL\bin\Debug\CommercialBLL.pdb
+C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialBLL\bin\Debug\CommercialBO.dll
+C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialBLL\bin\Debug\CommercialDAL.dll
+C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialBLL\bin\Debug\CommercialBO.pdb
+C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialBLL\bin\Debug\CommercialDAL.pdb
+C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialBLL\obj\Debug\CommercialBLL.csproj.AssemblyReference.cache
+C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialBLL\obj\Debug\CommercialBLL.csproj.CoreCompileInputs.cache
+C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialBLL\obj\Debug\CommercialBLL.csproj.CopyComplete
+C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialBLL\obj\Debug\CommercialBLL.dll
+C:\Users\sdron\Documents\projetCsharp\gestion-commerciale\CommercialBLL\obj\Debug\CommercialBLL.pdb
 C:\Users\losko\Desktop\test\temp\gestion-commerciale\CommercialBLL\bin\Debug\CommercialBLL.dll
 C:\Users\losko\Desktop\test\temp\gestion-commerciale\CommercialBLL\bin\Debug\CommercialBLL.pdb
 C:\Users\losko\Desktop\test\temp\gestion-commerciale\CommercialBLL\bin\Debug\CommercialBO.dll
@@ -31,6 +20,17 @@ C:\Users\losko\Desktop\test\temp\gestion-commerciale\CommercialBLL\obj\Debug\Com
 C:\Users\losko\Desktop\test\temp\gestion-commerciale\CommercialBLL\obj\Debug\CommercialBLL.csproj.CopyComplete
 C:\Users\losko\Desktop\test\temp\gestion-commerciale\CommercialBLL\obj\Debug\CommercialBLL.dll
 C:\Users\losko\Desktop\test\temp\gestion-commerciale\CommercialBLL\obj\Debug\CommercialBLL.pdb
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\bin\Debug\CommercialBLL.dll
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\bin\Debug\CommercialBLL.pdb
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\bin\Debug\CommercialBO.dll
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\bin\Debug\CommercialDAL.dll
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\bin\Debug\CommercialBO.pdb
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\bin\Debug\CommercialDAL.pdb
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\obj\Debug\CommercialBLL.csproj.AssemblyReference.cache
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\obj\Debug\CommercialBLL.csproj.CoreCompileInputs.cache
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\obj\Debug\CommercialBLL.csproj.CopyComplete
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\obj\Debug\CommercialBLL.dll
+C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialBLL\obj\Debug\CommercialBLL.pdb
 C:\Users\quioc\Desktop\v2 ppe\gestion-commerciale\CommercialBLL\bin\Debug\CommercialBLL.dll
 C:\Users\quioc\Desktop\v2 ppe\gestion-commerciale\CommercialBLL\bin\Debug\CommercialBLL.pdb
 C:\Users\quioc\Desktop\v2 ppe\gestion-commerciale\CommercialBLL\bin\Debug\CommercialBO.dll

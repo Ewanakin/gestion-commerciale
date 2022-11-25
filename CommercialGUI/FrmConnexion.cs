@@ -43,10 +43,6 @@ namespace CommercialGUI
             {
                 errorMsg = errorMsg + "Mauvais couple E-mail/Mot de passe";
                 lblError.Text = errorMsg;
-
-                this.Hide();
-                FrmViewCustomer viewClients = new FrmViewCustomer();
-                viewClients.ShowDialog(); // ouverture du formulaire*
             }
             else
             {
@@ -54,6 +50,11 @@ namespace CommercialGUI
                 FrmViewProduct viewProduct = new FrmViewProduct();
                 viewProduct.ShowDialog(); // ouverture du formulaire*
             }
+        }
+
+        private void txtUser_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

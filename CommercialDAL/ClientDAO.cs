@@ -59,5 +59,118 @@ namespace CommercialDAL
 
             return lesClients;
         }
+
+        public static string addClient(Client unCli)
+        {
+            int nbre;
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "INSERT INTO Client(num_cli, num_tel_cli, num_fax_cli, adresse_mail_cli, num_adresse_fact_cli, num_adresse_livr_cli, rue_adresse_liv_cli, rue_adresse_fact_cli, code_postal_fact_cli,  code_postal_livr_cli, ville_adresse_livr_cli, ville_adresse_fact_cli)" +
+                "VALUES( @num_cli, @num_tel,  @num_fax, @adresse_mail, @num_adr_fact, @num_adr_livr, @rue_adr_livr, @rue_adr_fact, @code_postal_fact, @code_postal_livr, @ville_adr_livr, @ville_adr_fact)";
+            cmd.Parameters.Add(new SqlParameter("num_cli", unCli.Nom));
+            cmd.Parameters.Add(new SqlParameter("num_tel", unCli.NumeroTel));
+            cmd.Parameters.Add(new SqlParameter("num_fax", unCli.NumeroFax));
+            cmd.Parameters.Add(new SqlParameter("adresse_mail", unCli.Email));
+            cmd.Parameters.Add(new SqlParameter("num_adr_fact", unCli.NumAdresseFac));
+            cmd.Parameters.Add(new SqlParameter("num_adr_livr", unCli.NumAdresseLiv));
+            cmd.Parameters.Add(new SqlParameter("rue_adr_livr", unCli.RueAdresseLiv));
+            cmd.Parameters.Add(new SqlParameter("rue_adr_fact", unCli.RueAdresseFac));
+            cmd.Parameters.Add(new SqlParameter("code_postal_fact", unCli.CodePostalAdresseFac));
+            cmd.Parameters.Add(new SqlParameter("code_postal_livr", unCli.CodePostalAdresseLiv));
+            cmd.Parameters.Add(new SqlParameter("ville_adr_livr", unCli.VilleAdresseLiv));
+            cmd.Parameters.Add(new SqlParameter("ville_adr_fact", unCli.VilleAdresseFac));
+            nbre = cmd.ExecuteNonQuery();
+            maConnexion.Close();
+            if (nbre == 1)
+            {
+                return "Le client a bien été ajouté";
+            }
+            else
+            {
+                return "Un problème est survenue.";
+            }
+        }
+
+        // Cette méthode supprime de la BD un utilisateur dont l'id est passé en paramètre
+        public static string DeleteClient(int id)
+        {
+            SqlDataReader result;
+            string valid = "";
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "SELECT * FROM Devis WHERE code_cli = @codeCli";
+            cmd.Parameters.Add(new SqlParameter("codeCli", id));
+            result = cmd.ExecuteReader();
+            if (!result.HasRows)
+            {
+                maConnexion.Close();
+                SqlConnection maConnexionDel = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+                SqlCommand cmdDel = new SqlCommand();
+                cmdDel.Connection = maConnexionDel;
+                cmdDel.CommandText = "DELETE FROM Client WHERE code_cli = @codeCli";
+                cmdDel.Parameters.Add(new SqlParameter("codeCli", id));
+                cmdDel.ExecuteNonQuery();
+                valid = "Le client a bien été supprimé.";
+                maConnexionDel.Close();
+            }
+            else
+            {
+                maConnexion.Close();
+                valid = "Le Client ne peut pas être supprimé car il correspond à un devis.";
+            }
+            // Fermeture de la connexion
+            return valid;
+        }
+
+        public static string UpdateClient(Client unCli)
+        {
+
+            int nbEnr = 0;
+            //Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            try
+            {
+                SqlCommand checkID = new SqlCommand();
+                checkID.Connection = maConnexion;
+                checkID.CommandText = "SELECT * FROM Client WHERE code_cli = @codeCli";
+                checkID.ExecuteNonQuery();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = maConnexion;
+                cmd.CommandText = "UPDATE Client SET num_cli = @numCli, " +
+                    "num_tel_cli = @numTelCli, num_fax_cli = @numFaxCli, " +
+                    "adresse_mail_cli = @mailCli, num_adresse_fact_cli = @numAdresseFactCli, " +
+                    "num_adresse_livr_cli = @numAdresseLivrCli, rue_adresse_fact_cli = @rueAdresseFactCli, " +
+                    "rue_adresse_liv_cli = @rueAdresseLivrCli, code_postal_fact_cli = @codePostalFactCli, " +
+                    "code_postal_livr_cli = @codePostalLivrCli, ville_adresse_fact_cli = @villeAdresseFactCli, " +
+                    "ville_adresse_livr_cli = @villeAdresseLivrCli " +
+                    "WHERE code_cli = @codeCli";
+                cmd.Parameters.Add(new SqlParameter("numCli", unCli.Nom));
+                cmd.Parameters.Add(new SqlParameter("libellePro", unCli.Nom));
+                cmd.Parameters.Add(new SqlParameter("numTelCli", unCli.NumeroTel));
+                cmd.Parameters.Add(new SqlParameter("numFaxCli", unCli.NumeroFax));
+                cmd.Parameters.Add(new SqlParameter("mailCli", unCli.Email));
+                cmd.Parameters.Add(new SqlParameter("numAdresseFactCli", unCli.NumAdresseFac));
+                cmd.Parameters.Add(new SqlParameter("numAdresseLivrCli", unCli.NumAdresseLiv));
+                cmd.Parameters.Add(new SqlParameter("rueAdresseFactCli", unCli.RueAdresseFac));
+                cmd.Parameters.Add(new SqlParameter("rueAdresseLivrCli", unCli.RueAdresseLiv));
+                cmd.Parameters.Add(new SqlParameter("codePostalFactCli", unCli.CodePostalAdresseFac));
+                cmd.Parameters.Add(new SqlParameter("codePostalLivrCli", unCli.CodePostalAdresseLiv));
+                cmd.Parameters.Add(new SqlParameter("villeAdresseFactCli", unCli.VilleAdresseFac));
+                cmd.Parameters.Add(new SqlParameter("villeAdresseLivrCli", unCli.VilleAdresseLiv));
+                cmd.Parameters.Add(new SqlParameter("codeCli", unCli.Code));
+                nbEnr = cmd.ExecuteNonQuery();
+                // Fermeture de la connexion
+                maConnexion.Close();
+                return "Modification du client réussie";
+            }
+            catch(Exception ex) {
+                maConnexion.Close();
+                return "Modification impossible car ce client n'existe pas";
+            }
+        }
     }
 }

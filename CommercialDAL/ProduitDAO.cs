@@ -88,7 +88,11 @@ namespace CommercialDAL
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "UPDATE Produit SET lib_pro = '" + unProduit.Libelle + "', prix_vente_ht_pro = '" + unProduit.PrixHT + "', code_categ = '" + unProduit.LibelleCategorie + "' WHERE  code_pro = '" + unProduit.Code + "'";
+            cmd.CommandText = "UPDATE Produit SET lib_pro = @libellePro, prix_vente_ht_pro = @prixHTPro, code_categ = @codeCategPro WHERE  code_pro = @codePro";
+            cmd.Parameters.Add(new SqlParameter("libellePro", unProduit.Libelle));
+            cmd.Parameters.Add(new SqlParameter("prixHTPro", unProduit.PrixHT));
+            cmd.Parameters.Add(new SqlParameter("codeCategPro", unProduit.CategPro.Code));
+            cmd.Parameters.Add(new SqlParameter("codePro", unProduit.Code));
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();
@@ -105,7 +109,8 @@ namespace CommercialDAL
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "SELECT * FROM ProduitDevis WHERE code_pro = '" + id + "'";
+            cmd.CommandText = "SELECT * FROM ProduitDevis WHERE code_pro = @codePro";
+            cmd.Parameters.Add(new SqlParameter("codePro", id));
             result= cmd.ExecuteReader();
             if (!result.HasRows)
             {
@@ -113,7 +118,8 @@ namespace CommercialDAL
                 SqlConnection maConnexionDel = ConnexionBD.GetConnexionBD().GetSqlConnexion();
                 SqlCommand cmdDel = new SqlCommand();
                 cmdDel.Connection = maConnexionDel;
-                cmdDel.CommandText = "DELETE FROM Produit WHERE code_pro = '" + id + "'";
+                cmdDel.CommandText = "DELETE FROM Produit WHERE code_pro = @codePro";
+                cmd.Parameters.Add(new SqlParameter("codePro", id));
                 nbEnr = cmdDel.ExecuteNonQuery();
                 valid = "Le produit a bien été supprimé.";
                 maConnexionDel.Close();
