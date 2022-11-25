@@ -97,3 +97,36 @@ C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\obj\Debug\Commer
 C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.csproj.CopyComplete
 C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.exe
 C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.pdb
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.csproj.AssemblyReference.cache
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.csproj.SuggestedBindingRedirects.cache
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.FrmConnexion.resources
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.FrmViewCustomer.resources
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.FrmViewProduct.resources
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.Properties.Resources.resources
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.csproj.GenerateResource.cache
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.csproj.CoreCompileInputs.cache
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.exe
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.pdb
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\bin\Debug\CommercialGUI.exe.config
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\bin\Debug\CommercialGUI.exe
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\bin\Debug\CommercialGUI.pdb
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\bin\Debug\CommercialBLL.dll
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\bin\Debug\CommercialBO.dll
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\bin\Debug\System.Web.Helpers.dll
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\bin\Debug\System.Web.Mvc.dll
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\bin\Debug\System.Web.Razor.dll
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\bin\Debug\System.Web.WebPages.dll
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\bin\Debug\CommercialDAL.dll
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\bin\Debug\CommercialBLL.pdb
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\bin\Debug\CommercialBO.pdb
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\bin\Debug\System.Web.Helpers.xml
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\bin\Debug\System.Web.Mvc.xml
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\bin\Debug\System.Web.Razor.xml
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\bin\Debug\System.Web.WebPages.xml
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\bin\Debug\CommercialDAL.pdb
+C:\Users\losko\Desktop\test\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.csproj.CopyComplete
