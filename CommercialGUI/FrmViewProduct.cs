@@ -201,11 +201,7 @@ namespace CommercialGUI
                 float.TryParse(txtPrixHTProduct.Text, out prixHT);
                 if (prixHT != 0)
                 {
-<<<<<<< HEAD
-                    Produit updtProduit = new Produit(codePro, txtLabelProduct.Text, prixHT, GestionCategorieProduits.GetUneCategPro(cmbCategorieProduct.SelectedIndex.ToString()));
-=======
                     Produit updtProduit = new Produit(codePro, txtLabelProduct.Text, prixHT, GestionCategorieProduits.GetUneCategPro(codeCateg)[0]);
->>>>>>> d531a5117628c8478f262418a28182199963346b
                     GestionProduits.ModifierUtilisateur(updtProduit);
                     lblError.Visible = true;
                     lblError.Text = "Modification réussie";
@@ -225,6 +221,13 @@ namespace CommercialGUI
                 }
             }
 
+        }
+
+        private void btnCli_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmViewCustomer viewClients = new FrmViewCustomer();
+            viewClients.ShowDialog(); // ouverture du formulaire*
         }
     }
 }
