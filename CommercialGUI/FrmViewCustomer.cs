@@ -224,7 +224,7 @@ namespace CommercialGUI
                 || txtNumRueFact.Text.Length <= 0 || txtNomRueFact.Text.Length <= 0 || txtCodePostalFact.Text.Length <= 0 || txtVilleFact.Text.Length <= 0)
             {
                 generalMessage = "Veuillez remplir tous les champs avant de valider";
-                lblGeneralMessage.Text = generalMessage;
+                lblStatus.Text = generalMessage;
             }
             else
             {
@@ -238,7 +238,11 @@ namespace CommercialGUI
                     Client unClient = new Client(0, txtNom.Text, numTel, numFax, txtEmail.Text, numRueLivr, numRueFact, txtNomRueLivr.Text, txtNomRueFact.Text, codePostalLivr, codePostalFact, txtVilleLivr.Text, txtVilleFact.Text);
                     GestionClients.AjouterClient(unClient);
                     generalMessage = "Ajout du client réussie";
+<<<<<<< HEAD
                     lblGeneralMessage.Text = generalMessage;
+=======
+                    lblStatus.Text = generalMessage;
+>>>>>>> main
                     List<Client> liste = new List<Client>();
                     liste = GestionClients.GetClients();
                     // Rattachement de la List à la source de données du datagridview
@@ -261,8 +265,12 @@ namespace CommercialGUI
                 }
                 else
                 {
+<<<<<<< HEAD
                     generalMessage = "Veuillez entrer uniquement des chiffres dans les champs code postal, num rue ,telephone, fax.";
                     lblStatus.Text = generalMessage;
+=======
+                    generalMessage = "Veuillez renseigné uniquement des chiffres dans les champs code postal, telephone, fax, num rue.";
+>>>>>>> main
                 }
             }
 
@@ -313,6 +321,11 @@ namespace CommercialGUI
                 txtCodePostalFact.Text = string.Empty;
                 txtVilleFact.Text = string.Empty;
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
