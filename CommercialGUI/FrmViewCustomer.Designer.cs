@@ -28,15 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-=======
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
->>>>>>> main
+
             this.dtgCustomer = new System.Windows.Forms.DataGridView();
             this.btnPro = new System.Windows.Forms.Button();
             this.lblNomCli = new System.Windows.Forms.Label();
@@ -82,7 +80,7 @@
             // 
             this.dtgCustomer.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dtgCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-<<<<<<< HEAD
+
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -91,7 +89,7 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgCustomer.DefaultCellStyle = dataGridViewCellStyle4;
-=======
+
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -100,12 +98,12 @@
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgCustomer.DefaultCellStyle = dataGridViewCellStyle7;
->>>>>>> main
+
             this.dtgCustomer.GridColor = System.Drawing.Color.Black;
             this.dtgCustomer.Location = new System.Drawing.Point(16, 17);
             this.dtgCustomer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dtgCustomer.Name = "dtgCustomer";
-<<<<<<< HEAD
+
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -117,7 +115,7 @@
             this.dtgCustomer.RowHeadersWidth = 82;
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
             this.dtgCustomer.RowsDefaultCellStyle = dataGridViewCellStyle6;
-=======
+
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -129,7 +127,7 @@
             this.dtgCustomer.RowHeadersWidth = 82;
             dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
             this.dtgCustomer.RowsDefaultCellStyle = dataGridViewCellStyle9;
->>>>>>> main
+
             this.dtgCustomer.RowTemplate.Height = 33;
             this.dtgCustomer.Size = new System.Drawing.Size(2660, 700);
             this.dtgCustomer.TabIndex = 0;
@@ -137,25 +135,25 @@
             // 
             // btnPro
             // 
-<<<<<<< HEAD
+
             this.btnPro.ForeColor = System.Drawing.Color.Black;
             this.btnPro.Location = new System.Drawing.Point(50, 1170);
-=======
+
             this.btnPro.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.btnPro.ForeColor = System.Drawing.Color.Lime;
             this.btnPro.Location = new System.Drawing.Point(26, 1159);
->>>>>>> main
+
             this.btnPro.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnPro.Name = "btnPro";
             this.btnPro.Size = new System.Drawing.Size(292, 61);
             this.btnPro.TabIndex = 1;
-<<<<<<< HEAD
+
             this.btnPro.Text = "Vers produits >";
             this.btnPro.UseVisualStyleBackColor = true;
-=======
+
             this.btnPro.Text = "vers produit >";
             this.btnPro.UseVisualStyleBackColor = false;
->>>>>>> main
+
             this.btnPro.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblNomCli
@@ -486,10 +484,9 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 25);
             this.label2.TabIndex = 35;
-<<<<<<< HEAD
-=======
+
             this.label2.Click += new System.EventHandler(this.label2_Click);
->>>>>>> main
+
             // 
             // lblGeneralMessage
             // 

@@ -44,11 +44,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-<<<<<<< HEAD
+
             this.btnCli = new System.Windows.Forms.Button();
-=======
+
             this.btnPro = new System.Windows.Forms.Button();
->>>>>>> main
+
             ((System.ComponentModel.ISupportInitialize)(this.dtgProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -216,7 +216,6 @@
             this.label4.TabIndex = 19;
             this.label4.Text = "Code Produit";
             // 
-<<<<<<< HEAD
             // btnCli
             // 
             this.btnCli.ForeColor = System.Drawing.Color.Black;
@@ -228,7 +227,6 @@
             this.btnCli.Text = "Vers client >";
             this.btnCli.UseVisualStyleBackColor = true;
             this.btnCli.Click += new System.EventHandler(this.btnCli_Click);
-=======
             // btnPro
             // 
             this.btnPro.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -240,8 +238,6 @@
             this.btnPro.TabIndex = 20;
             this.btnPro.Text = "vers client >";
             this.btnPro.UseVisualStyleBackColor = false;
-            this.btnPro.Click += new System.EventHandler(this.btnPro_Click);
->>>>>>> main
             // 
             // FrmViewProduct
             // 
@@ -249,11 +245,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1461, 917);
-<<<<<<< HEAD
+
             this.Controls.Add(this.btnCli);
-=======
+
             this.Controls.Add(this.btnPro);
->>>>>>> main
+
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -297,10 +293,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-<<<<<<< HEAD
+
         private System.Windows.Forms.Button btnCli;
-=======
+
         private System.Windows.Forms.Button btnPro;
->>>>>>> main
+
     }
 }

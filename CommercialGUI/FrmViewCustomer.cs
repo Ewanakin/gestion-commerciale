@@ -238,11 +238,11 @@ namespace CommercialGUI
                     Client unClient = new Client(0, txtNom.Text, numTel, numFax, txtEmail.Text, numRueLivr, numRueFact, txtNomRueLivr.Text, txtNomRueFact.Text, codePostalLivr, codePostalFact, txtVilleLivr.Text, txtVilleFact.Text);
                     GestionClients.AjouterClient(unClient);
                     generalMessage = "Ajout du client réussie";
-<<<<<<< HEAD
+
                     lblGeneralMessage.Text = generalMessage;
-=======
+
                     lblStatus.Text = generalMessage;
->>>>>>> main
+
                     List<Client> liste = new List<Client>();
                     liste = GestionClients.GetClients();
                     // Rattachement de la List à la source de données du datagridview
@@ -265,12 +265,12 @@ namespace CommercialGUI
                 }
                 else
                 {
-<<<<<<< HEAD
+
                     generalMessage = "Veuillez entrer uniquement des chiffres dans les champs code postal, num rue ,telephone, fax.";
                     lblStatus.Text = generalMessage;
-=======
+
                     generalMessage = "Veuillez renseigné uniquement des chiffres dans les champs code postal, telephone, fax, num rue.";
->>>>>>> main
+
                 }
             }
 

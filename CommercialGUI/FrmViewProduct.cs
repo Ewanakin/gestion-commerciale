@@ -201,10 +201,7 @@ namespace CommercialGUI
                 float.TryParse(txtPrixHTProduct.Text, out prixHT);
                 if (prixHT != 0)
                 {
-<<<<<<< HEAD
-=======
 
->>>>>>> main
                     Produit updtProduit = new Produit(codePro, txtLabelProduct.Text, prixHT, GestionCategorieProduits.GetUneCategPro(codeCateg)[0]);
                     GestionProduits.ModifierUtilisateur(updtProduit);
                     lblError.Visible = true;
