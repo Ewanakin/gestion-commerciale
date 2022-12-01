@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CommercialBO
 {
-    internal class Devis
+    public class Devis
     {
         private int id;
         private float tx_tva;

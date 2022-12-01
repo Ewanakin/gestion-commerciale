@@ -6,27 +6,43 @@ using System.Threading.Tasks;
 
 namespace CommercialBO
 {
-    internal class ProduitDevis
+    public class ProduitDevis
     {
-        private Devis devis;
-        private Produit produit;
+        private int codeDevis;
+        private int codeProduit;
+        private int quantite;
 
-        public ProduitDevis(Devis devis, Produit produit)
+        public ProduitDevis(int devis, int produit)
         {
-            this.devis = devis;
-            this.produit = produit;
+            this.codeDevis = devis;
+            this.codeProduit = produit;
         }
 
-        public Devis Devis
+        public int CodeDevis
         {
-            get { return devis; }
-            set { devis = value; }
+            get { return codeDevis; }
         }
 
-        public Produit Produit
+        public int CodeProduit 
         {
-            get { return produit; }
-            set { produit = value; }
+            get { return codeProduit; }
+        }
+
+        public int Quantite
+        {
+            get { return quantite; }
+            set { quantite = value; }
+        }
+
+        public float sumProduitPrix(Devis unDevis)
+        {
+            int num = 0;
+            return num;
+        }
+
+        public List<Produit> getProduitPourDevis()
+        {
+            return new List<Produit>();
         }
     }
 }

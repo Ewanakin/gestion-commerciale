@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CommercialBO
 {
-    internal class StatusDevis
+    public class StatusDevis
     {
         private int id;
         private string libelle;
