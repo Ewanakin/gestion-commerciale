@@ -327,5 +327,10 @@ namespace CommercialGUI
         {
 
         }
+
+        private void txtNumRue_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
