@@ -58,6 +58,32 @@ namespace CommercialGUI
             liste = GestionProduits.GetProduits();
             // Rattachement de la List à la source de données du datagridview
             dtgDevis.DataSource = liste;
+
+
+
+            // injection valeur combobox Client
+            List<Client> listeClient = new List<Client>();
+            listeClient = GestionClients.GetClients();
+
+            cmbClient.DataSource = listeClient;
+            cmbClient.DisplayMember = "nom";
+            cmbClient.ValueMember = "code";
+
+            // injection valeur combobox Produit
+            List<Produit> listeProduit = new List<Produit>();
+            listeProduit = GestionProduits.GetProduits();
+
+            cmbAddProduit.DataSource = listeProduit;
+            cmbAddProduit.DisplayMember = "libelle";
+            cmbAddProduit.ValueMember = "code";
+
+            // injection valeur combobox Statut
+            List<StatusDevis> listeStatut = new List<StatusDevis>();
+            listeStatut = GestionDevis.GetStatusDevis();
+
+            cmbStatutDevis.DataSource = listeStatut;
+            cmbStatutDevis.DisplayMember = "libelle";
+            cmbStatutDevis.ValueMember = "id";
         }
 
         private void dtgDevis_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -65,5 +91,39 @@ namespace CommercialGUI
 
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbAddProduit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gpDevis_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpDateDevis_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

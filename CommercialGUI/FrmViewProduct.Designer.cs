@@ -44,11 +44,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-
             this.btnCli = new System.Windows.Forms.Button();
-
             this.btnPro = new System.Windows.Forms.Button();
-
             ((System.ComponentModel.ISupportInitialize)(this.dtgProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -132,6 +129,7 @@
             this.cmbCategorieProduct.Name = "cmbCategorieProduct";
             this.cmbCategorieProduct.Size = new System.Drawing.Size(214, 33);
             this.cmbCategorieProduct.TabIndex = 9;
+            this.cmbCategorieProduct.SelectedIndexChanged += new System.EventHandler(this.cmbCategorieProduct_SelectedIndexChanged);
             // 
             // btnUpdateProduct
             // 
@@ -227,6 +225,7 @@
             this.btnCli.Text = "Vers client >";
             this.btnCli.UseVisualStyleBackColor = true;
             this.btnCli.Click += new System.EventHandler(this.btnCli_Click);
+            // 
             // btnPro
             // 
             this.btnPro.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -245,11 +244,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1461, 917);
-
             this.Controls.Add(this.btnCli);
-
             this.Controls.Add(this.btnPro);
-
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

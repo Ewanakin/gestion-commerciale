@@ -230,5 +230,10 @@ namespace CommercialGUI
             FrmViewCustomer viewClients = new FrmViewCustomer();
             viewClients.ShowDialog(); // ouverture du formulaire*
         }
+
+        private void cmbCategorieProduct_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
