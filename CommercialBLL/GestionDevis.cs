@@ -8,7 +8,11 @@ using CommercialDAL;
 
 namespace CommercialBLL
 {
-    internal class GestionDevis
+    public class GestionDevis
     {
+        public static List<StatusDevis> GetStatusDevis()
+        {
+            return DevisDAO.getStatusDevis();
+        }
     }
 }
