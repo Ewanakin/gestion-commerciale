@@ -8,7 +8,7 @@ using CommercialBO;
 
 namespace CommercialDAL
 {
-    internal class DevisDAO
+    public class DevisDAO
     {
         public static List<Devis> GetDevis()
         {
@@ -75,6 +75,29 @@ namespace CommercialDAL
                 lesProduitDevis.Add(unProduitDevis);
             }
             return lesProduitDevis;
+        }
+
+        public static List<StatusDevis> getStatusDevis()
+        {
+            int codeStatus;
+            string libelleStatus;
+            StatusDevis unStatus;
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            // Création d'une liste vide d'objets Produits
+            List<StatusDevis> lesStatusDevis = new List<StatusDevis>();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "SELECT * FROM Statut_devis";
+            SqlDataReader monReader = cmd.ExecuteReader();
+            while (monReader.Read())
+            {
+                codeStatus = Int32.Parse(monReader["code_statut"].ToString());
+                libelleStatus = monReader["lib_statut"].ToString();
+                unStatus = new StatusDevis(codeStatus, libelleStatus);
+                lesStatusDevis.Add(unStatus);
+            }
+            return lesStatusDevis;
+
         }
     }
         
