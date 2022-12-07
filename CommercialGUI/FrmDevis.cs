@@ -87,11 +87,23 @@ namespace CommercialGUI
             remiseProduitColumn.DataPropertyName = "remiseProduit";
             remiseProduitColumn.HeaderText = "remiseProduit";
 
+            DataGridViewButtonColumn supprimerProduit = new DataGridViewButtonColumn();
+            supprimerProduit.Name = "supprimerProduit";
+            supprimerProduit.DataPropertyName = "supprimerProduit";
+            supprimerProduit.HeaderText = "supprimerProduit";
+
             dtgDevisModify.Columns.Add(idProduitColumn);
+            idProduitColumn.DisplayIndex = 0;
             dtgDevisModify.Columns.Add(nomProduitColumn);
+            nomProduitColumn.DisplayIndex = 1;
             dtgDevisModify.Columns.Add(quantitéProduitColumn);
+            quantitéProduitColumn.DisplayIndex = 2;
             dtgDevisModify.Columns.Add(prixProduitColumn);
+            prixProduitColumn.DisplayIndex = 3;
             dtgDevisModify.Columns.Add(remiseProduitColumn);
+            remiseProduitColumn.DisplayIndex = 4;
+            dtgDevisModify.Columns.Add(supprimerProduit);
+            supprimerProduit.DisplayIndex = 5;
 
 
             // injection valeur combobox Client
@@ -121,7 +133,39 @@ namespace CommercialGUI
 
         private void dtgDevis_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Récupérer l'index de la ligne sur laquelle l'utilisateur a cliqué
+            int rowIndex = e.RowIndex;
+            int cellIndex = e.ColumnIndex;
 
+            DataGridViewRow row = dtgDevisModify.Rows[rowIndex];
+
+            if (cellIndex == 5)
+            {
+                // vérifier si la colonne cliquée est la colonne numéro 5
+                if (row.IsNewRow)
+                {
+                    
+                    lblErrorAdd.Text = "Le produit n'existe pas";
+                    return;
+                }
+
+
+                DialogResult result = MessageBox.Show("Voulez-vous vraiment supprimer ce produit ?", "Confirmation", MessageBoxButtons.YesNo);
+
+                // Vérifier la valeur retournée par la fenêtre de confirmation
+                if (result == DialogResult.Yes)
+                {
+                    // L'utilisateur a choisi Oui, supprimer le produit
+                    // Supprimer la ligne sélectionnée en utilisant l'index récupéré
+                    dtgDevisModify.Rows.RemoveAt(rowIndex);
+                    lblErrorAdd.Text = "Suppression confirmé";
+                }
+                else
+                {
+                    // L'utilisateur a choisi Non, annuler la suppression du produit
+                    lblErrorAdd.Text = "Suppression annulé";
+                }
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -169,10 +213,6 @@ namespace CommercialGUI
 
         }
 
-        private void dtgDevisModify_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void btnNewDevis_Click(object sender, EventArgs e)
         {
@@ -209,6 +249,13 @@ namespace CommercialGUI
                 
             dtgDevisModify.Rows.Add(unProduit.Code, unProduit.Libelle, quantitéPro, unProduit.PrixHT, tauxRemise);
             dtgDevisModify.Refresh();
+        }
+
+        private void dtgDevisModify_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+       
+            
+
         }
     }
 }
