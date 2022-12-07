@@ -59,6 +59,39 @@ namespace CommercialGUI
             // Rattachement de la List à la source de données du datagridview
             dtgDevis.DataSource = liste;
 
+            // Blocage de la génération automatique des colonnes && création en-tete dtgModify Produit
+            dtgDevisModify.AutoGenerateColumns = false;
+            DataGridViewTextBoxColumn idProduitColumn = new DataGridViewTextBoxColumn();
+            idProduitColumn.Name = "idProduit";
+            idProduitColumn.DataPropertyName = "idProduit";
+            idProduitColumn.HeaderText = "idProduit";
+            idProduitColumn.Visible = false;
+
+            DataGridViewTextBoxColumn nomProduitColumn = new DataGridViewTextBoxColumn();
+            nomProduitColumn.Name = "nomProduit";
+            nomProduitColumn.DataPropertyName = "nomProduit";
+            nomProduitColumn.HeaderText = "nomProduit";
+
+            DataGridViewTextBoxColumn quantitéProduitColumn = new DataGridViewTextBoxColumn();
+            quantitéProduitColumn.Name = "quantitéProduit";
+            quantitéProduitColumn.DataPropertyName = "quantitéProduit";
+            quantitéProduitColumn.HeaderText = "quantitéProduit";
+
+            DataGridViewTextBoxColumn prixProduitColumn = new DataGridViewTextBoxColumn();
+            prixProduitColumn.Name = "prixUnitaireProduit";
+            prixProduitColumn.DataPropertyName = "prixUnitaireProduit";
+            prixProduitColumn.HeaderText = "prixUnitaireProduit";
+
+            DataGridViewTextBoxColumn remiseProduitColumn = new DataGridViewTextBoxColumn();
+            remiseProduitColumn.Name = "remiseProduit";
+            remiseProduitColumn.DataPropertyName = "remiseProduit";
+            remiseProduitColumn.HeaderText = "remiseProduit";
+
+            dtgDevisModify.Columns.Add(idProduitColumn);
+            dtgDevisModify.Columns.Add(nomProduitColumn);
+            dtgDevisModify.Columns.Add(quantitéProduitColumn);
+            dtgDevisModify.Columns.Add(prixProduitColumn);
+            dtgDevisModify.Columns.Add(remiseProduitColumn);
 
 
             // injection valeur combobox Client
@@ -124,6 +157,58 @@ namespace CommercialGUI
         private void dtpDateDevis_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMontantHTHR_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtgDevisModify_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnNewDevis_Click(object sender, EventArgs e)
+        {
+            //btn modify / supp plus visible au click
+            btnModifyDevis.Visible = false;
+            btnSupDevis.Visible = false;
+            //btn cancel / add devis visible au click
+            btnAddDevis.Visible = true;
+            btnCancelDevis.Visible = true;
+            //champs code plus visible au click
+            txtCode.Visible = false;
+        }
+
+        private void btnAddProduct_Click(object sender, EventArgs e)
+        {
+            if (txtQuantité.Text.Length == 0 || txtTauxRemise.Text.Length == 0)
+            {
+                lblErrorAdd.Text = "Merci de renseigné tout les champs";
+                return;
+            }
+            string id = cmbAddProduit.SelectedValue.ToString();
+            int idI;
+            int.TryParse(id, out idI);
+            Produit unProduit = GestionProduits.getUnProduit(idI);
+
+            int quantitéPro;
+            int.TryParse(txtQuantité.Text, out quantitéPro);
+
+            int tauxRemise;
+            int.TryParse(txtTauxRemise.Text, out tauxRemise);
+
+            if (quantitéPro < 1)
+                quantitéPro = 1;
+                
+            dtgDevisModify.Rows.Add(unProduit.Code, unProduit.Libelle, quantitéPro, unProduit.PrixHT, tauxRemise);
+            dtgDevisModify.Refresh();
         }
     }
 }

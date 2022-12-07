@@ -31,6 +31,25 @@
             this.dtgDevis = new System.Windows.Forms.DataGridView();
             this.btnNewDevis = new System.Windows.Forms.Button();
             this.gpDevis = new System.Windows.Forms.GroupBox();
+            this.btnCancelDevis = new System.Windows.Forms.Button();
+            this.btnAddDevis = new System.Windows.Forms.Button();
+            this.lblMontantTTC = new System.Windows.Forms.Label();
+            this.lblMontantTVA = new System.Windows.Forms.Label();
+            this.lblMHTAR = new System.Windows.Forms.Label();
+            this.lblMontantHorsRemise = new System.Windows.Forms.Label();
+            this.lblTauxRemise = new System.Windows.Forms.Label();
+            this.lblTauxTva = new System.Windows.Forms.Label();
+            this.lblCode = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.btnAddProduct = new System.Windows.Forms.Button();
+            this.txtQuantité = new System.Windows.Forms.TextBox();
+            this.lblQuantité = new System.Windows.Forms.Label();
+            this.lblAddProduit = new System.Windows.Forms.Label();
+            this.cmbAddProduit = new System.Windows.Forms.ComboBox();
+            this.cmbStatutDevis = new System.Windows.Forms.ComboBox();
+            this.lblStatut = new System.Windows.Forms.Label();
+            this.cmbClient = new System.Windows.Forms.ComboBox();
+            this.lblClient = new System.Windows.Forms.Label();
             this.txtMontantHTAR = new System.Windows.Forms.TextBox();
             this.txtMontantHTHR = new System.Windows.Forms.TextBox();
             this.txtMontantTtc = new System.Windows.Forms.TextBox();
@@ -42,19 +61,8 @@
             this.txtTauxTva = new System.Windows.Forms.TextBox();
             this.dtpDateDevis = new System.Windows.Forms.DateTimePicker();
             this.txtCode = new System.Windows.Forms.TextBox();
-            this.lblClient = new System.Windows.Forms.Label();
-            this.cmbClient = new System.Windows.Forms.ComboBox();
-            this.cmbStatutDevis = new System.Windows.Forms.ComboBox();
-            this.lblStatut = new System.Windows.Forms.Label();
-            this.cmbAddProduit = new System.Windows.Forms.ComboBox();
-            this.lblAddProduit = new System.Windows.Forms.Label();
-            this.lblQuantité = new System.Windows.Forms.Label();
-            this.txtQuantité = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.lblCode = new System.Windows.Forms.Label();
-            this.lblTauxTva = new System.Windows.Forms.Label();
-            this.lblTauxRemise = new System.Windows.Forms.Label();
+            this.lblErrorAdd = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDevis)).BeginInit();
             this.gpDevis.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDevisModify)).BeginInit();
@@ -80,14 +88,23 @@
             this.btnNewDevis.TabIndex = 1;
             this.btnNewDevis.Text = "Nouveau";
             this.btnNewDevis.UseVisualStyleBackColor = true;
+            this.btnNewDevis.Click += new System.EventHandler(this.btnNewDevis_Click);
             // 
             // gpDevis
             // 
+            this.gpDevis.Controls.Add(this.label2);
+            this.gpDevis.Controls.Add(this.lblErrorAdd);
+            this.gpDevis.Controls.Add(this.btnCancelDevis);
+            this.gpDevis.Controls.Add(this.btnAddDevis);
+            this.gpDevis.Controls.Add(this.lblMontantTTC);
+            this.gpDevis.Controls.Add(this.lblMontantTVA);
+            this.gpDevis.Controls.Add(this.lblMHTAR);
+            this.gpDevis.Controls.Add(this.lblMontantHorsRemise);
             this.gpDevis.Controls.Add(this.lblTauxRemise);
             this.gpDevis.Controls.Add(this.lblTauxTva);
             this.gpDevis.Controls.Add(this.lblCode);
             this.gpDevis.Controls.Add(this.lblDate);
-            this.gpDevis.Controls.Add(this.button1);
+            this.gpDevis.Controls.Add(this.btnAddProduct);
             this.gpDevis.Controls.Add(this.txtQuantité);
             this.gpDevis.Controls.Add(this.lblQuantité);
             this.gpDevis.Controls.Add(this.lblAddProduit);
@@ -107,14 +124,193 @@
             this.gpDevis.Controls.Add(this.txtTauxTva);
             this.gpDevis.Controls.Add(this.dtpDateDevis);
             this.gpDevis.Controls.Add(this.txtCode);
-            this.gpDevis.ForeColor = System.Drawing.Color.Coral;
+            this.gpDevis.ForeColor = System.Drawing.Color.Black;
             this.gpDevis.Location = new System.Drawing.Point(1519, 155);
             this.gpDevis.Name = "gpDevis";
-            this.gpDevis.Size = new System.Drawing.Size(713, 1302);
+            this.gpDevis.Size = new System.Drawing.Size(847, 1302);
             this.gpDevis.TabIndex = 2;
             this.gpDevis.TabStop = false;
             this.gpDevis.Text = "Details";
             this.gpDevis.Enter += new System.EventHandler(this.gpDevis_Enter);
+            // 
+            // btnCancelDevis
+            // 
+            this.btnCancelDevis.Location = new System.Drawing.Point(455, 1197);
+            this.btnCancelDevis.Name = "btnCancelDevis";
+            this.btnCancelDevis.Size = new System.Drawing.Size(223, 81);
+            this.btnCancelDevis.TabIndex = 29;
+            this.btnCancelDevis.Text = "Annuler";
+            this.btnCancelDevis.UseVisualStyleBackColor = true;
+            this.btnCancelDevis.Visible = false;
+            // 
+            // btnAddDevis
+            // 
+            this.btnAddDevis.Location = new System.Drawing.Point(192, 1197);
+            this.btnAddDevis.Name = "btnAddDevis";
+            this.btnAddDevis.Size = new System.Drawing.Size(223, 81);
+            this.btnAddDevis.TabIndex = 28;
+            this.btnAddDevis.Text = "Enregistrer";
+            this.btnAddDevis.UseVisualStyleBackColor = true;
+            this.btnAddDevis.Visible = false;
+            // 
+            // lblMontantTTC
+            // 
+            this.lblMontantTTC.AutoSize = true;
+            this.lblMontantTTC.Location = new System.Drawing.Point(389, 978);
+            this.lblMontantTTC.Name = "lblMontantTTC";
+            this.lblMontantTTC.Size = new System.Drawing.Size(137, 25);
+            this.lblMontantTTC.TabIndex = 27;
+            this.lblMontantTTC.Text = "Montant TTC";
+            // 
+            // lblMontantTVA
+            // 
+            this.lblMontantTVA.AutoSize = true;
+            this.lblMontantTVA.Location = new System.Drawing.Point(22, 978);
+            this.lblMontantTVA.Name = "lblMontantTVA";
+            this.lblMontantTVA.Size = new System.Drawing.Size(137, 25);
+            this.lblMontantTVA.TabIndex = 26;
+            this.lblMontantTVA.Text = "Montant TVA";
+            // 
+            // lblMHTAR
+            // 
+            this.lblMHTAR.AutoSize = true;
+            this.lblMHTAR.Location = new System.Drawing.Point(389, 900);
+            this.lblMHTAR.Name = "lblMHTAR";
+            this.lblMHTAR.Size = new System.Drawing.Size(246, 25);
+            this.lblMHTAR.TabIndex = 25;
+            this.lblMHTAR.Text = "Montant HT avec remise";
+            // 
+            // lblMontantHorsRemise
+            // 
+            this.lblMontantHorsRemise.AutoSize = true;
+            this.lblMontantHorsRemise.Location = new System.Drawing.Point(22, 900);
+            this.lblMontantHorsRemise.Name = "lblMontantHorsRemise";
+            this.lblMontantHorsRemise.Size = new System.Drawing.Size(253, 25);
+            this.lblMontantHorsRemise.TabIndex = 24;
+            this.lblMontantHorsRemise.Text = "Montant HT Hors Remise";
+            this.lblMontantHorsRemise.Click += new System.EventHandler(this.label1_Click_2);
+            // 
+            // lblTauxRemise
+            // 
+            this.lblTauxRemise.AutoSize = true;
+            this.lblTauxRemise.Location = new System.Drawing.Point(508, 269);
+            this.lblTauxRemise.Name = "lblTauxRemise";
+            this.lblTauxRemise.Size = new System.Drawing.Size(138, 25);
+            this.lblTauxRemise.TabIndex = 23;
+            this.lblTauxRemise.Text = "Taux Remise";
+            // 
+            // lblTauxTva
+            // 
+            this.lblTauxTva.AutoSize = true;
+            this.lblTauxTva.Location = new System.Drawing.Point(22, 189);
+            this.lblTauxTva.Name = "lblTauxTva";
+            this.lblTauxTva.Size = new System.Drawing.Size(107, 25);
+            this.lblTauxTva.TabIndex = 22;
+            this.lblTauxTva.Text = "Taux TVA";
+            // 
+            // lblCode
+            // 
+            this.lblCode.AccessibleName = "";
+            this.lblCode.AutoSize = true;
+            this.lblCode.Location = new System.Drawing.Point(22, 38);
+            this.lblCode.Name = "lblCode";
+            this.lblCode.Size = new System.Drawing.Size(63, 25);
+            this.lblCode.TabIndex = 21;
+            this.lblCode.Text = "Code";
+            // 
+            // lblDate
+            // 
+            this.lblDate.AccessibleName = "";
+            this.lblDate.AutoSize = true;
+            this.lblDate.Location = new System.Drawing.Point(421, 38);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(57, 25);
+            this.lblDate.TabIndex = 20;
+            this.lblDate.Text = "Date";
+            // 
+            // btnAddProduct
+            // 
+            this.btnAddProduct.Location = new System.Drawing.Point(674, 352);
+            this.btnAddProduct.Name = "btnAddProduct";
+            this.btnAddProduct.Size = new System.Drawing.Size(156, 45);
+            this.btnAddProduct.TabIndex = 3;
+            this.btnAddProduct.Text = "Ajouter";
+            this.btnAddProduct.UseVisualStyleBackColor = true;
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
+            // 
+            // txtQuantité
+            // 
+            this.txtQuantité.Location = new System.Drawing.Point(360, 316);
+            this.txtQuantité.Name = "txtQuantité";
+            this.txtQuantité.Size = new System.Drawing.Size(134, 31);
+            this.txtQuantité.TabIndex = 19;
+            // 
+            // lblQuantité
+            // 
+            this.lblQuantité.AutoSize = true;
+            this.lblQuantité.Location = new System.Drawing.Point(355, 269);
+            this.lblQuantité.Name = "lblQuantité";
+            this.lblQuantité.Size = new System.Drawing.Size(89, 25);
+            this.lblQuantité.TabIndex = 18;
+            this.lblQuantité.Text = "quantité";
+            // 
+            // lblAddProduit
+            // 
+            this.lblAddProduit.AutoSize = true;
+            this.lblAddProduit.Location = new System.Drawing.Point(22, 269);
+            this.lblAddProduit.Name = "lblAddProduit";
+            this.lblAddProduit.Size = new System.Drawing.Size(182, 25);
+            this.lblAddProduit.TabIndex = 17;
+            this.lblAddProduit.Text = "Ajouter un produit";
+            // 
+            // cmbAddProduit
+            // 
+            this.cmbAddProduit.FormattingEnabled = true;
+            this.cmbAddProduit.Location = new System.Drawing.Point(27, 314);
+            this.cmbAddProduit.Name = "cmbAddProduit";
+            this.cmbAddProduit.Size = new System.Drawing.Size(299, 33);
+            this.cmbAddProduit.TabIndex = 16;
+            this.cmbAddProduit.SelectedIndexChanged += new System.EventHandler(this.cmbAddProduit_SelectedIndexChanged);
+            // 
+            // cmbStatutDevis
+            // 
+            this.cmbStatutDevis.AccessibleName = "lblStatus";
+            this.cmbStatutDevis.FormattingEnabled = true;
+            this.cmbStatutDevis.Location = new System.Drawing.Point(426, 140);
+            this.cmbStatutDevis.Name = "cmbStatutDevis";
+            this.cmbStatutDevis.Size = new System.Drawing.Size(200, 33);
+            this.cmbStatutDevis.TabIndex = 15;
+            this.cmbStatutDevis.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // lblStatut
+            // 
+            this.lblStatut.AccessibleName = "";
+            this.lblStatut.AutoSize = true;
+            this.lblStatut.Location = new System.Drawing.Point(421, 112);
+            this.lblStatut.Name = "lblStatut";
+            this.lblStatut.Size = new System.Drawing.Size(68, 25);
+            this.lblStatut.TabIndex = 14;
+            this.lblStatut.Text = "Statut";
+            this.lblStatut.Click += new System.EventHandler(this.label1_Click_1);
+            // 
+            // cmbClient
+            // 
+            this.cmbClient.FormattingEnabled = true;
+            this.cmbClient.Location = new System.Drawing.Point(27, 140);
+            this.cmbClient.Name = "cmbClient";
+            this.cmbClient.Size = new System.Drawing.Size(196, 33);
+            this.cmbClient.TabIndex = 13;
+            this.cmbClient.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // lblClient
+            // 
+            this.lblClient.AutoSize = true;
+            this.lblClient.Location = new System.Drawing.Point(22, 112);
+            this.lblClient.Name = "lblClient";
+            this.lblClient.Size = new System.Drawing.Size(67, 25);
+            this.lblClient.TabIndex = 12;
+            this.lblClient.Text = "Client";
+            this.lblClient.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtMontantHTAR
             // 
@@ -122,7 +318,6 @@
             this.txtMontantHTAR.Name = "txtMontantHTAR";
             this.txtMontantHTAR.Size = new System.Drawing.Size(252, 31);
             this.txtMontantHTAR.TabIndex = 10;
-            this.txtMontantHTAR.Text = "Montant HT avec remise";
             // 
             // txtMontantHTHR
             // 
@@ -130,23 +325,21 @@
             this.txtMontantHTHR.Name = "txtMontantHTHR";
             this.txtMontantHTHR.Size = new System.Drawing.Size(273, 31);
             this.txtMontantHTHR.TabIndex = 9;
-            this.txtMontantHTHR.Text = "Montant HT Hors Remise";
+            this.txtMontantHTHR.TextChanged += new System.EventHandler(this.txtMontantHTHR_TextChanged);
             // 
             // txtMontantTtc
             // 
-            this.txtMontantTtc.Location = new System.Drawing.Point(394, 979);
+            this.txtMontantTtc.Location = new System.Drawing.Point(394, 1006);
             this.txtMontantTtc.Name = "txtMontantTtc";
             this.txtMontantTtc.Size = new System.Drawing.Size(252, 31);
             this.txtMontantTtc.TabIndex = 8;
-            this.txtMontantTtc.Text = "Montant TTC";
             // 
             // txtMontantTva
             // 
-            this.txtMontantTva.Location = new System.Drawing.Point(27, 979);
+            this.txtMontantTva.Location = new System.Drawing.Point(27, 1006);
             this.txtMontantTva.Name = "txtMontantTva";
             this.txtMontantTva.Size = new System.Drawing.Size(273, 31);
             this.txtMontantTva.TabIndex = 7;
-            this.txtMontantTva.Text = "Montant TVA";
             // 
             // btnModifyDevis
             // 
@@ -174,19 +367,20 @@
             this.dtgDevisModify.Name = "dtgDevisModify";
             this.dtgDevisModify.RowHeadersWidth = 51;
             this.dtgDevisModify.RowTemplate.Height = 24;
-            this.dtgDevisModify.Size = new System.Drawing.Size(651, 469);
+            this.dtgDevisModify.Size = new System.Drawing.Size(792, 469);
             this.dtgDevisModify.TabIndex = 3;
+            this.dtgDevisModify.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgDevisModify_CellContentClick);
             // 
             // txtTauxRemise
             // 
-            this.txtTauxRemise.Location = new System.Drawing.Point(426, 205);
+            this.txtTauxRemise.Location = new System.Drawing.Point(513, 314);
             this.txtTauxRemise.Name = "txtTauxRemise";
             this.txtTauxRemise.Size = new System.Drawing.Size(196, 31);
             this.txtTauxRemise.TabIndex = 5;
             // 
             // txtTauxTva
             // 
-            this.txtTauxTva.Location = new System.Drawing.Point(27, 205);
+            this.txtTauxTva.Location = new System.Drawing.Point(27, 217);
             this.txtTauxTva.Name = "txtTauxTva";
             this.txtTauxTva.Size = new System.Drawing.Size(196, 31);
             this.txtTauxTva.TabIndex = 4;
@@ -206,126 +400,22 @@
             this.txtCode.Size = new System.Drawing.Size(196, 31);
             this.txtCode.TabIndex = 0;
             // 
-            // lblClient
+            // lblErrorAdd
             // 
-            this.lblClient.AutoSize = true;
-            this.lblClient.Location = new System.Drawing.Point(22, 100);
-            this.lblClient.Name = "lblClient";
-            this.lblClient.Size = new System.Drawing.Size(67, 25);
-            this.lblClient.TabIndex = 12;
-            this.lblClient.Text = "Client";
-            this.lblClient.Click += new System.EventHandler(this.label1_Click);
+            this.lblErrorAdd.AutoSize = true;
+            this.lblErrorAdd.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorAdd.Location = new System.Drawing.Point(34, 362);
+            this.lblErrorAdd.Name = "lblErrorAdd";
+            this.lblErrorAdd.Size = new System.Drawing.Size(0, 25);
+            this.lblErrorAdd.TabIndex = 30;
             // 
-            // cmbClient
+            // label2
             // 
-            this.cmbClient.FormattingEnabled = true;
-            this.cmbClient.Location = new System.Drawing.Point(27, 128);
-            this.cmbClient.Name = "cmbClient";
-            this.cmbClient.Size = new System.Drawing.Size(196, 33);
-            this.cmbClient.TabIndex = 13;
-            this.cmbClient.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // cmbStatutDevis
-            // 
-            this.cmbStatutDevis.AccessibleName = "lblStatus";
-            this.cmbStatutDevis.FormattingEnabled = true;
-            this.cmbStatutDevis.Location = new System.Drawing.Point(426, 128);
-            this.cmbStatutDevis.Name = "cmbStatutDevis";
-            this.cmbStatutDevis.Size = new System.Drawing.Size(200, 33);
-            this.cmbStatutDevis.TabIndex = 15;
-            this.cmbStatutDevis.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            // 
-            // lblStatut
-            // 
-            this.lblStatut.AccessibleName = "";
-            this.lblStatut.AutoSize = true;
-            this.lblStatut.Location = new System.Drawing.Point(421, 100);
-            this.lblStatut.Name = "lblStatut";
-            this.lblStatut.Size = new System.Drawing.Size(68, 25);
-            this.lblStatut.TabIndex = 14;
-            this.lblStatut.Text = "Statut";
-            this.lblStatut.Click += new System.EventHandler(this.label1_Click_1);
-            // 
-            // cmbAddProduit
-            // 
-            this.cmbAddProduit.FormattingEnabled = true;
-            this.cmbAddProduit.Location = new System.Drawing.Point(27, 314);
-            this.cmbAddProduit.Name = "cmbAddProduit";
-            this.cmbAddProduit.Size = new System.Drawing.Size(299, 33);
-            this.cmbAddProduit.TabIndex = 16;
-            this.cmbAddProduit.SelectedIndexChanged += new System.EventHandler(this.cmbAddProduit_SelectedIndexChanged);
-            // 
-            // lblAddProduit
-            // 
-            this.lblAddProduit.AutoSize = true;
-            this.lblAddProduit.Location = new System.Drawing.Point(22, 269);
-            this.lblAddProduit.Name = "lblAddProduit";
-            this.lblAddProduit.Size = new System.Drawing.Size(182, 25);
-            this.lblAddProduit.TabIndex = 17;
-            this.lblAddProduit.Text = "Ajouter un produit";
-            // 
-            // lblQuantité
-            // 
-            this.lblQuantité.AutoSize = true;
-            this.lblQuantité.Location = new System.Drawing.Point(355, 269);
-            this.lblQuantité.Name = "lblQuantité";
-            this.lblQuantité.Size = new System.Drawing.Size(89, 25);
-            this.lblQuantité.TabIndex = 18;
-            this.lblQuantité.Text = "quantité";
-            // 
-            // txtQuantité
-            // 
-            this.txtQuantité.Location = new System.Drawing.Point(360, 316);
-            this.txtQuantité.Name = "txtQuantité";
-            this.txtQuantité.Size = new System.Drawing.Size(134, 31);
-            this.txtQuantité.TabIndex = 19;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(523, 314);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(156, 45);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Ajouter";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // lblDate
-            // 
-            this.lblDate.AccessibleName = "";
-            this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(421, 38);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(57, 25);
-            this.lblDate.TabIndex = 20;
-            this.lblDate.Text = "Date";
-            // 
-            // lblCode
-            // 
-            this.lblCode.AccessibleName = "";
-            this.lblCode.AutoSize = true;
-            this.lblCode.Location = new System.Drawing.Point(22, 38);
-            this.lblCode.Name = "lblCode";
-            this.lblCode.Size = new System.Drawing.Size(63, 25);
-            this.lblCode.TabIndex = 21;
-            this.lblCode.Text = "Code";
-            // 
-            // lblTauxTva
-            // 
-            this.lblTauxTva.AutoSize = true;
-            this.lblTauxTva.Location = new System.Drawing.Point(22, 177);
-            this.lblTauxTva.Name = "lblTauxTva";
-            this.lblTauxTva.Size = new System.Drawing.Size(107, 25);
-            this.lblTauxTva.TabIndex = 22;
-            this.lblTauxTva.Text = "Taux TVA";
-            // 
-            // lblTauxRemise
-            // 
-            this.lblTauxRemise.AutoSize = true;
-            this.lblTauxRemise.Location = new System.Drawing.Point(421, 177);
-            this.lblTauxRemise.Name = "lblTauxRemise";
-            this.lblTauxRemise.Size = new System.Drawing.Size(138, 25);
-            this.lblTauxRemise.TabIndex = 23;
-            this.lblTauxRemise.Text = "Taux Remise";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(60, 376);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 25);
+            this.label2.TabIndex = 31;
             // 
             // FrmDevis
             // 
@@ -366,7 +456,7 @@
         private System.Windows.Forms.ComboBox cmbStatutDevis;
         private System.Windows.Forms.Label lblStatut;
         private System.Windows.Forms.ComboBox cmbClient;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAddProduct;
         private System.Windows.Forms.TextBox txtQuantité;
         private System.Windows.Forms.Label lblQuantité;
         private System.Windows.Forms.Label lblAddProduit;
@@ -375,5 +465,13 @@
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblTauxRemise;
         private System.Windows.Forms.Label lblTauxTva;
+        private System.Windows.Forms.Label lblMontantHorsRemise;
+        private System.Windows.Forms.Label lblMontantTTC;
+        private System.Windows.Forms.Label lblMontantTVA;
+        private System.Windows.Forms.Label lblMHTAR;
+        private System.Windows.Forms.Button btnCancelDevis;
+        private System.Windows.Forms.Button btnAddDevis;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblErrorAdd;
     }
 }
