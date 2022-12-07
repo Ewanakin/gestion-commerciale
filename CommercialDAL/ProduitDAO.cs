@@ -132,5 +132,36 @@ namespace CommercialDAL
             // Fermeture de la connexion
             return valid;
         }
+
+        public static Produit getUnProduit(int id)
+        {
+            int code, codeCateg;
+            string libelle, libelleCategorie;
+            float prixHT;
+            Produit unProduit = null;
+            CategorieProduit uneCategPro;
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            // Création d'une liste vide d'objets Produits
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = " SELECT * FROM Produit INNER JOIN Categorie_produit ON Produit.code_categ = Categorie_produit.code_categ Where code_pro = @codePro";
+            cmd.Parameters.Add(new SqlParameter("codePro", id));
+            SqlDataReader monReader = cmd.ExecuteReader();
+            // Remplissage de la liste
+            while (monReader.Read())
+            {
+                code = Int32.Parse(monReader["code_pro"].ToString());
+                codeCateg = Int32.Parse(monReader["code_categ"].ToString());
+                libelle = monReader["lib_pro"].ToString();
+                float.TryParse(monReader["prix_vente_ht_pro"].ToString(), out prixHT);
+                libelleCategorie = monReader["lib_categ"].ToString();
+                uneCategPro = new CategorieProduit(codeCateg, libelleCategorie);
+                unProduit = new Produit(code, libelle, prixHT, uneCategPro);
+            }
+            // Fermeture de la connexion
+            maConnexion.Close();
+            return unProduit;
+        }
     }
 }
