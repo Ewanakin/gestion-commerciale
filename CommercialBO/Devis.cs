@@ -13,6 +13,7 @@ namespace CommercialBO
         private DateTime date;
         private Client client;
         private StatusDevis status;
+        private float prixTotal;
 
         public Devis(int id, float tx_tva, DateTime date, Client client, StatusDevis status)
         {
@@ -21,6 +22,7 @@ namespace CommercialBO
             this.date = date;
             this.client = client;
             this.status = status;
+            this.prixTotal = 0;
         }
 
         public int Id
@@ -57,6 +59,20 @@ namespace CommercialBO
                 status = value;
             }
         }
+
+        public float getPrixTotal
+        {
+            get { return this.getPrixTotal; }
+            set { this.getPrixTotal = value; }
+        }
+
+        
+        public float getPrixAvecTva(float prixTotal)
+        {
+            return this.prixTotal = prixTotal * this.tx_tva;
+        }
+
+        
 
 
     }

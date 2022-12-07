@@ -74,6 +74,7 @@ namespace CommercialDAL
                 unProduitDevis = new ProduitDevis(codeDevis, codeProduit);
                 lesProduitDevis.Add(unProduitDevis);
             }
+            maConnexion.Close();
             return lesProduitDevis;
         }
 
@@ -96,6 +97,7 @@ namespace CommercialDAL
                 unStatus = new StatusDevis(codeStatus, libelleStatus);
                 lesStatusDevis.Add(unStatus);
             }
+            maConnexion.Close();
             return lesStatusDevis;
 
         }
