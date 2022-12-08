@@ -20,29 +20,19 @@ namespace CommercialGUI
         public FrmDevis()
         {
             InitializeComponent();
+            // Récupération de chaîne de connexion à la BD à l'ouverture du formulaire
+            GestionProduits.SetchaineConnexion(ConfigurationManager.ConnectionStrings["gestion-commerciale"]);
             // Blocage de la génération automatique des colonnes
             dtgDevis.AutoGenerateColumns = false;
-
-            List<Devis> listeDevis = new List<Devis>();
-            listeDevis = GestionDevis.getDevis();
-            List<ProduitDevis> produitDevis = new List<ProduitDevis>();
-            produitDevis = GestionProduitDevis.getProduitDevis();
-            List<Produit> produits = new List<Produit>();
-            produits = GestionProduits.GetProduits();
-            listeDevis = GestionProduitDevis.sumProduitPrix(listeDevis, produitDevis, produits);
-            // Rattachement de la List à la source de données du datagridview
-            dtgDevis.DataSource = listeDevis;
-            // Récupération de chaîne de connexion à la BD à l'ouverture du formulaire
-            GestionProduits.SetchaineConnexion(ConfigurationManager.ConnectionStrings["gestion-commerciale"]);                       
             // Création d'une en-tête de colonne pour la colonne 1
             DataGridViewTextBoxColumn CodeColumn = new DataGridViewTextBoxColumn();
             CodeColumn.Name = "code";
-            CodeColumn.DataPropertyName = "Id";
+            CodeColumn.DataPropertyName = "Code";
             CodeColumn.HeaderText = "Code";
             // Création d'une en-tête de colonne pour la colonne 2
             DataGridViewTextBoxColumn nomCliColumn = new DataGridViewTextBoxColumn();
             nomCliColumn.Name = "Nom client";
-            nomCliColumn.DataPropertyName = "ClientNom";
+            nomCliColumn.DataPropertyName = "Nom client";
             nomCliColumn.HeaderText = "Nom client";
             // Création d'une en-tête de colonne pour la colonne 3
             DataGridViewTextBoxColumn dateColumn = new DataGridViewTextBoxColumn();
@@ -52,7 +42,7 @@ namespace CommercialGUI
             // Création d'une en-tête de colonne pour la colonne 4
             DataGridViewTextBoxColumn prixColumn = new DataGridViewTextBoxColumn();
             prixColumn.Name = "Prix";
-            prixColumn.DataPropertyName = "PrixTotal";
+            prixColumn.DataPropertyName = "Prix";
             prixColumn.HeaderText = "Prix";
             // Ajout des 4 en-têtes de colonne au datagridview
             dtgDevis.Columns.Add(CodeColumn);
@@ -65,7 +55,11 @@ namespace CommercialGUI
             columnHeaderStyle.BackColor = Color.Beige;
             columnHeaderStyle.Font = new Font("Verdana", 10, FontStyle.Bold);
             dtgDevis.ColumnHeadersDefaultCellStyle = columnHeaderStyle;
-
+            // Création d'un objet List d'Utilisateur à afficher dans le datagridview
+            List<Produit> liste = new List<Produit>();
+            liste = GestionProduits.GetProduits();
+            // Rattachement de la List à la source de données du datagridview
+            dtgDevis.DataSource = liste;
 
             // Blocage de la génération automatique des colonnes && création en-tete dtgModify Produit
             dtgDevisModify.AutoGenerateColumns = false;
@@ -137,14 +131,48 @@ namespace CommercialGUI
             cmbStatutDevis.DataSource = listeStatut;
             cmbStatutDevis.DisplayMember = "libelle";
             cmbStatutDevis.ValueMember = "id";
-        
+
             // modif format dtpDateDevis
             dtpDateDevis.Format = DateTimePickerFormat.Custom;
             dtpDateDevis.CustomFormat = "MM-dd-yyyy";
         }
         private void dtgDevis_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+            // Récupérer l'index de la ligne sur laquelle l'utilisateur a cliqué
+            int rowIndex = e.RowIndex;
+            int cellIndex = e.ColumnIndex;
+            // Fix Erreur du click colonne 
+            if (rowIndex == -1)
+                return;
+
+            DataGridViewRow row = dtgDevisModify.Rows[rowIndex];
+
+            if (row.IsNewRow)
+            {
+                lblErrorAdd.Text = "Veuillez ajouter un produit";
+                return;
+            }
+
+            if (cellIndex == 5)
+            {
+                DialogResult result = MessageBox.Show("Voulez-vous vraiment supprimer ce produit ?", "Confirmation", MessageBoxButtons.YesNo);
+
+                // Vérifier la valeur retournée par la fenêtre de confirmation
+                if (result == DialogResult.Yes)
+                {
+                    // L'utilisateur a choisi Oui, supprimer le produit
+                    // Supprimer la ligne sélectionnée en utilisant l'index récupéré
+                    lblErrorAdd.Text = "Suppression confirmé";
+                    dtgDevisModify.Rows.RemoveAt(rowIndex);
+                    refreshPrixDevis();
+                }
+                else
+                {
+                    // L'utilisateur a choisi Non, annuler la suppression du produit
+                    lblErrorAdd.Text = "Suppression annulé";
+                }
+
+            }
         }
         // refresh prix devis sur l'event modif case
         private void dtgProduitDevis_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -288,13 +316,9 @@ namespace CommercialGUI
                 unProduitDevis = new ProduitDevis(codeDevis, codePro, remisePro, quantitéPro);
                 GestionDevis.ajoutProduitDansDevis(unProduitDevis);
             }
+            clearRightForm();
+            lblErrorAdd.Text = "Devis ajouté";
         }
-
-        private void gpDevis_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSupprimerDevis_Click(object sender, EventArgs e)
         {
             string boxMessageDel = "Etes-vous certain de vouloir supprimer ce Devis ";
@@ -320,17 +344,6 @@ namespace CommercialGUI
                 lblErrorAdd.Text = "Le produit n'a pas été supprimé";
             }
         }
-
-        private void txtCode_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCode_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSupDevis_Click(object sender, EventArgs e)
         {
             string boxMessageDel = "Etes-vous certain de vouloir supprimer ce Devis ";
@@ -357,75 +370,21 @@ namespace CommercialGUI
             }
         }
 
-<<<<<<< HEAD
-        private void dtgDevisModify_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        public void clearRightForm()
         {
-            int rowIndex = e.RowIndex;
-            int cellIndex = e.ColumnIndex;
-            // Fix Erreur du click colonne 
-            if (rowIndex == -1)
-                return;
-
-            DataGridViewRow row = dtgDevisModify.Rows[rowIndex];
-
-            if (row.IsNewRow)
-            {
-                lblErrorAdd.Text = "Veuillez ajouter un produit";
-                return;
-            }
-
-            if (cellIndex == 5)
-            {
-                DialogResult result = MessageBox.Show("Voulez-vous vraiment supprimer ce produit ?", "Confirmation", MessageBoxButtons.YesNo);
-
-                // Vérifier la valeur retournée par la fenêtre de confirmation
-                if (result == DialogResult.Yes)
-                {
-                    // L'utilisateur a choisi Oui, supprimer le produit
-                    // Supprimer la ligne sélectionnée en utilisant l'index récupéré
-                    lblErrorAdd.Text = "Suppression confirmé";
-                    dtgDevisModify.Rows.RemoveAt(rowIndex);
-                    refreshPrixDevis();
-                }
-                else
-                {
-                    // L'utilisateur a choisi Non, annuler la suppression du produit
-                    lblErrorAdd.Text = "Suppression annulé";
-                }
-
-            }
+            btnCancelDevis.Visible = false;
+            btnAddDevis.Visible = false;
+            btnModifyDevis.Visible = true;
+            btnSupDevis.Visible = true;
+            dtgDevisModify.Refresh();
+            txtMontantHTAR.Text = "";
+            dtgDevisModify.Rows.Clear();
+            txtMontantHTHR.Text = "";
+            txtMontantTtc.Text = "";
+            txtMontantTva.Text = "";
+            txtTauxTva.Text = "";
+            lblCode.Visible = true;
         }
-
-        private void dtgDevis_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Récupérer l'index de la ligne sur laquelle l'utilisateur a cliqué
-            int rowIndex = e.RowIndex;
-            int cellIndex = e.ColumnIndex;
-            List<Devis> listeDevis = new List<Devis>();
-            listeDevis = GestionDevis.getDevis();
-            // Fix Erreur du click colonne 
-            if (rowIndex == -1)
-                return;
-
-            dtgDevis.CurrentRow.Selected = true;
-            txtCode.Text = dtgDevis.Rows[rowIndex].Cells["code"].Value.ToString();
-            txtMontantTtc.Text = dtgDevis.Rows[rowIndex].Cells["Prix"].Value.ToString();
-            DateTime dt = (DateTime)dtgDevis.Rows[rowIndex].Cells["Date"].Value;
-            dtpDateDevis.Value = dt;
-            dtpDateDevis.CustomFormat = "MM-dd-yyyy";
-            cmbClient.Text = dtgDevis.Rows[rowIndex].Cells["Nom client"].Value.ToString();
-            string codeDevis = dtgDevis.Rows[rowIndex].Cells["code"].Value.ToString();
-            int codeDevisParse;
-            int.TryParse(codeDevis, out codeDevisParse);
-            Devis unDevis = GestionDevis.getUnDevis(listeDevis, codeDevisParse);
-            cmbStatutDevis.Text = unDevis.StatusDevisLib;
-            txtTauxTva.Text = unDevis.Tx_tva.ToString();
-        }
-
-        private void dtpDateDevis_ValueChanged(object sender, EventArgs e)
-        {
-
-=======
         private void btnCancelDevis_Click(object sender, EventArgs e)
         {
             string boxMessageDel = "Etes-vous certain de vouloir annuler ce nouveau Devis ";
@@ -434,25 +393,13 @@ namespace CommercialGUI
             DialogResult result = MessageBox.Show(boxMessageDel, boxTitleDel, buttons);
             if (result == DialogResult.Yes)
             {
-                btnCancelDevis.Visible= false;
-                btnAddDevis.Visible= false;
-                btnModifyDevis.Visible= true;
-                btnSupDevis.Visible= true;
-                dtgDevisModify.Refresh();
-                txtMontantHTAR.Text = "";
-                dtgDevisModify.Rows.Clear();
-                txtMontantHTHR.Text = "";
-                txtMontantTtc.Text = "";
-                txtMontantTva.Text = "";
-                txtTauxTva.Text = "";
-                lblCode.Visible = true;
+                clearRightForm();
             }
             else
             {
                 lblErrorAdd.Text = "Action annulé";
             }
            
->>>>>>> b53cb979ace13bf585688bd64de91be9bdaea729
         }
     }
 }
