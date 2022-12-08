@@ -31,8 +31,6 @@
             this.dtgDevis = new System.Windows.Forms.DataGridView();
             this.btnNewDevis = new System.Windows.Forms.Button();
             this.gpDevis = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblErrorAdd = new System.Windows.Forms.Label();
             this.btnCancelDevis = new System.Windows.Forms.Button();
             this.btnAddDevis = new System.Windows.Forms.Button();
             this.lblMontantTTC = new System.Windows.Forms.Label();
@@ -63,6 +61,7 @@
             this.txtTauxTva = new System.Windows.Forms.TextBox();
             this.dtpDateDevis = new System.Windows.Forms.DateTimePicker();
             this.txtCode = new System.Windows.Forms.TextBox();
+            this.lblErrorAdd = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDevis)).BeginInit();
             this.gpDevis.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDevisModify)).BeginInit();
@@ -93,7 +92,6 @@
             // 
             // gpDevis
             // 
-            this.gpDevis.Controls.Add(this.label2);
             this.gpDevis.Controls.Add(this.lblErrorAdd);
             this.gpDevis.Controls.Add(this.btnCancelDevis);
             this.gpDevis.Controls.Add(this.btnAddDevis);
@@ -135,25 +133,6 @@
             this.gpDevis.TabStop = false;
             this.gpDevis.Text = "Details";
             this.gpDevis.Enter += new System.EventHandler(this.gpDevis_Enter);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(60, 377);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 25);
-            this.label2.TabIndex = 31;
-            // 
-            // lblErrorAdd
-            // 
-            this.lblErrorAdd.AutoSize = true;
-            this.lblErrorAdd.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorAdd.Location = new System.Drawing.Point(34, 362);
-            this.lblErrorAdd.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblErrorAdd.Name = "lblErrorAdd";
-            this.lblErrorAdd.Size = new System.Drawing.Size(0, 25);
-            this.lblErrorAdd.TabIndex = 30;
             // 
             // btnCancelDevis
             // 
@@ -412,7 +391,6 @@
             this.dtgDevisModify.Size = new System.Drawing.Size(988, 469);
             this.dtgDevisModify.TabIndex = 3;
             this.dtgDevisModify.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgDevis_CellContentClick);
-            this.dtgDevisModify.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgDevisModify_CellContentClick);
             this.dtgDevisModify.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgProduitDevis_CellValueChanged);
             // 
             // txtTauxRemise
@@ -447,6 +425,14 @@
             this.txtCode.ReadOnly = true;
             this.txtCode.Size = new System.Drawing.Size(196, 31);
             this.txtCode.TabIndex = 0;
+            // 
+            // lblErrorAdd
+            // 
+            this.lblErrorAdd.AutoSize = true;
+            this.lblErrorAdd.Location = new System.Drawing.Point(38, 362);
+            this.lblErrorAdd.Name = "lblErrorAdd";
+            this.lblErrorAdd.Size = new System.Drawing.Size(0, 25);
+            this.lblErrorAdd.TabIndex = 30;
             // 
             // FrmDevis
             // 
@@ -502,7 +488,6 @@
         private System.Windows.Forms.Label lblMHTAR;
         private System.Windows.Forms.Button btnCancelDevis;
         private System.Windows.Forms.Button btnAddDevis;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblErrorAdd;
     }
 }

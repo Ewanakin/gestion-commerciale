@@ -24,5 +24,10 @@ namespace CommercialBLL
         {
             ProduitDevisDAO.addUnProduitDevis(unProduitDevis);
         }
+        // Méthode qui supprime un devis en BD
+        public static string SupprimerDevis(int id)
+        {
+            return DevisDAO.DeleteDevis(id);
+        }
     }
 }

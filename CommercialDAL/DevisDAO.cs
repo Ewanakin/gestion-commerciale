@@ -125,6 +125,30 @@ namespace CommercialDAL
             maConnexion.Close();
             return nbEnr;
         }
+
+
+
+
+        // Cette méthode supprime en BD un devis
+        public static string DeleteDevis(int id)
+        {
+            string valid = "";
+            SqlConnection maConnexionDel = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand cmdDelProduitDevis = new SqlCommand();
+            cmdDelProduitDevis.Connection = maConnexionDel;
+            cmdDelProduitDevis.CommandText = "DELETE FROM ProduitDevis WHERE code_devis = @codeDevis";
+            cmdDelProduitDevis.Parameters.Add(new SqlParameter("codeDevis", id));
+            cmdDelProduitDevis.ExecuteNonQuery();
+            SqlCommand cmdDel = new SqlCommand();
+            cmdDel.Connection = maConnexionDel;
+            cmdDel.CommandText = "DELETE FROM Devis WHERE code_devis = @codeDevis";
+            cmdDel.Parameters.Add(new SqlParameter("codeDevis", id));
+            cmdDel.ExecuteNonQuery();
+            valid = "Le devis a bien été supprimé.";
+            maConnexionDel.Close();
+            // Fermeture de la connexion
+            return valid;
+        }
     }
         
 }
