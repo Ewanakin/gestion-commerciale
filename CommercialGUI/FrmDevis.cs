@@ -399,8 +399,14 @@ namespace CommercialGUI
             // Récupérer l'index de la ligne sur laquelle l'utilisateur a cliqué
             int rowIndex = e.RowIndex;
             int cellIndex = e.ColumnIndex;
+            dtgDevisModify.Rows.Clear();
             List<Devis> listeDevis = new List<Devis>();
             listeDevis = GestionDevis.getDevis();
+            List<ProduitDevis> produitDevis = new List<ProduitDevis>();
+            produitDevis = GestionProduitDevis.getProduitDevis();
+            List<Produit> produits = new List<Produit>();
+            produits = GestionProduits.GetProduits();
+
             // Fix Erreur du click colonne 
             if (rowIndex == -1)
                 return;
@@ -418,9 +424,22 @@ namespace CommercialGUI
             Devis unDevis = GestionDevis.getUnDevis(listeDevis, codeDevisParse);
             cmbStatutDevis.Text = unDevis.StatusDevisLib;
             txtTauxTva.Text = unDevis.Tx_tva.ToString();
+            List<Produit> lesProduitsDuDevis = GestionProduitDevis.getProduitsPourUnDevis(produits, produitDevis, unDevis);
+            List<ProduitDevis> qttProduitDuDevis = GestionProduitDevis.getLesProduitsDevisEnRelation(lesProduitsDuDevis, produitDevis, unDevis);
+            for (int i = 0; i < qttProduitDuDevis.Count; i++)
+            {
+                dtgDevisModify.Rows.Add(lesProduitsDuDevis[i].Code, lesProduitsDuDevis[i].Libelle, qttProduitDuDevis[i].Quantite, lesProduitsDuDevis[i].PrixHT, qttProduitDuDevis[i].Remise);
+                dtgDevisModify.Refresh();
+                refreshPrixDevis();
+            }
         }
 
         private void dtpDateDevis_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
 
         }

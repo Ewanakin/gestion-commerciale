@@ -14,6 +14,25 @@ namespace CommercialBLL
         {
             return DevisDAO.getProduitDevis();
         }
+        
+        public static List<ProduitDevis> getLesProduitsDevisEnRelation(List<Produit> lesProduits, List<ProduitDevis> produitsDevis, Devis unDevis)
+        {
+            List<ProduitDevis> list = new List<ProduitDevis>();
+            for (int i = 0; i < lesProduits.Count; i++)
+            {
+                for (int j = 0; j < produitsDevis.Count; j++)
+                {
+                    if(unDevis.Id == produitsDevis[j].CodeDevis)
+                    {
+                        if (produitsDevis[j].CodeProduit == lesProduits[i].Code)
+                        {
+                            list.Add(produitsDevis[j]);
+                        }
+                    }
+                }
+            }
+            return list;
+        }
 
         public static Produit getProduitPourDevis(List<Produit> lesProduits, ProduitDevis produitDevis)
         {
@@ -30,6 +49,27 @@ namespace CommercialBLL
             return unProduit;
         }
 
+        public static List<Produit> getProduitsPourUnDevis(List<Produit> lesProduits, List<ProduitDevis> produitDevis, Devis devis)
+        {
+            int i = 0;
+            int y = 0;
+            List<Produit> list = new List<Produit>();
+            for (i = 0; i<produitDevis.Count; i++)
+            {
+                if(devis.Id == produitDevis[i].CodeDevis)
+                {
+                    for(y = 0; y < lesProduits.Count; y++)
+                    {
+                        if (lesProduits[y].Code == produitDevis[i].CodeProduit)
+                        {
+                            list.Add(lesProduits[y]);
+                        }
+                    }
+                }
+            }
+            return list;
+        }
+
         public static List<Devis> sumProduitPrix(List<Devis> lesDevis, List<ProduitDevis> lesProduitDevis, List<Produit> lesProduits)
         {
             int i, y;
@@ -44,7 +84,7 @@ namespace CommercialBLL
                         unProduit = GestionProduitDevis.getProduitPourDevis(lesProduits, lesProduitDevis[y]);
                         if(unProduit != null)
                         {
-                            produitRemiseEtQtt = unProduit.PrixHT * lesProduitDevis[y].Quantite * lesProduitDevis[y].Remise;
+                            produitRemiseEtQtt = unProduit.PrixHT * lesProduitDevis[y].Quantite * (1 - lesProduitDevis[y].Remise);
                         }
                     }
                 }
