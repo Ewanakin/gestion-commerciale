@@ -133,7 +133,6 @@
             this.gpDevis.TabIndex = 2;
             this.gpDevis.TabStop = false;
             this.gpDevis.Text = "Details";
-            this.gpDevis.Enter += new System.EventHandler(this.gpDevis_Enter);
             // 
             // lblErrorAdd
             // 
@@ -438,10 +437,6 @@
             this.txtCode.ReadOnly = true;
             this.txtCode.Size = new System.Drawing.Size(196, 31);
             this.txtCode.TabIndex = 0;
-            // 
-            // backgroundWorker1
-            // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
             // FrmDevis
             // 

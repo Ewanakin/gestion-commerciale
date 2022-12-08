@@ -287,6 +287,11 @@ namespace CommercialGUI
             int codePro;
             float remisePro;
             int quantitéPro;
+            if (dtgDevisModify.RowCount == 0)
+            {
+                lblErrorAdd.Text = "Veuillez ajouter un produit";
+                return;
+            }
             if (txtTauxTva.Text == "")
             {
                 lblErrorAdd.Text= "renseigner le taux de tva";
@@ -310,11 +315,6 @@ namespace CommercialGUI
             }
             initialGraphicStateRightForm();
             lblErrorAdd.Text = "Ajout confirmé";
-        }
-
-        private void gpDevis_Enter(object sender, EventArgs e)
-        {
-
         }
         private void btnSupDevis_Click(object sender, EventArgs e)
         {
@@ -360,9 +360,8 @@ namespace CommercialGUI
             if (rowIndex == -1)
                 return;
 
-            DataGridViewRow row = dtgDevisModify.Rows[rowIndex];
 
-            if (row.IsNewRow)
+            if (dtgDevisModify.RowCount == 0)
             {
                 lblErrorAdd.Text = "Veuillez ajouter un produit";
                 return;
@@ -429,7 +428,6 @@ namespace CommercialGUI
                 refreshPrixDevis();
             }
         }
-
         private void btnModifyDevis_Click(object sender, EventArgs e)
         {
             if(txtCode.Text.Length == 0)
@@ -488,12 +486,6 @@ namespace CommercialGUI
                 lblErrorAdd.Text = "modification annulé";
             }
         }
-
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-
-        }
-
         private void btnCancelDevis_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Voulez-vous vraiment annuler l'ajout de ce devis ?", "Ajout Devis", MessageBoxButtons.YesNo);
