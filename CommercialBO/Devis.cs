@@ -71,9 +71,9 @@ namespace CommercialBO
             return this.prixTotal = this.prixTotal + prixHT;
         }
         
-        public float getPrixAvecTva(float prixTotal)
+        public float getPrixAvecTva()
         {
-            return this.prixTotal = prixTotal * this.tx_tva;
+            return this.prixTotal = this.prixTotal * this.tx_tva;
         }
 
         

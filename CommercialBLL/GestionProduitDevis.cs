@@ -53,7 +53,7 @@ namespace CommercialBLL
                 }
                 lesDevis[i].getPrixAvecTva();
             }
-            return lesDevis;
+            return lesDevis; 
 
         }
 

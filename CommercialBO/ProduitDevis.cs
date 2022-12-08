@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -34,18 +35,7 @@ namespace CommercialBO
             set { quantite = value; }
         }
 
-        /*public float sumProduitPrix(List<Devis> lesDevis, List<ProduitDevis> lesProduitDevis)
-        {
-            int i;
-            for (i = 0; i<lesDevis.Count; i++)
-            {
-                
-            }
-        }*/
 
-        public List<Produit> getProduitPourDevis()
-        {
-            return new List<Produit>();
-        }
+        
     }
 }

@@ -48,5 +48,9 @@ namespace CommercialBLL
         {
             return ProduitDAO.DeleteProduit(id);
         }
+        public static Produit getUnProduit(int id)
+        {
+            return ProduitDAO.getUnProduit(id);
+        }
     }
 }

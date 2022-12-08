@@ -70,7 +70,7 @@ namespace CommercialDAL
             while (monReader.Read())
             {             
                 codeDevis = Int32.Parse(monReader["code_devis"].ToString());
-                codeProduit = Int32.Parse(monReader["code_statut"].ToString());
+                codeProduit = Int32.Parse(monReader["code_produit"].ToString());
                 unProduitDevis = new ProduitDevis(codeDevis, codeProduit);
                 lesProduitDevis.Add(unProduitDevis);
             }
