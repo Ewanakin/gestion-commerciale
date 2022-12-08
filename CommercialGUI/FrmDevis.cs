@@ -74,7 +74,7 @@ namespace CommercialGUI
             idProduitColumn.Name = "idProduit";
             idProduitColumn.DataPropertyName = "idProduit";
             idProduitColumn.HeaderText = "idProduit";
-            //idProduitColumn.Visible = false;
+            idProduitColumn.Visible = false;
 
             DataGridViewTextBoxColumn nomProduitColumn = new DataGridViewTextBoxColumn();
             nomProduitColumn.Name = "nomProduit";
@@ -404,11 +404,6 @@ namespace CommercialGUI
             }
         }
 
-        private void dtpDateDevis_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnModifyDevis_Click(object sender, EventArgs e)
         {
             if(txtCode.Text.Length == 0)
@@ -458,6 +453,7 @@ namespace CommercialGUI
                     GestionDevis.AjoutProduitDansDevis(unProduitDevis);
                 }
                 lblErrorAdd.Text = "Le devis a bien étais modifié";
+                refreshPrixDevis();
             }
             else
             {

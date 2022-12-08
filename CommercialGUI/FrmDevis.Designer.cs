@@ -398,7 +398,6 @@
             this.dtpDateDevis.Name = "dtpDateDevis";
             this.dtpDateDevis.Size = new System.Drawing.Size(135, 22);
             this.dtpDateDevis.TabIndex = 1;
-            this.dtpDateDevis.ValueChanged += new System.EventHandler(this.dtpDateDevis_ValueChanged);
             // 
             // txtCode
             // 
