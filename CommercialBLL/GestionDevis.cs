@@ -34,5 +34,9 @@ namespace CommercialBLL
         {
             return DevisDAO.ModifyDevis(unDevis);
         }
+        public static void DeleteAllProduits(int id)
+        {
+            ProduitDevisDAO.DeleteAllProduits(id);
+        }
     }
 }
