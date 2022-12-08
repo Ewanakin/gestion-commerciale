@@ -70,10 +70,11 @@ namespace CommercialGUI
             // Blocage de la génération automatique des colonnes && création en-tete dtgModify Produit
             dtgDevisModify.AutoGenerateColumns = false;
             DataGridViewTextBoxColumn idProduitColumn = new DataGridViewTextBoxColumn();
+            dtgDevisModify.AllowUserToAddRows = false;
             idProduitColumn.Name = "idProduit";
             idProduitColumn.DataPropertyName = "idProduit";
             idProduitColumn.HeaderText = "idProduit";
-            idProduitColumn.Visible = false;
+            //idProduitColumn.Visible = false;
 
             DataGridViewTextBoxColumn nomProduitColumn = new DataGridViewTextBoxColumn();
             nomProduitColumn.Name = "nomProduit";
@@ -456,6 +457,7 @@ namespace CommercialGUI
                     unProduitDevis = new ProduitDevis(codeDevis, codePro, remisePro, quantitéPro);
                     GestionDevis.AjoutProduitDansDevis(unProduitDevis);
                 }
+                lblErrorAdd.Text = "Le devis a bien étais modifié";
             }
             else
             {
