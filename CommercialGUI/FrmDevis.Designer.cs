@@ -410,7 +410,6 @@
             this.dtgDevisModify.Size = new System.Drawing.Size(494, 244);
             this.dtgDevisModify.TabIndex = 3;
             this.dtgDevisModify.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgDevis_CellContentClick);
-            this.dtgDevisModify.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgDevisModify_CellContentClick);
             // 
             // txtTauxRemise
             // 
@@ -441,6 +440,7 @@
             this.txtCode.Location = new System.Drawing.Point(14, 34);
             this.txtCode.Margin = new System.Windows.Forms.Padding(2);
             this.txtCode.Name = "txtCode";
+            this.txtCode.ReadOnly = true;
             this.txtCode.Size = new System.Drawing.Size(100, 20);
             this.txtCode.TabIndex = 0;
             // 
