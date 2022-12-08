@@ -136,10 +136,16 @@
             // 
             this.lblErrorAdd.AutoSize = true;
             this.lblErrorAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+<<<<<<< HEAD
             this.lblErrorAdd.Location = new System.Drawing.Point(93, 237);
             this.lblErrorAdd.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblErrorAdd.Name = "lblErrorAdd";
             this.lblErrorAdd.Size = new System.Drawing.Size(0, 16);
+=======
+            this.lblErrorAdd.Location = new System.Drawing.Point(139, 371);
+            this.lblErrorAdd.Name = "lblErrorAdd";
+            this.lblErrorAdd.Size = new System.Drawing.Size(0, 25);
+>>>>>>> b53cb979ace13bf585688bd64de91be9bdaea729
             this.lblErrorAdd.TabIndex = 30;
             // 
             // btnCancelDevis
@@ -151,6 +157,7 @@
             this.btnCancelDevis.Text = "Annuler";
             this.btnCancelDevis.UseVisualStyleBackColor = true;
             this.btnCancelDevis.Visible = false;
+            this.btnCancelDevis.Click += new System.EventHandler(this.btnCancelDevis_Click);
             // 
             // btnAddDevis
             // 
@@ -412,7 +419,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(1417, 675);
+=======
+            this.ClientSize = new System.Drawing.Size(2552, 1552);
+>>>>>>> b53cb979ace13bf585688bd64de91be9bdaea729
             this.Controls.Add(this.gpDevis);
             this.Controls.Add(this.btnNewDevis);
             this.Controls.Add(this.dtgDevis);
