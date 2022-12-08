@@ -20,6 +20,17 @@ namespace CommercialGUI
         public FrmDevis()
         {
             InitializeComponent();
+            dtgDevis.AutoGenerateColumns = false;
+
+            List<Devis> listeDevis = new List<Devis>();
+            listeDevis = GestionDevis.getDevis();
+            List<ProduitDevis> produitDevis = new List<ProduitDevis>();
+            produitDevis = GestionProduitDevis.getProduitDevis();
+            List<Produit> produits = new List<Produit>();
+            produits = GestionProduits.GetProduits();
+            listeDevis = GestionProduitDevis.sumProduitPrix(listeDevis, produitDevis, produits);
+            // Rattachement de la List à la source de données du datagridview
+            dtgDevis.DataSource = listeDevis;
             // Récupération de chaîne de connexion à la BD à l'ouverture du formulaire
             GestionProduits.SetchaineConnexion(ConfigurationManager.ConnectionStrings["gestion-commerciale"]);
             // Blocage de la génération automatique des colonnes
@@ -401,5 +412,76 @@ namespace CommercialGUI
             }
            
         }
+        private void dtgDevisModify_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+            int cellIndex = e.ColumnIndex;
+            // Fix Erreur du click colonne 
+            if (rowIndex == -1)
+                return;
+
+            DataGridViewRow row = dtgDevisModify.Rows[rowIndex];
+
+            if (row.IsNewRow)
+            {
+                lblErrorAdd.Text = "Veuillez ajouter un produit";
+                return;
+            }
+
+            if (cellIndex == 5)
+            {
+                DialogResult result = MessageBox.Show("Voulez-vous vraiment supprimer ce produit ?", "Confirmation", MessageBoxButtons.YesNo);
+
+                // Vérifier la valeur retournée par la fenêtre de confirmation
+                if (result == DialogResult.Yes)
+                {
+                    // L'utilisateur a choisi Oui, supprimer le produit
+                    // Supprimer la ligne sélectionnée en utilisant l'index récupéré
+                    lblErrorAdd.Text = "Suppression confirmé";
+                    dtgDevisModify.Rows.RemoveAt(rowIndex);
+                    refreshPrixDevis();
+                }
+                else
+                {
+                    // L'utilisateur a choisi Non, annuler la suppression du produit
+                    lblErrorAdd.Text = "Suppression annulé";
+                }
+
+            }
+        }
+
+
+
+        private void dtgDevis_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Récupérer l'index de la ligne sur laquelle l'utilisateur a cliqué
+            int rowIndex = e.RowIndex;
+            int cellIndex = e.ColumnIndex;
+            List<Devis> listeDevis = new List<Devis>();
+            listeDevis = GestionDevis.getDevis();
+            // Fix Erreur du click colonne 
+            if (rowIndex == -1)
+                return;
+
+            dtgDevis.CurrentRow.Selected = true;
+            txtCode.Text = dtgDevis.Rows[rowIndex].Cells["code"].Value.ToString();
+            txtMontantTtc.Text = dtgDevis.Rows[rowIndex].Cells["Prix"].Value.ToString();
+            DateTime dt = (DateTime)dtgDevis.Rows[rowIndex].Cells["Date"].Value;
+            dtpDateDevis.Value = dt;
+            dtpDateDevis.CustomFormat = "MM-dd-yyyy";
+            cmbClient.Text = dtgDevis.Rows[rowIndex].Cells["Nom client"].Value.ToString();
+            string codeDevis = dtgDevis.Rows[rowIndex].Cells["code"].Value.ToString();
+            int codeDevisParse;
+            int.TryParse(codeDevis, out codeDevisParse);
+            Devis unDevis = GestionDevis.getUnDevis(listeDevis, codeDevisParse);
+            cmbStatutDevis.Text = unDevis.StatusDevisLib;
+            txtTauxTva.Text = unDevis.Tx_tva.ToString();
+        }
+
+        private void dtpDateDevis_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+
