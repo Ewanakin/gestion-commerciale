@@ -269,7 +269,7 @@ namespace CommercialGUI
             }
             // insert du devis 
             Devis unDevis = new Devis(0, float.Parse(txtTauxTva.Text), dtpDateDevis.Value, unCli, unStatus);
-            int i = GestionDevis.ajoutDevis(unDevis);
+            int i = GestionDevis.AjoutDevis(unDevis);
 
             // ajout des produits dans un devis
             ProduitDevis unProduitDevis;
@@ -281,7 +281,7 @@ namespace CommercialGUI
                 remisePro   = Convert.ToSingle(row.Cells[4].Value);
                 quantitéPro = Convert.ToInt32(row.Cells[2].Value);
                 unProduitDevis = new ProduitDevis(codeDevis, codePro, remisePro, quantitéPro);
-                GestionDevis.ajoutProduitDansDevis(unProduitDevis);
+                GestionDevis.AjoutProduitDansDevis(unProduitDevis);
             }
         }
 
@@ -390,7 +390,7 @@ namespace CommercialGUI
             string codeDevis = dtgDevis.Rows[rowIndex].Cells["code"].Value.ToString();
             int codeDevisParse;
             int.TryParse(codeDevis, out codeDevisParse);
-            Devis unDevis = GestionDevis.getUnDevis(listeDevis, codeDevisParse);
+            Devis unDevis = GestionDevis.GetUnDevis(listeDevis, codeDevisParse);
             cmbStatutDevis.Text = unDevis.StatusDevisLib;
             txtTauxTva.Text = unDevis.Tx_tva.ToString();
             List<Produit> lesProduitsDuDevis = GestionProduitDevis.getProduitsPourUnDevis(produits, produitDevis, unDevis);
@@ -441,7 +441,7 @@ namespace CommercialGUI
                 int quantitéPro;
 
                 // Update Devis
-                GestionDevis.updateDevis(unDevis);
+                GestionDevis.UpdateDevis(unDevis);
                 // Suppresion de tout les produits du devis
                 GestionProduitDevis.DeleteAllProduits(codeDevis);
 
@@ -454,7 +454,7 @@ namespace CommercialGUI
                     remisePro = Convert.ToSingle(row.Cells[4].Value);
                     quantitéPro = Convert.ToInt32(row.Cells[2].Value);
                     unProduitDevis = new ProduitDevis(codeDevis, codePro, remisePro, quantitéPro);
-                    GestionDevis.ajoutProduitDansDevis(unProduitDevis);
+                    GestionDevis.AjoutProduitDansDevis(unProduitDevis);
                 }
             }
             else

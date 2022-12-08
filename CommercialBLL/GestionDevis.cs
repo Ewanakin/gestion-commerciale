@@ -21,12 +21,12 @@ namespace CommercialBLL
             return DevisDAO.GetDevis();
         }
 
-        public static int ajoutDevis(Devis unDevis)
+        public static int AjoutDevis(Devis unDevis)
         {
             return DevisDAO.AjoutDevis(unDevis);
         }
 
-        public static void ajoutProduitDansDevis(ProduitDevis unProduitDevis)
+        public static void AjoutProduitDansDevis(ProduitDevis unProduitDevis)
         {
             ProduitDevisDAO.addUnProduitDevis(unProduitDevis);
         }
@@ -37,12 +37,12 @@ namespace CommercialBLL
 
         }
 
-        public static void updateDevis(Devis unDevis)
+        public static void UpdateDevis(Devis unDevis)
         {
-            GestionDevis.updateDevis(unDevis);
+            DevisDAO.UpdateDevis(unDevis);
         }
 
-        public static Devis getUnDevis(List<Devis> lesDevis, int code)
+        public static Devis GetUnDevis(List<Devis> lesDevis, int code)
         {
             int i = 0;
             Devis devis = null;
