@@ -50,5 +50,10 @@ namespace CommercialBLL
             }
             return devis;
         }
+
+        public static void updateDevis (Devis unDevis)
+        {
+            GestionDevis.updateDevis(unDevis);
+        }
     }
 }

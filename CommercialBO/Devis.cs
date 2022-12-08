@@ -14,6 +14,8 @@ namespace CommercialBO
         private Client client;
         private StatusDevis status;
         private float prixTotal;
+        private int idClient;
+        private int idStatus;
 
         public Devis(int id, float tx_tva, DateTime date, Client client, StatusDevis status)
         {
@@ -23,6 +25,15 @@ namespace CommercialBO
             this.client = client;
             this.status = status;
             this.prixTotal = 0;
+        }
+
+        public Devis(int id, float tx_tva, DateTime date, int idClient, int idStatus)
+        {
+            this.id = id;
+            this.tx_tva = tx_tva;
+            this.date = date;
+            this.IdClient= idClient;
+            this.IdStatus= idStatus;
         }
 
         public int Id
@@ -73,6 +84,9 @@ namespace CommercialBO
             get { return this.prixTotal; }
             set { this.prixTotal = value; }
         }
+
+        public int IdClient { get => idClient; set => idClient = value; }
+        public int IdStatus { get => idStatus; set => idStatus = value; }
 
         public void SumPrix(float prixHT)
         {

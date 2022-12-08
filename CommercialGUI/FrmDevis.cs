@@ -372,8 +372,14 @@ namespace CommercialGUI
             // Récupérer l'index de la ligne sur laquelle l'utilisateur a cliqué
             int rowIndex = e.RowIndex;
             int cellIndex = e.ColumnIndex;
+            dtgDevisModify.Rows.Clear();
             List<Devis> listeDevis = new List<Devis>();
             listeDevis = GestionDevis.getDevis();
+            List<ProduitDevis> produitDevis = new List<ProduitDevis>();
+            produitDevis = GestionProduitDevis.getProduitDevis();
+            List<Produit> produits = new List<Produit>();
+            produits = GestionProduits.GetProduits();
+
             // Fix Erreur du click colonne 
             if (rowIndex == -1)
                 return;
@@ -391,6 +397,14 @@ namespace CommercialGUI
             Devis unDevis = GestionDevis.getUnDevis(listeDevis, codeDevisParse);
             cmbStatutDevis.Text = unDevis.StatusDevisLib;
             txtTauxTva.Text = unDevis.Tx_tva.ToString();
+            List<Produit> lesProduitsDuDevis = GestionProduitDevis.getProduitsPourUnDevis(produits, produitDevis, unDevis);
+            List<ProduitDevis> qttProduitDuDevis = GestionProduitDevis.getLesProduitsDevisEnRelation(lesProduitsDuDevis, produitDevis, unDevis);
+            for (int i = 0; i < qttProduitDuDevis.Count; i++)
+            {
+                dtgDevisModify.Rows.Add(lesProduitsDuDevis[i].Code, lesProduitsDuDevis[i].Libelle, qttProduitDuDevis[i].Quantite, lesProduitsDuDevis[i].PrixHT, qttProduitDuDevis[i].Remise);
+                dtgDevisModify.Refresh();
+                refreshPrixDevis();
+            }
         }
 
         private void dtpDateDevis_ValueChanged(object sender, EventArgs e)
@@ -405,17 +419,30 @@ namespace CommercialGUI
                 lblErrorAdd.Text = "Aucun devis est selectionné";
                 return;
             }
+             
+            if (txtTauxTva.Text.Length == 0)
+            {
+                lblErrorAdd.Text = "Taux Tva manquant";
+                return;
+            }
 
+            
             DialogResult result = MessageBox.Show("Voulez-vous vraiment modifier ce devis ?", "Modification", MessageBoxButtons.YesNo);
 
             // Vérifier la valeur retournée par la fenêtre de confirmation
             if (result == DialogResult.Yes)
             {
+                // decla var Devis
                 int codeDevis = Int32.Parse(txtCode.Text);
+                DateTime dateDevis = dtpDateDevis.Value;
+                Devis unDevis = new Devis(codeDevis, Int32.Parse(txtTauxTva.Text.ToString()), dateDevis, cmbClient.SelectedIndex, cmbStatutDevis.SelectedIndex);
+                // decla var proDevis
                 int codePro;
                 float remisePro;
                 int quantitéPro;
 
+                // Update Devis
+                GestionDevis.updateDevis(unDevis);
                 // Suppresion de tout les produits du devis
                 GestionProduitDevis.DeleteAllProduits(codeDevis);
 
@@ -436,6 +463,11 @@ namespace CommercialGUI
                 // L'utilisateur a choisi Non, annuler la modification du produit
                 lblErrorAdd.Text = "modification annulé";
             }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
         }
     }
 }

@@ -62,6 +62,7 @@
             this.txtTauxTva = new System.Windows.Forms.TextBox();
             this.dtpDateDevis = new System.Windows.Forms.DateTimePicker();
             this.txtCode = new System.Windows.Forms.TextBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDevis)).BeginInit();
             this.gpDevis.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDevisModify)).BeginInit();
@@ -409,6 +410,10 @@
             this.txtCode.Size = new System.Drawing.Size(132, 22);
             this.txtCode.TabIndex = 0;
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
             // FrmDevis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -464,5 +469,6 @@
         private System.Windows.Forms.Button btnCancelDevis;
         private System.Windows.Forms.Button btnAddDevis;
         private System.Windows.Forms.Label lblErrorAdd;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
