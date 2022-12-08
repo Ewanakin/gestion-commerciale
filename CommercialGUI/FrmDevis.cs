@@ -142,10 +142,6 @@ namespace CommercialGUI
             dtpDateDevis.Format = DateTimePickerFormat.Custom;
             dtpDateDevis.CustomFormat = "MM-dd-yyyy";
         }
-        private void dtgDevis_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
         // refresh prix devis sur l'event modif case
         private void dtgProduitDevis_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {

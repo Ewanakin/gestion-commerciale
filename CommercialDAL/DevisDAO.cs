@@ -153,12 +153,12 @@ namespace CommercialDAL
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmdUpdateProduitDevis = new SqlCommand();
             cmdUpdateProduitDevis.Connection = maConnexion;
-            cmdUpdateProduitDevis.CommandText = "INSERT INTO Devis(tx_tva_devis, date_devis, code_cli, code_statut) VALUES (@tva, @date, @cli, @statut) WHERE code_devis = @codeDevis";
+            cmdUpdateProduitDevis.CommandText = "Update Devis set tx_tva_devis = @tva, date_devis = @date, code_cli = @cli, code_statut = @statut where code_devis = @codeDevis";
             cmdUpdateProduitDevis.Parameters.Add(new SqlParameter("tva", unDevis.Tx_tva));
             cmdUpdateProduitDevis.Parameters.Add(new SqlParameter("date", unDevis.Date));
             cmdUpdateProduitDevis.Parameters.Add(new SqlParameter("cli", unDevis.Client.Code));
             cmdUpdateProduitDevis.Parameters.Add(new SqlParameter("statut", unDevis.IdStatus));
-            cmdUpdateProduitDevis.Parameters.Add(new SqlParameter("codeDevis", unDevis.IdClient));
+            cmdUpdateProduitDevis.Parameters.Add(new SqlParameter("codeDevis", unDevis.Id));
             cmdUpdateProduitDevis.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();
