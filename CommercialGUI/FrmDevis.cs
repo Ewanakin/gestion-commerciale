@@ -306,6 +306,22 @@ namespace CommercialGUI
                 int.TryParse(txtCode.Text, out codePro); ;
                 validMessage = GestionDevis.SupprimerDevis(codePro);
                 lblErrorAdd.Text = validMessage;
+                List<Devis> listeDevis = new List<Devis>();
+                listeDevis = GestionDevis.getDevis();
+                List<ProduitDevis> produitDevis = new List<ProduitDevis>();
+                produitDevis = GestionProduitDevis.getProduitDevis();
+                List<Produit> produits = new List<Produit>();
+                produits = GestionProduits.GetProduits();
+                listeDevis = GestionProduitDevis.sumProduitPrix(listeDevis, produitDevis, produits);
+                // Rattachement de la List à la source de données du datagridview
+                dtgDevis.DataSource = listeDevis;
+
+                // injection valeur combobox Produit
+                List<Produit> listeProduit = new List<Produit>();
+                listeProduit = GestionProduits.GetProduits();
+
+                txtCode.Text = string.Empty;
+                txtTauxTva.Text = string.Empty;
             }
             else
             {
