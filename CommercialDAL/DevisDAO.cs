@@ -58,7 +58,8 @@ namespace CommercialDAL
 
         public static List<ProduitDevis> getProduitDevis()
         {
-            int codeDevis, codeProduit;
+            int codeDevis, codeProduit, quantite;
+            float remisePro;
             ProduitDevis unProduitDevis;
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             // Création d'une liste vide d'objets Produits
@@ -71,7 +72,9 @@ namespace CommercialDAL
             {             
                 codeDevis = Int32.Parse(monReader["code_devis"].ToString());
                 codeProduit = Int32.Parse(monReader["code_produit"].ToString());
-                unProduitDevis = new ProduitDevis(codeDevis, codeProduit);
+                quantite = Int32.Parse(monReader["qtt_prduit"].ToString());
+                remisePro = Convert.ToSingle(monReader["remise_produit"].ToString());
+                unProduitDevis = new ProduitDevis(codeDevis, codeProduit,quantite,remisePro) ;
                 lesProduitDevis.Add(unProduitDevis);
             }
             maConnexion.Close();
@@ -100,6 +103,27 @@ namespace CommercialDAL
             maConnexion.Close();
             return lesStatusDevis;
 
+        }
+
+        public static int AjoutDevis(Devis unDevis)
+        {
+            int nbEnr;
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand cmd = new SqlCommand(
+                "INSERT INTO Devis(tx_tva_devis, date_devis, code_cli, code_statut)" +
+                "values(@TVA, @date, @fk_code_stat, @fk_code_cli)",
+                maConnexion
+            );
+            cmd.Parameters.AddWithValue("@TVA", unDevis.Tx_tva);
+            cmd.Parameters.AddWithValue("@date", unDevis.Date);
+            cmd.Parameters.AddWithValue("@fk_code_stat", unDevis.Client.Code);
+            cmd.Parameters.AddWithValue("@fk_code_cli", unDevis.Status.Id);
+            /* Exécution de la requête */
+            nbEnr = cmd.ExecuteNonQuery();
+            // Fermeture de la connexion
+            maConnexion.Close();
+            return nbEnr;
         }
     }
         

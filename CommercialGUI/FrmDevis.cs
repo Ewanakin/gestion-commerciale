@@ -130,6 +130,10 @@ namespace CommercialGUI
             cmbStatutDevis.DataSource = listeStatut;
             cmbStatutDevis.DisplayMember = "libelle";
             cmbStatutDevis.ValueMember = "id";
+
+            // modif format dtpDateDevis
+            dtpDateDevis.Format = DateTimePickerFormat.Custom;
+            dtpDateDevis.CustomFormat = "MM-dd-yyyy";
         }
         private void dtgDevis_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -279,6 +283,47 @@ namespace CommercialGUI
             dtgDevisModify.Rows.Add(unProduit.Code, unProduit.Libelle, quantitéPro, unProduit.PrixHT, tauxRemise);
             dtgDevisModify.Refresh();
             refreshPrixDevis();
+        }
+
+        private void btnAddDevis_Click(object sender, EventArgs e)
+        {
+            Client unCli = new Client(cmbClient.SelectedIndex);
+            StatusDevis unStatus = new StatusDevis(cmbStatutDevis.SelectedIndex);
+            int codeDevis;
+            int codePro;
+            float remisePro;
+            int quantitéPro;
+            if (txtTauxTva.Text == "")
+            {
+                lblErrorAdd.Text= "renseigner le taux de tva";
+                return;
+            }
+            // insert du devis 
+            Devis unDevis = new Devis(0, float.Parse(txtTauxTva.Text), dtpDateDevis.Value, unCli, unStatus);
+            int i = GestionDevis.ajoutDevis(unDevis);
+
+            // ajout des produits dans un devis
+            ProduitDevis unProduitDevis;
+
+            foreach (DataGridViewRow row in dtgDevisModify.Rows)
+            {
+                codeDevis   = i;
+                codePro     = Convert.ToInt32(row.Cells[0].Value);
+                remisePro   = Convert.ToSingle(row.Cells[4].Value);
+                quantitéPro = Convert.ToInt32(row.Cells[2].Value);
+                unProduitDevis = new ProduitDevis(codeDevis, codePro, quantitéPro, remisePro);
+                GestionDevis.ajoutProduitDansDevis(unProduitDevis);
+            }
+        }
+
+        private void gpDevis_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtgDevisModify_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

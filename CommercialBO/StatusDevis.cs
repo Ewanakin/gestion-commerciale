@@ -17,6 +17,11 @@ namespace CommercialBO
             this.libelle = libelle;
         }
 
+        public StatusDevis(int id)
+        {
+            this.id = id;
+        }
+
         public int Id
         {
             get { return id; }

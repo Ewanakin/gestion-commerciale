@@ -11,11 +11,14 @@ namespace CommercialBO
         private int codeDevis;
         private int codeProduit;
         private int quantite;
+        private float remise;
 
-        public ProduitDevis(int devis, int produit)
+        public ProduitDevis(int devis, int produit, int quantite, float remise)
         {
             this.codeDevis = devis;
             this.codeProduit = produit;
+            this.quantite = quantite;
+            this.Remise = remise;
         }
 
         public int CodeDevis
@@ -33,6 +36,8 @@ namespace CommercialBO
             get { return quantite; }
             set { quantite = value; }
         }
+
+        public float Remise { get => remise; set => remise = value; }
 
         public float sumProduitPrix(Devis unDevis)
         {

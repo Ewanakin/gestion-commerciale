@@ -40,7 +40,7 @@ namespace CommercialBO
             set { date = value; }
         }
 
-        private Client Client
+        public Client Client
         {
             get { return client; }
             set

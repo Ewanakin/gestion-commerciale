@@ -83,7 +83,7 @@
             // btnNewDevis
             // 
             this.btnNewDevis.Location = new System.Drawing.Point(1520, 19);
-            this.btnNewDevis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNewDevis.Margin = new System.Windows.Forms.Padding(4);
             this.btnNewDevis.Name = "btnNewDevis";
             this.btnNewDevis.Size = new System.Drawing.Size(224, 81);
             this.btnNewDevis.TabIndex = 1;
@@ -127,13 +127,14 @@
             this.gpDevis.Controls.Add(this.txtCode);
             this.gpDevis.ForeColor = System.Drawing.Color.Black;
             this.gpDevis.Location = new System.Drawing.Point(1520, 156);
-            this.gpDevis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gpDevis.Margin = new System.Windows.Forms.Padding(4);
             this.gpDevis.Name = "gpDevis";
-            this.gpDevis.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gpDevis.Padding = new System.Windows.Forms.Padding(4);
             this.gpDevis.Size = new System.Drawing.Size(1004, 1302);
             this.gpDevis.TabIndex = 2;
             this.gpDevis.TabStop = false;
             this.gpDevis.Text = "Details";
+            this.gpDevis.Enter += new System.EventHandler(this.gpDevis_Enter);
             // 
             // label2
             // 
@@ -157,7 +158,7 @@
             // btnCancelDevis
             // 
             this.btnCancelDevis.Location = new System.Drawing.Point(456, 1196);
-            this.btnCancelDevis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelDevis.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelDevis.Name = "btnCancelDevis";
             this.btnCancelDevis.Size = new System.Drawing.Size(224, 81);
             this.btnCancelDevis.TabIndex = 29;
@@ -168,13 +169,14 @@
             // btnAddDevis
             // 
             this.btnAddDevis.Location = new System.Drawing.Point(192, 1196);
-            this.btnAddDevis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddDevis.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddDevis.Name = "btnAddDevis";
             this.btnAddDevis.Size = new System.Drawing.Size(224, 81);
             this.btnAddDevis.TabIndex = 28;
             this.btnAddDevis.Text = "Enregistrer";
             this.btnAddDevis.UseVisualStyleBackColor = true;
             this.btnAddDevis.Visible = false;
+            this.btnAddDevis.Click += new System.EventHandler(this.btnAddDevis_Click);
             // 
             // lblMontantTTC
             // 
@@ -261,7 +263,7 @@
             // btnAddProduct
             // 
             this.btnAddProduct.Location = new System.Drawing.Point(674, 352);
-            this.btnAddProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddProduct.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(156, 44);
             this.btnAddProduct.TabIndex = 3;
@@ -272,7 +274,7 @@
             // txtQuantité
             // 
             this.txtQuantité.Location = new System.Drawing.Point(360, 315);
-            this.txtQuantité.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtQuantité.Margin = new System.Windows.Forms.Padding(4);
             this.txtQuantité.Name = "txtQuantité";
             this.txtQuantité.Size = new System.Drawing.Size(134, 31);
             this.txtQuantité.TabIndex = 19;
@@ -301,7 +303,7 @@
             // 
             this.cmbAddProduit.FormattingEnabled = true;
             this.cmbAddProduit.Location = new System.Drawing.Point(28, 313);
-            this.cmbAddProduit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbAddProduit.Margin = new System.Windows.Forms.Padding(4);
             this.cmbAddProduit.Name = "cmbAddProduit";
             this.cmbAddProduit.Size = new System.Drawing.Size(300, 33);
             this.cmbAddProduit.TabIndex = 16;
@@ -311,7 +313,7 @@
             this.cmbStatutDevis.AccessibleName = "lblStatus";
             this.cmbStatutDevis.FormattingEnabled = true;
             this.cmbStatutDevis.Location = new System.Drawing.Point(426, 140);
-            this.cmbStatutDevis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbStatutDevis.Margin = new System.Windows.Forms.Padding(4);
             this.cmbStatutDevis.Name = "cmbStatutDevis";
             this.cmbStatutDevis.Size = new System.Drawing.Size(200, 33);
             this.cmbStatutDevis.TabIndex = 15;
@@ -331,7 +333,7 @@
             // 
             this.cmbClient.FormattingEnabled = true;
             this.cmbClient.Location = new System.Drawing.Point(28, 140);
-            this.cmbClient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbClient.Margin = new System.Windows.Forms.Padding(4);
             this.cmbClient.Name = "cmbClient";
             this.cmbClient.Size = new System.Drawing.Size(196, 33);
             this.cmbClient.TabIndex = 13;
@@ -349,7 +351,7 @@
             // txtMontantHTAR
             // 
             this.txtMontantHTAR.Location = new System.Drawing.Point(394, 929);
-            this.txtMontantHTAR.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMontantHTAR.Margin = new System.Windows.Forms.Padding(4);
             this.txtMontantHTAR.Name = "txtMontantHTAR";
             this.txtMontantHTAR.Size = new System.Drawing.Size(252, 31);
             this.txtMontantHTAR.TabIndex = 10;
@@ -357,7 +359,7 @@
             // txtMontantHTHR
             // 
             this.txtMontantHTHR.Location = new System.Drawing.Point(28, 929);
-            this.txtMontantHTHR.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMontantHTHR.Margin = new System.Windows.Forms.Padding(4);
             this.txtMontantHTHR.Name = "txtMontantHTHR";
             this.txtMontantHTHR.Size = new System.Drawing.Size(272, 31);
             this.txtMontantHTHR.TabIndex = 9;
@@ -365,7 +367,7 @@
             // txtMontantTtc
             // 
             this.txtMontantTtc.Location = new System.Drawing.Point(394, 1006);
-            this.txtMontantTtc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMontantTtc.Margin = new System.Windows.Forms.Padding(4);
             this.txtMontantTtc.Name = "txtMontantTtc";
             this.txtMontantTtc.Size = new System.Drawing.Size(252, 31);
             this.txtMontantTtc.TabIndex = 8;
@@ -373,7 +375,7 @@
             // txtMontantTva
             // 
             this.txtMontantTva.Location = new System.Drawing.Point(28, 1006);
-            this.txtMontantTva.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMontantTva.Margin = new System.Windows.Forms.Padding(4);
             this.txtMontantTva.Name = "txtMontantTva";
             this.txtMontantTva.Size = new System.Drawing.Size(272, 31);
             this.txtMontantTva.TabIndex = 7;
@@ -381,7 +383,7 @@
             // btnModifyDevis
             // 
             this.btnModifyDevis.Location = new System.Drawing.Point(192, 1088);
-            this.btnModifyDevis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModifyDevis.Margin = new System.Windows.Forms.Padding(4);
             this.btnModifyDevis.Name = "btnModifyDevis";
             this.btnModifyDevis.Size = new System.Drawing.Size(224, 81);
             this.btnModifyDevis.TabIndex = 6;
@@ -391,7 +393,7 @@
             // btnSupDevis
             // 
             this.btnSupDevis.Location = new System.Drawing.Point(456, 1088);
-            this.btnSupDevis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSupDevis.Margin = new System.Windows.Forms.Padding(4);
             this.btnSupDevis.Name = "btnSupDevis";
             this.btnSupDevis.Size = new System.Drawing.Size(224, 81);
             this.btnSupDevis.TabIndex = 3;
@@ -410,12 +412,13 @@
             this.dtgDevisModify.Size = new System.Drawing.Size(988, 469);
             this.dtgDevisModify.TabIndex = 3;
             this.dtgDevisModify.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgDevis_CellContentClick);
+            this.dtgDevisModify.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgDevisModify_CellContentClick);
             this.dtgDevisModify.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgProduitDevis_CellValueChanged);
             // 
             // txtTauxRemise
             // 
             this.txtTauxRemise.Location = new System.Drawing.Point(512, 313);
-            this.txtTauxRemise.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTauxRemise.Margin = new System.Windows.Forms.Padding(4);
             this.txtTauxRemise.Name = "txtTauxRemise";
             this.txtTauxRemise.Size = new System.Drawing.Size(196, 31);
             this.txtTauxRemise.TabIndex = 5;
@@ -423,7 +426,7 @@
             // txtTauxTva
             // 
             this.txtTauxTva.Location = new System.Drawing.Point(28, 217);
-            this.txtTauxTva.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTauxTva.Margin = new System.Windows.Forms.Padding(4);
             this.txtTauxTva.Name = "txtTauxTva";
             this.txtTauxTva.Size = new System.Drawing.Size(196, 31);
             this.txtTauxTva.TabIndex = 4;
@@ -431,7 +434,7 @@
             // dtpDateDevis
             // 
             this.dtpDateDevis.Location = new System.Drawing.Point(426, 65);
-            this.dtpDateDevis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpDateDevis.Margin = new System.Windows.Forms.Padding(4);
             this.dtpDateDevis.Name = "dtpDateDevis";
             this.dtpDateDevis.Size = new System.Drawing.Size(200, 31);
             this.dtpDateDevis.TabIndex = 1;
@@ -439,7 +442,7 @@
             // txtCode
             // 
             this.txtCode.Location = new System.Drawing.Point(28, 65);
-            this.txtCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCode.Margin = new System.Windows.Forms.Padding(4);
             this.txtCode.Name = "txtCode";
             this.txtCode.ReadOnly = true;
             this.txtCode.Size = new System.Drawing.Size(196, 31);
