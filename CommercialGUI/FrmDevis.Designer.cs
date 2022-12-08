@@ -79,7 +79,6 @@
             this.dtgDevis.Size = new System.Drawing.Size(909, 573);
             this.dtgDevis.TabIndex = 0;
             this.dtgDevis.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgDevis_CellClick);
-            this.dtgDevis.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgDevis_CellContentClick);
             // 
             // btnNewDevis
             // 
