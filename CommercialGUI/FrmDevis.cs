@@ -283,6 +283,7 @@ namespace CommercialGUI
 
             dtgDevisModify.Rows.Add(unProduit.Code, unProduit.Libelle, quantitéPro, unProduit.PrixHT, tauxRemise);
             dtgDevisModify.Refresh();
+            lblErrorAdd.Text = "Produit ajouté au devis";
             refreshPrixDevis();
         }
 
@@ -382,6 +383,34 @@ namespace CommercialGUI
             {
                 lblErrorAdd.Text = "Le Devis n'a pas été supprimé";
             }
+        }
+
+        private void btnCancelDevis_Click(object sender, EventArgs e)
+        {
+            string boxMessageDel = "Etes-vous certain de vouloir annuler ce nouveau Devis ";
+            string boxTitleDel = "Annulation";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(boxMessageDel, boxTitleDel, buttons);
+            if (result == DialogResult.Yes)
+            {
+                btnCancelDevis.Visible= false;
+                btnAddDevis.Visible= false;
+                btnModifyDevis.Visible= true;
+                btnSupDevis.Visible= true;
+                dtgDevisModify.Refresh();
+                txtMontantHTAR.Text = "";
+                dtgDevisModify.Rows.Clear();
+                txtMontantHTHR.Text = "";
+                txtMontantTtc.Text = "";
+                txtMontantTva.Text = "";
+                txtTauxTva.Text = "";
+                lblCode.Visible = true;
+            }
+            else
+            {
+                lblErrorAdd.Text = "Action annulé";
+            }
+           
         }
     }
 }
