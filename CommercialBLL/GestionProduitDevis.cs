@@ -54,6 +54,10 @@ namespace CommercialBLL
             return lesDevis; 
 
         }
+        public static void DeleteAllProduits(int id)
+        {
+            ProduitDevisDAO.DeleteAllProduits(id);
+        }
 
     }
 }
