@@ -25,10 +25,6 @@ namespace CommercialBLL
                 {
                     unProduit =  lesProduits[ind];
                 }
-                else
-                {
-                    return null;
-                }
                 
             }
             return unProduit;
@@ -40,17 +36,19 @@ namespace CommercialBLL
             Produit unProduit;
             for (i = 0; i < lesDevis.Count; i++)
             {
-                for (y = 0; y < lesProduitDevis.Count; i++)
+                float produitRemiseEtQtt = 0;
+                for (y = 0; y < lesProduitDevis.Count; y++)
                 {
                     if (lesDevis[i].Id == lesProduitDevis[y].CodeDevis)
                     {
                         unProduit = GestionProduitDevis.getProduitPourDevis(lesProduits, lesProduitDevis[y]);
                         if(unProduit != null)
                         {
-                            lesDevis[i].sumPrix(unProduit.PrixHT);
+                            produitRemiseEtQtt = unProduit.PrixHT * lesProduitDevis[y].Quantite * lesProduitDevis[y].Remise;
                         }
                     }
                 }
+                lesDevis[i].PrixTotal = produitRemiseEtQtt;
                 lesDevis[i].getPrixAvecTva();
             }
             return lesDevis; 

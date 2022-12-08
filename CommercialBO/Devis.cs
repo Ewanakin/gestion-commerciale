@@ -42,13 +42,18 @@ namespace CommercialBO
             set { date = value; }
         }
 
-        private Client Client
+        public Client Client
         {
             get { return client; }
             set
             {
                 client = value;
             }
+        }
+
+        public string ClientNom
+        {
+            get { return client.Nom; }
         }
 
         public StatusDevis Status
@@ -60,23 +65,22 @@ namespace CommercialBO
             }
         }
 
-        public float getPrixTotal
+        public float PrixTotal
         {
-            get { return this.getPrixTotal; }
-            set { this.getPrixTotal = value; }
+            get { return this.prixTotal; }
+            set { this.prixTotal = value; }
         }
 
-        public float sumPrix(float prixHT)
+        public void SumPrix(float prixHT)
         {
-            return this.prixTotal = this.prixTotal + prixHT;
+            float prix = this.PrixTotal + prixHT;
+            this.PrixTotal = prix;
         }
-        
+
         public float getPrixAvecTva()
         {
             return this.prixTotal = this.prixTotal * this.tx_tva;
         }
-
-        
 
 
     }

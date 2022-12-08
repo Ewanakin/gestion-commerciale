@@ -33,7 +33,7 @@ namespace CommercialDAL
                 codeStatut = Int32.Parse(monReader["code_statut"].ToString());
                 codeCli = Int32.Parse(monReader["code_statut"].ToString());
                 float.TryParse(monReader["tx_tva_devis"].ToString(), out tx_tva);
-                DateTime.TryParse(monReader["DateOnlyColumn"].ToString(), out dt);
+                DateTime.TryParse(monReader["date_devis"].ToString(), out dt);
                 nom = monReader["num_cli"].ToString();
                 numeroTel = Int32.Parse(monReader["num_tel_cli"].ToString());
                 numeroFax = Int32.Parse(monReader["num_fax_cli"].ToString());
@@ -58,7 +58,8 @@ namespace CommercialDAL
 
         public static List<ProduitDevis> getProduitDevis()
         {
-            int codeDevis, codeProduit;
+            int codeDevis, codeProduit, quantite;
+            float remise;
             ProduitDevis unProduitDevis;
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             // Création d'une liste vide d'objets Produits
@@ -70,8 +71,10 @@ namespace CommercialDAL
             while (monReader.Read())
             {             
                 codeDevis = Int32.Parse(monReader["code_devis"].ToString());
-                codeProduit = Int32.Parse(monReader["code_produit"].ToString());
-                unProduitDevis = new ProduitDevis(codeDevis, codeProduit);
+                codeProduit = Int32.Parse(monReader["code_pro"].ToString());
+                quantite = Int32.Parse(monReader["qtt_produit"].ToString());
+                float.TryParse(monReader["remise_produit"].ToString(), out remise);
+                unProduitDevis = new ProduitDevis(codeDevis, codeProduit, remise,  quantite);
                 lesProduitDevis.Add(unProduitDevis);
             }
             maConnexion.Close();

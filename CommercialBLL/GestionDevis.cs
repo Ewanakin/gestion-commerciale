@@ -14,5 +14,10 @@ namespace CommercialBLL
         {
             return DevisDAO.getStatusDevis();
         }
+
+        public static List<Devis> getDevis()
+        {
+            return DevisDAO.GetDevis();
+        }
     }
 }
