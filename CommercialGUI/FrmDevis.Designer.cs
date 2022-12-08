@@ -376,7 +376,6 @@
             this.dtgDevisModify.RowTemplate.Height = 24;
             this.dtgDevisModify.Size = new System.Drawing.Size(659, 300);
             this.dtgDevisModify.TabIndex = 3;
-            this.dtgDevisModify.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgDevis_CellContentClick);
             this.dtgDevisModify.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgDevisModify_CellContentClick);
             this.dtgDevisModify.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgProduitDevis_CellValueChanged);
             // 
