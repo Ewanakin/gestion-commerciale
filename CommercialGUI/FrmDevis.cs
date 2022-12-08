@@ -293,43 +293,6 @@ namespace CommercialGUI
         {
 
         }
-
-        private void btnSupprimerDevis_Click(object sender, EventArgs e)
-        {
-            string boxMessageDel = "Etes-vous certain de vouloir supprimer ce Devis ";
-            string boxTitleDel = "Supprimer";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show(boxMessageDel, boxTitleDel, buttons);
-            if (result == DialogResult.Yes)
-            {
-                int codePro;
-                string validMessage;
-                int.TryParse(txtCode.Text, out codePro); ;
-                validMessage = GestionDevis.SupprimerDevis(codePro);
-                lblErrorAdd.Text = validMessage;
-                List<Produit> liste = new List<Produit>();
-                liste = GestionProduits.GetProduits();
-                // Rattachement de la List à la source de données du datagridview
-                dtgDevis.DataSource = liste;
-                lblErrorAdd.Visible = false;
-                btnAddProduct.Visible = true;
-            }
-            else
-            {
-                lblErrorAdd.Text = "Le produit n'a pas été supprimé";
-            }
-        }
-
-        private void txtCode_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCode_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSupDevis_Click(object sender, EventArgs e)
         {
             string boxMessageDel = "Etes-vous certain de vouloir supprimer ce Devis ";
@@ -343,12 +306,6 @@ namespace CommercialGUI
                 int.TryParse(txtCode.Text, out codePro); ;
                 validMessage = GestionDevis.SupprimerDevis(codePro);
                 lblErrorAdd.Text = validMessage;
-                List<Produit> liste = new List<Produit>();
-                liste = GestionProduits.GetProduits();
-                // Rattachement de la List à la source de données du datagridview
-                dtgDevis.DataSource = liste;
-                lblErrorAdd.Visible = false;
-                btnAddProduct.Visible = true;
             }
             else
             {
@@ -437,6 +394,46 @@ namespace CommercialGUI
         private void dtpDateDevis_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnModifyDevis_Click(object sender, EventArgs e)
+        {
+            if(txtCode.Text.Length == 0)
+            {
+                lblErrorAdd.Text = "Aucun devis est selectionné";
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Voulez-vous vraiment modifier ce devis ?", "Modification", MessageBoxButtons.YesNo);
+
+            // Vérifier la valeur retournée par la fenêtre de confirmation
+            if (result == DialogResult.Yes)
+            {
+                int codeDevis = Int32.Parse(txtCode.Text);
+                int codePro;
+                float remisePro;
+                int quantitéPro;
+
+                // Suppresion de tout les produits du devis
+                GestionProduitDevis.DeleteAllProduits(codeDevis);
+
+                // Ajout des nouveaux produits du devis
+                ProduitDevis unProduitDevis;
+
+                foreach (DataGridViewRow row in dtgDevisModify.Rows)
+                {
+                    codePro = Convert.ToInt32(row.Cells[0].Value);
+                    remisePro = Convert.ToSingle(row.Cells[4].Value);
+                    quantitéPro = Convert.ToInt32(row.Cells[2].Value);
+                    unProduitDevis = new ProduitDevis(codeDevis, codePro, remisePro, quantitéPro);
+                    GestionDevis.ajoutProduitDansDevis(unProduitDevis);
+                }
+            }
+            else
+            {
+                // L'utilisateur a choisi Non, annuler la modification du produit
+                lblErrorAdd.Text = "modification annulé";
+            }
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
