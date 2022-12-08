@@ -14,5 +14,15 @@ namespace CommercialBLL
         {
             return DevisDAO.getStatusDevis();
         }
+
+        public static int ajoutDevis(Devis unDevis)
+        {
+            return DevisDAO.AjoutDevis(unDevis);
+        }
+
+        public static void ajoutProduitDansDevis(ProduitDevis unProduitDevis)
+        {
+            ProduitDevisDAO.addUnProduitDevis(unProduitDevis);
+        }
     }
 }
