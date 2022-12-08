@@ -66,6 +66,10 @@ namespace CommercialBO
             set { this.getPrixTotal = value; }
         }
 
+        public float sumPrix(float prixHT)
+        {
+            return this.prixTotal = this.prixTotal + prixHT;
+        }
         
         public float getPrixAvecTva(float prixTotal)
         {

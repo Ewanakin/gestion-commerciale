@@ -34,14 +34,14 @@ namespace CommercialBO
             set { quantite = value; }
         }
 
-        public float sumProduitPrix(List<Devis> lesDevis, List<ProduitDevis> lesProduitDevis)
+        /*public float sumProduitPrix(List<Devis> lesDevis, List<ProduitDevis> lesProduitDevis)
         {
             int i;
             for (i = 0; i<lesDevis.Count; i++)
             {
                 
             }
-        }
+        }*/
 
         public List<Produit> getProduitPourDevis()
         {
