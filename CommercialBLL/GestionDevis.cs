@@ -37,6 +37,11 @@ namespace CommercialBLL
 
         }
 
+        public static void updateDevis(Devis unDevis)
+        {
+            GestionDevis.updateDevis(unDevis);
+        }
+
         public static Devis getUnDevis(List<Devis> lesDevis, int code)
         {
             int i = 0;
@@ -49,11 +54,6 @@ namespace CommercialBLL
                 }
             }
             return devis;
-        }
-
-        public static void updateDevis (Devis unDevis)
-        {
-            GestionDevis.updateDevis(unDevis);
         }
     }
 }

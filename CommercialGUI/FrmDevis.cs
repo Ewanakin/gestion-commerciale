@@ -434,8 +434,11 @@ namespace CommercialGUI
             {
                 // decla var Devis
                 int codeDevis = Int32.Parse(txtCode.Text);
+                Client unCli = new Client(cmbClient.SelectedIndex);
+                StatusDevis unStatus = new StatusDevis(cmbStatutDevis.SelectedIndex);
+                float tauxTva = Convert.ToSingle(txtTauxTva.Text);
                 DateTime dateDevis = dtpDateDevis.Value;
-                Devis unDevis = new Devis(codeDevis, Int32.Parse(txtTauxTva.Text.ToString()), dateDevis, cmbClient.SelectedIndex, cmbStatutDevis.SelectedIndex);
+                Devis unDevis = new Devis(codeDevis, tauxTva, dateDevis, unCli, unStatus);
                 // decla var proDevis
                 int codePro;
                 float remisePro;
