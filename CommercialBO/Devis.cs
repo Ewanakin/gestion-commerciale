@@ -35,7 +35,10 @@ namespace CommercialBO
             get { return tx_tva; }
             set { tx_tva = value; }
         }
-
+        public string StatusDevisLib
+        {
+            get { return status.Libelle; }
+        }
         public DateTime Date
         {
             get { return date; }

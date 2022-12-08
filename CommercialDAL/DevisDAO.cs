@@ -59,11 +59,8 @@ namespace CommercialDAL
         public static List<ProduitDevis> getProduitDevis()
         {
             int codeDevis, codeProduit, quantite;
-<<<<<<< HEAD
             float remise;
-=======
-            float remisePro;
->>>>>>> 5df54539d4304d83a9ee51d49930249b214c5757
+
             ProduitDevis unProduitDevis;
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             // Création d'une liste vide d'objets Produits
@@ -75,17 +72,11 @@ namespace CommercialDAL
             while (monReader.Read())
             {             
                 codeDevis = Int32.Parse(monReader["code_devis"].ToString());
-<<<<<<< HEAD
                 codeProduit = Int32.Parse(monReader["code_pro"].ToString());
                 quantite = Int32.Parse(monReader["qtt_produit"].ToString());
                 float.TryParse(monReader["remise_produit"].ToString(), out remise);
                 unProduitDevis = new ProduitDevis(codeDevis, codeProduit, remise,  quantite);
-=======
-                codeProduit = Int32.Parse(monReader["code_produit"].ToString());
-                quantite = Int32.Parse(monReader["qtt_prduit"].ToString());
-                remisePro = Convert.ToSingle(monReader["remise_produit"].ToString());
-                unProduitDevis = new ProduitDevis(codeDevis, codeProduit,quantite,remisePro) ;
->>>>>>> 5df54539d4304d83a9ee51d49930249b214c5757
+
                 lesProduitDevis.Add(unProduitDevis);
             }
             maConnexion.Close();

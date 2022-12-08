@@ -15,11 +15,12 @@ namespace CommercialBLL
             return DevisDAO.getStatusDevis();
         }
 
-<<<<<<< HEAD
+
         public static List<Devis> getDevis()
         {
             return DevisDAO.GetDevis();
-=======
+        }
+
         public static int ajoutDevis(Devis unDevis)
         {
             return DevisDAO.AjoutDevis(unDevis);
@@ -33,7 +34,21 @@ namespace CommercialBLL
         public static string SupprimerDevis(int id)
         {
             return DevisDAO.DeleteDevis(id);
->>>>>>> 5df54539d4304d83a9ee51d49930249b214c5757
+
+        }
+
+        public static Devis getUnDevis(List<Devis> lesDevis, int code)
+        {
+            int i = 0;
+            Devis devis = null;
+            for (i = 0; i< lesDevis.Count; i++)
+            {
+                if (lesDevis[i].Id == code)
+                {
+                    devis = lesDevis[i];
+                }
+            }
+            return devis;
         }
     }
 }
