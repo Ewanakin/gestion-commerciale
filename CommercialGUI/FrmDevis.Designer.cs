@@ -378,6 +378,7 @@
             this.btnSupDevis.TabIndex = 3;
             this.btnSupDevis.Text = "Supprimer";
             this.btnSupDevis.UseVisualStyleBackColor = true;
+            this.btnSupDevis.Click += new System.EventHandler(this.btnSupDevis_Click);
             // 
             // dtgDevisModify
             // 
@@ -429,7 +430,8 @@
             // lblErrorAdd
             // 
             this.lblErrorAdd.AutoSize = true;
-            this.lblErrorAdd.Location = new System.Drawing.Point(38, 362);
+            this.lblErrorAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblErrorAdd.Location = new System.Drawing.Point(139, 371);
             this.lblErrorAdd.Name = "lblErrorAdd";
             this.lblErrorAdd.Size = new System.Drawing.Size(0, 25);
             this.lblErrorAdd.TabIndex = 30;

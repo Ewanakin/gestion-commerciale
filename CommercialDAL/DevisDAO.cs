@@ -125,10 +125,6 @@ namespace CommercialDAL
             maConnexion.Close();
             return nbEnr;
         }
-
-
-
-
         // Cette méthode supprime en BD un devis
         public static string DeleteDevis(int id)
         {
