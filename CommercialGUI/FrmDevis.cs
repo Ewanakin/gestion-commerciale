@@ -403,17 +403,30 @@ namespace CommercialGUI
                 lblErrorAdd.Text = "Aucun devis est selectionné";
                 return;
             }
+             
+            if (txtTauxTva.Text.Length == 0)
+            {
+                lblErrorAdd.Text = "Taux Tva manquant";
+                return;
+            }
 
+            
             DialogResult result = MessageBox.Show("Voulez-vous vraiment modifier ce devis ?", "Modification", MessageBoxButtons.YesNo);
 
             // Vérifier la valeur retournée par la fenêtre de confirmation
             if (result == DialogResult.Yes)
             {
+                // decla var Devis
                 int codeDevis = Int32.Parse(txtCode.Text);
+                DateTime dateDevis = dtpDateDevis.Value;
+                Devis unDevis = new Devis(codeDevis, Int32.Parse(txtTauxTva.Text.ToString()), dateDevis, cmbClient.SelectedIndex, cmbStatutDevis.SelectedIndex);
+                // decla var proDevis
                 int codePro;
                 float remisePro;
                 int quantitéPro;
 
+                // Update Devis
+                GestionDevis.updateDevis(unDevis);
                 // Suppresion de tout les produits du devis
                 GestionProduitDevis.DeleteAllProduits(codeDevis);
 

@@ -147,6 +147,22 @@ namespace CommercialDAL
             // Fermeture de la connexion
             return valid;
         }
+        // Cette méthode update devis
+        public static void UpdateDevis(Devis unDevis)
+        {
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand cmdUpdateProduitDevis = new SqlCommand();
+            cmdUpdateProduitDevis.Connection = maConnexion;
+            cmdUpdateProduitDevis.CommandText = "INSERT INTO Devis(tx_tva_devis, date_devis, code_cli, code_statut) VALUES (@tva, @date, @cli, @statut) WHERE code_devis = @codeDevis";
+            cmdUpdateProduitDevis.Parameters.Add(new SqlParameter("tva", unDevis.Tx_tva));
+            cmdUpdateProduitDevis.Parameters.Add(new SqlParameter("date", unDevis.Date));
+            cmdUpdateProduitDevis.Parameters.Add(new SqlParameter("cli", unDevis.Client.Code));
+            cmdUpdateProduitDevis.Parameters.Add(new SqlParameter("statut", unDevis.IdStatus));
+            cmdUpdateProduitDevis.Parameters.Add(new SqlParameter("codeDevis", unDevis.IdClient));
+            cmdUpdateProduitDevis.ExecuteNonQuery();
+            // Fermeture de la connexion
+            maConnexion.Close();
+        }
     }
         
 }
