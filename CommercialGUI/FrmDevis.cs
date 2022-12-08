@@ -5,10 +5,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace CommercialGUI
@@ -135,32 +137,38 @@ namespace CommercialGUI
             cmbStatutDevis.DataSource = listeStatut;
             cmbStatutDevis.DisplayMember = "libelle";
             cmbStatutDevis.ValueMember = "id";
-        }
 
+<<<<<<< HEAD
       
 
         
+=======
+            // modif format dtpDateDevis
+            dtpDateDevis.Format = DateTimePickerFormat.Custom;
+            dtpDateDevis.CustomFormat = "MM-dd-yyyy";
+        }
+>>>>>>> 5df54539d4304d83a9ee51d49930249b214c5757
         private void dtgDevis_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Récupérer l'index de la ligne sur laquelle l'utilisateur a cliqué
             int rowIndex = e.RowIndex;
             int cellIndex = e.ColumnIndex;
+            // Fix Erreur du click colonne 
+            if (rowIndex == -1)
+                return;
 
             dtgDevis.CurrentRow.Selected = true;
             txtCode.Text = dtgDevis.Rows[rowIndex].Cells["code"].Value.ToString();
             DataGridViewRow row = dtgDevisModify.Rows[rowIndex];
 
+            if (row.IsNewRow)
+            {
+                lblErrorAdd.Text = "Veuillez ajouter un produit";
+                return;
+            }
+
             if (cellIndex == 5)
             {
-                // vérifier si la colonne cliquée est la colonne numéro 5
-                if (row.IsNewRow)
-                {
-                    
-                    lblErrorAdd.Text = "Le produit n'existe pas";
-                    return;
-                }
-
-
                 DialogResult result = MessageBox.Show("Voulez-vous vraiment supprimer ce produit ?", "Confirmation", MessageBoxButtons.YesNo);
 
                 // Vérifier la valeur retournée par la fenêtre de confirmation
@@ -168,15 +176,22 @@ namespace CommercialGUI
                 {
                     // L'utilisateur a choisi Oui, supprimer le produit
                     // Supprimer la ligne sélectionnée en utilisant l'index récupéré
-                    dtgDevisModify.Rows.RemoveAt(rowIndex);
                     lblErrorAdd.Text = "Suppression confirmé";
+                    dtgDevisModify.Rows.RemoveAt(rowIndex);
+                    refreshPrixDevis();
                 }
                 else
                 {
                     // L'utilisateur a choisi Non, annuler la suppression du produit
                     lblErrorAdd.Text = "Suppression annulé";
                 }
+
             }
+        }
+        // refresh prix devis sur l'event modif case
+        private void dtgProduitDevis_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            refreshPrixDevis();
         }
         private void btnNewDevis_Click(object sender, EventArgs e)
         {
@@ -188,6 +203,75 @@ namespace CommercialGUI
             btnCancelDevis.Visible = true;
             //champs code plus visible au click
             txtCode.Visible = false;
+        }
+
+        //fonction qui gére l'ensemble des calculs de prix d'un devis
+        private void refreshPrixDevis()
+        {
+            if (txtTauxTva.Text.Length == 0)
+            {
+                lblErrorAdd.Text = "Champ TVA non renseigné";
+                return;
+            } else
+            {
+                lblErrorAdd.Text = lblErrorAdd.Text;
+            }
+
+            DataGridView grid = dtgDevisModify;
+            //gestion d'affichage des prix
+            int columnPrixIndex = 3;
+            int columnTauxRemiseIndex = 4;
+            int columnQuantitéPro = 2;
+
+            // Initialisation de la somme à 0
+            decimal sumPrixHTHR = 0;
+            decimal sumPrixHTAR = 0;
+
+            // boucle pour le prix HT HR
+            foreach (DataGridViewRow row in grid.Rows)
+            {
+
+                // Récupération de l'objet DataGridViewCell correspondant à la colonne
+                DataGridViewCell cell = row.Cells[columnPrixIndex];
+                DataGridViewCell cellQuantité = row.Cells[columnQuantitéPro];
+                // Récupération de la valeur des cellules
+                decimal prix = Convert.ToDecimal(cell.Value);
+                decimal quantité = Convert.ToDecimal(cellQuantité.Value);
+                // Calcul prix HT Hors Remise
+                sumPrixHTHR += quantité * prix;
+            }
+
+            // boucle pour le prix HT Avec Rremise
+            foreach (DataGridViewRow row in grid.Rows)
+            {
+                // Récupération de l'objet DataGridViewCell correspondant à la colonne
+                DataGridViewCell cellPrix = row.Cells[columnPrixIndex];
+                DataGridViewCell cellRemise = row.Cells[columnTauxRemiseIndex];
+                DataGridViewCell cellQuantité = row.Cells[columnQuantitéPro];
+
+                // Récupération de la valeur des cellules
+                decimal prix = Convert.ToDecimal(cellPrix.Value);
+                decimal taux = Convert.ToDecimal(cellRemise.Value);
+                decimal quantité = Convert.ToDecimal(cellQuantité.Value);
+
+                // Calcul prix hors taxe avec remise
+                sumPrixHTAR += (quantité * prix) - ((quantité * prix) * (taux / 100));
+            }
+
+            // Calcul total tva d'un Devis
+            decimal tauxTva = Convert.ToDecimal(txtTauxTva.Text);
+            decimal totalTva = sumPrixHTAR * (tauxTva / 100);
+
+            // Calcul Devis TTC 
+            decimal prixTtc = sumPrixHTAR + totalTva;
+
+
+            //injection des var dans les text box
+
+            txtMontantHTAR.Text = sumPrixHTAR.ToString();
+            txtMontantHTHR.Text = sumPrixHTHR.ToString();
+            txtMontantTva.Text  = totalTva.ToString();
+            txtMontantTtc.Text = prixTtc.ToString();
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
@@ -210,16 +294,108 @@ namespace CommercialGUI
 
             if (quantitéPro < 1)
                 quantitéPro = 1;
-                
+
             dtgDevisModify.Rows.Add(unProduit.Code, unProduit.Libelle, quantitéPro, unProduit.PrixHT, tauxRemise);
             dtgDevisModify.Refresh();
+            refreshPrixDevis();
         }
 
-        private void dtgDevisModify_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnAddDevis_Click(object sender, EventArgs e)
         {
-       
-            
+            Client unCli = new Client(cmbClient.SelectedIndex);
+            StatusDevis unStatus = new StatusDevis(cmbStatutDevis.SelectedIndex);
+            int codeDevis;
+            int codePro;
+            float remisePro;
+            int quantitéPro;
+            if (txtTauxTva.Text == "")
+            {
+                lblErrorAdd.Text= "renseigner le taux de tva";
+                return;
+            }
+            // insert du devis 
+            Devis unDevis = new Devis(0, float.Parse(txtTauxTva.Text), dtpDateDevis.Value, unCli, unStatus);
+            int i = GestionDevis.ajoutDevis(unDevis);
 
+            // ajout des produits dans un devis
+            ProduitDevis unProduitDevis;
+
+            foreach (DataGridViewRow row in dtgDevisModify.Rows)
+            {
+                codeDevis   = i;
+                codePro     = Convert.ToInt32(row.Cells[0].Value);
+                remisePro   = Convert.ToSingle(row.Cells[4].Value);
+                quantitéPro = Convert.ToInt32(row.Cells[2].Value);
+                unProduitDevis = new ProduitDevis(codeDevis, codePro, quantitéPro, remisePro);
+                GestionDevis.ajoutProduitDansDevis(unProduitDevis);
+            }
+        }
+
+        private void gpDevis_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSupprimerDevis_Click(object sender, EventArgs e)
+        {
+            string boxMessageDel = "Etes-vous certain de vouloir supprimer ce Devis ";
+            string boxTitleDel = "Supprimer";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(boxMessageDel, boxTitleDel, buttons);
+            if (result == DialogResult.Yes)
+            {
+                int codePro;
+                string validMessage;
+                int.TryParse(txtCode.Text, out codePro); ;
+                validMessage = GestionDevis.SupprimerDevis(codePro);
+                lblErrorAdd.Text = validMessage;
+                List<Produit> liste = new List<Produit>();
+                liste = GestionProduits.GetProduits();
+                // Rattachement de la List à la source de données du datagridview
+                dtgDevis.DataSource = liste;
+                lblErrorAdd.Visible = false;
+                btnAddProduct.Visible = true;
+            }
+            else
+            {
+                lblErrorAdd.Text = "Le produit n'a pas été supprimé";
+            }
+        }
+
+        private void txtCode_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCode_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSupDevis_Click(object sender, EventArgs e)
+        {
+            string boxMessageDel = "Etes-vous certain de vouloir supprimer ce Devis ";
+            string boxTitleDel = "Supprimer";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(boxMessageDel, boxTitleDel, buttons);
+            if (result == DialogResult.Yes)
+            {
+                int codePro;
+                string validMessage;
+                int.TryParse(txtCode.Text, out codePro); ;
+                validMessage = GestionDevis.SupprimerDevis(codePro);
+                lblErrorAdd.Text = validMessage;
+                List<Produit> liste = new List<Produit>();
+                liste = GestionProduits.GetProduits();
+                // Rattachement de la List à la source de données du datagridview
+                dtgDevis.DataSource = liste;
+                lblErrorAdd.Visible = false;
+                btnAddProduct.Visible = true;
+            }
+            else
+            {
+                lblErrorAdd.Text = "Le Devis n'a pas été supprimé";
+            }
         }
     }
 }

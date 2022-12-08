@@ -46,6 +46,7 @@
     <Compile Include="ClientDAO.cs" />
     <Compile Include="ConnexionBD.cs" />
     <Compile Include="ProduitDAO.cs" />
+    <Compile Include="ProduitDevisDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UtilisateurDAO.cs" />
   </ItemGroup>

@@ -39,6 +39,11 @@ namespace CommercialBO
             this.villeAdresseFac = villeAdresseFac;
         }
 
+        public Client(int code)
+        {
+            this.code = code;        
+        }
+
         public int Code { get => code; set => code = value; }
         public string Nom { get => nom; set => nom = value; }
         public int NumeroTel { get => numeroTel; set => numeroTel = value; }

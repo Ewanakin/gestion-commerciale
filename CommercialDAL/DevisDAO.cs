@@ -59,7 +59,11 @@ namespace CommercialDAL
         public static List<ProduitDevis> getProduitDevis()
         {
             int codeDevis, codeProduit, quantite;
+<<<<<<< HEAD
             float remise;
+=======
+            float remisePro;
+>>>>>>> 5df54539d4304d83a9ee51d49930249b214c5757
             ProduitDevis unProduitDevis;
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             // Création d'une liste vide d'objets Produits
@@ -71,10 +75,17 @@ namespace CommercialDAL
             while (monReader.Read())
             {             
                 codeDevis = Int32.Parse(monReader["code_devis"].ToString());
+<<<<<<< HEAD
                 codeProduit = Int32.Parse(monReader["code_pro"].ToString());
                 quantite = Int32.Parse(monReader["qtt_produit"].ToString());
                 float.TryParse(monReader["remise_produit"].ToString(), out remise);
                 unProduitDevis = new ProduitDevis(codeDevis, codeProduit, remise,  quantite);
+=======
+                codeProduit = Int32.Parse(monReader["code_produit"].ToString());
+                quantite = Int32.Parse(monReader["qtt_prduit"].ToString());
+                remisePro = Convert.ToSingle(monReader["remise_produit"].ToString());
+                unProduitDevis = new ProduitDevis(codeDevis, codeProduit,quantite,remisePro) ;
+>>>>>>> 5df54539d4304d83a9ee51d49930249b214c5757
                 lesProduitDevis.Add(unProduitDevis);
             }
             maConnexion.Close();
@@ -103,6 +114,47 @@ namespace CommercialDAL
             maConnexion.Close();
             return lesStatusDevis;
 
+        }
+
+        public static int AjoutDevis(Devis unDevis)
+        {
+            int nbEnr;
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand cmd = new SqlCommand(
+                "INSERT INTO Devis(tx_tva_devis, date_devis, code_cli, code_statut)" +
+                "values(@TVA, @date, @fk_code_stat, @fk_code_cli)",
+                maConnexion
+            );
+            cmd.Parameters.AddWithValue("@TVA", unDevis.Tx_tva);
+            cmd.Parameters.AddWithValue("@date", unDevis.Date);
+            cmd.Parameters.AddWithValue("@fk_code_stat", unDevis.Client.Code);
+            cmd.Parameters.AddWithValue("@fk_code_cli", unDevis.Status.Id);
+            /* Exécution de la requête */
+            nbEnr = cmd.ExecuteNonQuery();
+            // Fermeture de la connexion
+            maConnexion.Close();
+            return nbEnr;
+        }
+        // Cette méthode supprime en BD un devis
+        public static string DeleteDevis(int id)
+        {
+            string valid = "";
+            SqlConnection maConnexionDel = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand cmdDelProduitDevis = new SqlCommand();
+            cmdDelProduitDevis.Connection = maConnexionDel;
+            cmdDelProduitDevis.CommandText = "DELETE FROM ProduitDevis WHERE code_devis = @codeDevis";
+            cmdDelProduitDevis.Parameters.Add(new SqlParameter("codeDevis", id));
+            cmdDelProduitDevis.ExecuteNonQuery();
+            SqlCommand cmdDel = new SqlCommand();
+            cmdDel.Connection = maConnexionDel;
+            cmdDel.CommandText = "DELETE FROM Devis WHERE code_devis = @codeDevis";
+            cmdDel.Parameters.Add(new SqlParameter("codeDevis", id));
+            cmdDel.ExecuteNonQuery();
+            valid = "Le devis a bien été supprimé.";
+            maConnexionDel.Close();
+            // Fermeture de la connexion
+            return valid;
         }
     }
         
