@@ -167,53 +167,6 @@ namespace CommercialGUI
                 }
             }
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbAddProduit_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gpDevis_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpDateDevis_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtMontantHTHR_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void btnNewDevis_Click(object sender, EventArgs e)
         {
             //btn modify / supp plus visible au click

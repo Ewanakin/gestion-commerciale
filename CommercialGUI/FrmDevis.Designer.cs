@@ -134,7 +134,6 @@
             this.gpDevis.TabIndex = 2;
             this.gpDevis.TabStop = false;
             this.gpDevis.Text = "Details";
-            this.gpDevis.Enter += new System.EventHandler(this.gpDevis_Enter);
             // 
             // label2
             // 
@@ -216,7 +215,6 @@
             this.lblMontantHorsRemise.Size = new System.Drawing.Size(127, 13);
             this.lblMontantHorsRemise.TabIndex = 24;
             this.lblMontantHorsRemise.Text = "Montant HT Hors Remise";
-            this.lblMontantHorsRemise.Click += new System.EventHandler(this.label1_Click_2);
             // 
             // lblTauxRemise
             // 
@@ -307,7 +305,6 @@
             this.cmbAddProduit.Name = "cmbAddProduit";
             this.cmbAddProduit.Size = new System.Drawing.Size(152, 21);
             this.cmbAddProduit.TabIndex = 16;
-            this.cmbAddProduit.SelectedIndexChanged += new System.EventHandler(this.cmbAddProduit_SelectedIndexChanged);
             // 
             // cmbStatutDevis
             // 
@@ -318,7 +315,6 @@
             this.cmbStatutDevis.Name = "cmbStatutDevis";
             this.cmbStatutDevis.Size = new System.Drawing.Size(102, 21);
             this.cmbStatutDevis.TabIndex = 15;
-            this.cmbStatutDevis.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // lblStatut
             // 
@@ -330,7 +326,6 @@
             this.lblStatut.Size = new System.Drawing.Size(35, 13);
             this.lblStatut.TabIndex = 14;
             this.lblStatut.Text = "Statut";
-            this.lblStatut.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // cmbClient
             // 
@@ -340,7 +335,6 @@
             this.cmbClient.Name = "cmbClient";
             this.cmbClient.Size = new System.Drawing.Size(100, 21);
             this.cmbClient.TabIndex = 13;
-            this.cmbClient.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // lblClient
             // 
@@ -351,7 +345,6 @@
             this.lblClient.Size = new System.Drawing.Size(33, 13);
             this.lblClient.TabIndex = 12;
             this.lblClient.Text = "Client";
-            this.lblClient.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtMontantHTAR
             // 
@@ -368,7 +361,6 @@
             this.txtMontantHTHR.Name = "txtMontantHTHR";
             this.txtMontantHTHR.Size = new System.Drawing.Size(138, 20);
             this.txtMontantHTHR.TabIndex = 9;
-            this.txtMontantHTHR.TextChanged += new System.EventHandler(this.txtMontantHTHR_TextChanged);
             // 
             // txtMontantTtc
             // 
@@ -443,7 +435,6 @@
             this.dtpDateDevis.Name = "dtpDateDevis";
             this.dtpDateDevis.Size = new System.Drawing.Size(102, 20);
             this.dtpDateDevis.TabIndex = 1;
-            this.dtpDateDevis.ValueChanged += new System.EventHandler(this.dtpDateDevis_ValueChanged);
             // 
             // txtCode
             // 
