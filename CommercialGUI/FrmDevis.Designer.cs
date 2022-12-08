@@ -31,6 +31,7 @@
             this.dtgDevis = new System.Windows.Forms.DataGridView();
             this.btnNewDevis = new System.Windows.Forms.Button();
             this.gpDevis = new System.Windows.Forms.GroupBox();
+            this.lblErrorAdd = new System.Windows.Forms.Label();
             this.btnCancelDevis = new System.Windows.Forms.Button();
             this.btnAddDevis = new System.Windows.Forms.Button();
             this.lblMontantTTC = new System.Windows.Forms.Label();
@@ -61,7 +62,6 @@
             this.txtTauxTva = new System.Windows.Forms.TextBox();
             this.dtpDateDevis = new System.Windows.Forms.DateTimePicker();
             this.txtCode = new System.Windows.Forms.TextBox();
-            this.lblErrorAdd = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDevis)).BeginInit();
             this.gpDevis.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDevisModify)).BeginInit();
@@ -134,6 +134,15 @@
             this.gpDevis.Text = "Details";
             this.gpDevis.Enter += new System.EventHandler(this.gpDevis_Enter);
             // 
+            // lblErrorAdd
+            // 
+            this.lblErrorAdd.AutoSize = true;
+            this.lblErrorAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblErrorAdd.Location = new System.Drawing.Point(139, 371);
+            this.lblErrorAdd.Name = "lblErrorAdd";
+            this.lblErrorAdd.Size = new System.Drawing.Size(0, 25);
+            this.lblErrorAdd.TabIndex = 30;
+            // 
             // btnCancelDevis
             // 
             this.btnCancelDevis.Location = new System.Drawing.Point(456, 1196);
@@ -144,6 +153,7 @@
             this.btnCancelDevis.Text = "Annuler";
             this.btnCancelDevis.UseVisualStyleBackColor = true;
             this.btnCancelDevis.Visible = false;
+            this.btnCancelDevis.Click += new System.EventHandler(this.btnCancelDevis_Click);
             // 
             // btnAddDevis
             // 
@@ -427,20 +437,11 @@
             this.txtCode.Size = new System.Drawing.Size(196, 31);
             this.txtCode.TabIndex = 0;
             // 
-            // lblErrorAdd
-            // 
-            this.lblErrorAdd.AutoSize = true;
-            this.lblErrorAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblErrorAdd.Location = new System.Drawing.Point(139, 371);
-            this.lblErrorAdd.Name = "lblErrorAdd";
-            this.lblErrorAdd.Size = new System.Drawing.Size(0, 25);
-            this.lblErrorAdd.TabIndex = 30;
-            // 
             // FrmDevis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2552, 1408);
+            this.ClientSize = new System.Drawing.Size(2552, 1552);
             this.Controls.Add(this.gpDevis);
             this.Controls.Add(this.btnNewDevis);
             this.Controls.Add(this.dtgDevis);

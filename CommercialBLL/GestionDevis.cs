@@ -29,5 +29,10 @@ namespace CommercialBLL
         {
             return DevisDAO.DeleteDevis(id);
         }
+
+        public static int ModifyDevis(Devis unDevis)
+        {
+            return DevisDAO.ModifyDevis(unDevis);
+        }
     }
 }

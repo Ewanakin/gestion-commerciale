@@ -145,6 +145,21 @@ namespace CommercialDAL
             // Fermeture de la connexion
             return valid;
         }
-    }
-        
+        public static int ModifyDevis(Devis unDevis)
+        {
+            //Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "UPDATE Devis SET  date_devis= @dateDevis, code_statut = @codeStatut, code_cli = @codeCli WHERE  code_devis = @codeDevis";
+            cmd.Parameters.Add(new SqlParameter("dateDevis", unDevis.Date));
+            cmd.Parameters.Add(new SqlParameter("codeStatut", unDevis.Status.Id));
+            cmd.Parameters.Add(new SqlParameter("codeCli", unDevis.Client.Code));
+            cmd.Parameters.Add(new SqlParameter("codeDevis", unDevis.Id));
+            cmd.ExecuteNonQuery();
+            // Fermeture de la connexion
+            maConnexion.Close();
+            return unDevis.Client.Code;
+        }
+    }   
 }
