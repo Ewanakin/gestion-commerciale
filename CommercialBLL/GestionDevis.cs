@@ -14,5 +14,11 @@ namespace CommercialBLL
         {
             return DevisDAO.getStatusDevis();
         }
+
+        // Méthode qui supprime un devis en BD
+        public static string SupprimerDevis(int id)
+        {
+            return DevisDAO.DeleteDevis(id);
+        }
     }
 }

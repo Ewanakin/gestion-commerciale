@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -274,6 +275,37 @@ namespace CommercialGUI
             dtgDevisModify.Rows.Add(unProduit.Code, unProduit.Libelle, quantitéPro, unProduit.PrixHT, tauxRemise);
             dtgDevisModify.Refresh();
             refreshPrixDevis();
+        }
+
+        private void btnSupprimerDevis_Click(object sender, EventArgs e)
+        {
+            string boxMessageDel = "Etes-vous certain de vouloir supprimer ce Devis ";
+            string boxTitleDel = "Supprimer";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(boxMessageDel, boxTitleDel, buttons);
+            if (result == DialogResult.Yes)
+            {
+                int codePro;
+                string validMessage;
+                int.TryParse(txtCode.Text, out codePro); ;
+                validMessage = GestionDevis.SupprimerDevis(codePro);
+                lblErrorMessage.Text = validMessage;
+                List<Produit> liste = new List<Produit>();
+                liste = GestionProduits.GetProduits();
+                // Rattachement de la List à la source de données du datagridview
+                dtgDevis.DataSource = liste;
+                lblErrorMessage.Visible = false;
+                btnAddProduct.Visible = true;
+            }
+            else
+            {
+                lblErrorMessage.Text = "Le produit n'a pas été supprimé";
+            }
+        }
+
+        private void txtCode_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
