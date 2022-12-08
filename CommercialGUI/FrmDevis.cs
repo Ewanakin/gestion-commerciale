@@ -131,26 +131,25 @@ namespace CommercialGUI
             cmbStatutDevis.DisplayMember = "libelle";
             cmbStatutDevis.ValueMember = "id";
         }
-
         private void dtgDevis_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Récupérer l'index de la ligne sur laquelle l'utilisateur a cliqué
             int rowIndex = e.RowIndex;
             int cellIndex = e.ColumnIndex;
+            // Fix Erreur du click colonne 
+            if (rowIndex == -1)
+                return;
 
             DataGridViewRow row = dtgDevisModify.Rows[rowIndex];
 
+            if (row.IsNewRow)
+            {
+                lblErrorAdd.Text = "Veuillez ajouter un produit";
+                return;
+            }
+
             if (cellIndex == 5)
             {
-                // vérifier si la colonne cliquée est la colonne numéro 5
-                if (row.IsNewRow)
-                {
-                    
-                    lblErrorAdd.Text = "Le produit n'existe pas";
-                    return;
-                }
-
-
                 DialogResult result = MessageBox.Show("Voulez-vous vraiment supprimer ce produit ?", "Confirmation", MessageBoxButtons.YesNo);
 
                 // Vérifier la valeur retournée par la fenêtre de confirmation
@@ -158,8 +157,8 @@ namespace CommercialGUI
                 {
                     // L'utilisateur a choisi Oui, supprimer le produit
                     // Supprimer la ligne sélectionnée en utilisant l'index récupéré
-                    dtgDevisModify.Rows.RemoveAt(rowIndex);
                     lblErrorAdd.Text = "Suppression confirmé";
+                    dtgDevisModify.Rows.RemoveAt(rowIndex);
                     refreshPrixDevis();
                 }
                 else
@@ -167,7 +166,13 @@ namespace CommercialGUI
                     // L'utilisateur a choisi Non, annuler la suppression du produit
                     lblErrorAdd.Text = "Suppression annulé";
                 }
+
             }
+        }
+        // refresh prix devis sur l'event modif case
+        private void dtgProduitDevis_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            refreshPrixDevis();
         }
         private void btnNewDevis_Click(object sender, EventArgs e)
         {
@@ -190,7 +195,7 @@ namespace CommercialGUI
                 return;
             } else
             {
-                lblErrorAdd.Text = "";
+                lblErrorAdd.Text = lblErrorAdd.Text;
             }
 
             DataGridView grid = dtgDevisModify;
