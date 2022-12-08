@@ -293,43 +293,6 @@ namespace CommercialGUI
         {
 
         }
-
-        private void btnSupprimerDevis_Click(object sender, EventArgs e)
-        {
-            string boxMessageDel = "Etes-vous certain de vouloir supprimer ce Devis ";
-            string boxTitleDel = "Supprimer";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show(boxMessageDel, boxTitleDel, buttons);
-            if (result == DialogResult.Yes)
-            {
-                int codePro;
-                string validMessage;
-                int.TryParse(txtCode.Text, out codePro); ;
-                validMessage = GestionDevis.SupprimerDevis(codePro);
-                lblErrorAdd.Text = validMessage;
-                List<Produit> liste = new List<Produit>();
-                liste = GestionProduits.GetProduits();
-                // Rattachement de la List à la source de données du datagridview
-                dtgDevis.DataSource = liste;
-                lblErrorAdd.Visible = false;
-                btnAddProduct.Visible = true;
-            }
-            else
-            {
-                lblErrorAdd.Text = "Le produit n'a pas été supprimé";
-            }
-        }
-
-        private void txtCode_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCode_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSupDevis_Click(object sender, EventArgs e)
         {
             string boxMessageDel = "Etes-vous certain de vouloir supprimer ce Devis ";
@@ -343,12 +306,6 @@ namespace CommercialGUI
                 int.TryParse(txtCode.Text, out codePro); ;
                 validMessage = GestionDevis.SupprimerDevis(codePro);
                 lblErrorAdd.Text = validMessage;
-                List<Produit> liste = new List<Produit>();
-                liste = GestionProduits.GetProduits();
-                // Rattachement de la List à la source de données du datagridview
-                dtgDevis.DataSource = liste;
-                lblErrorAdd.Visible = false;
-                btnAddProduct.Visible = true;
             }
             else
             {
