@@ -424,5 +424,45 @@ namespace CommercialGUI
         {
 
         }
+
+        private void btnModifyDevis_Click(object sender, EventArgs e)
+        {
+            if(txtCode.Text.Length == 0)
+            {
+                lblErrorAdd.Text = "Aucun devis est selectionné";
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Voulez-vous vraiment modifier ce devis ?", "Modification", MessageBoxButtons.YesNo);
+
+            // Vérifier la valeur retournée par la fenêtre de confirmation
+            if (result == DialogResult.Yes)
+            {
+                int codeDevis = Int32.Parse(txtCode.Text);
+                int codePro;
+                float remisePro;
+                int quantitéPro;
+
+                // Suppresion de tout les produits du devis
+                GestionProduitDevis.DeleteAllProduits(codeDevis);
+
+                // Ajout des nouveaux produits du devis
+                ProduitDevis unProduitDevis;
+
+                foreach (DataGridViewRow row in dtgDevisModify.Rows)
+                {
+                    codePro = Convert.ToInt32(row.Cells[0].Value);
+                    remisePro = Convert.ToSingle(row.Cells[4].Value);
+                    quantitéPro = Convert.ToInt32(row.Cells[2].Value);
+                    unProduitDevis = new ProduitDevis(codeDevis, codePro, remisePro, quantitéPro);
+                    GestionDevis.ajoutProduitDansDevis(unProduitDevis);
+                }
+            }
+            else
+            {
+                // L'utilisateur a choisi Non, annuler la modification du produit
+                lblErrorAdd.Text = "modification annulé";
+            }
+        }
     }
 }
