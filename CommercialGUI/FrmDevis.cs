@@ -255,6 +255,30 @@ namespace CommercialGUI
             refreshPrixDevis();
         }
 
+        private void initialGraphicStateRightForm()
+        {
+            btnAddDevis.Visible = false;
+            btnCancelDevis.Visible = false;
+            btnModifyDevis.Visible = true;
+            btnSupDevis.Visible = true;
+            txtMontantHTAR.Text= string.Empty;
+            txtMontantHTHR.Text= string.Empty;
+            txtMontantTtc.Text= string.Empty;
+            txtMontantTva.Text= string.Empty;
+            txtQuantité.Text= string.Empty;
+            txtTauxRemise.Text= string.Empty;
+            dtgDevis.Refresh();
+            dtgDevisModify.Rows.Clear();
+            List<Devis> listeDevis = new List<Devis>();
+            listeDevis = GestionDevis.getDevis();
+            List<ProduitDevis> produitDevis = new List<ProduitDevis>();
+            produitDevis = GestionProduitDevis.getProduitDevis();
+            List<Produit> produits = new List<Produit>();
+            produits = GestionProduits.GetProduits();
+            listeDevis = GestionProduitDevis.sumProduitPrix(listeDevis, produitDevis, produits);
+            dtgDevis.DataSource = listeDevis;
+        }
+
         private void btnAddDevis_Click(object sender, EventArgs e)
         {
             Client unCli = new Client(cmbClient.SelectedIndex);
@@ -284,6 +308,8 @@ namespace CommercialGUI
                 unProduitDevis = new ProduitDevis(codeDevis, codePro, remisePro, quantitéPro);
                 GestionDevis.AjoutProduitDansDevis(unProduitDevis);
             }
+            initialGraphicStateRightForm();
+            lblErrorAdd.Text = "Ajout confirmé";
         }
 
         private void gpDevis_Enter(object sender, EventArgs e)
@@ -452,8 +478,9 @@ namespace CommercialGUI
                     unProduitDevis = new ProduitDevis(codeDevis, codePro, remisePro, quantitéPro);
                     GestionDevis.AjoutProduitDansDevis(unProduitDevis);
                 }
-                lblErrorAdd.Text = "Le devis a bien étais modifié";
                 refreshPrixDevis();
+                initialGraphicStateRightForm();
+                lblErrorAdd.Text = "Le devis a bien étais modifié";
             }
             else
             {
@@ -465,6 +492,22 @@ namespace CommercialGUI
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
 
+        }
+
+        private void btnCancelDevis_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Voulez-vous vraiment annuler l'ajout de ce devis ?", "Ajout Devis", MessageBoxButtons.YesNo);
+
+            // Vérifier la valeur retournée par la fenêtre de confirmation
+            if (result == DialogResult.Yes)
+            {
+                initialGraphicStateRightForm();
+                lblErrorAdd.Text = "ajout annulé";
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }
