@@ -126,7 +126,7 @@
             this.gpDevis.Controls.Add(this.txtTauxTva);
             this.gpDevis.Controls.Add(this.dtpDateDevis);
             this.gpDevis.Controls.Add(this.txtCode);
-            this.gpDevis.ForeColor = System.Drawing.Color.Black;
+            this.gpDevis.ForeColor = System.Drawing.Color.White;
             this.gpDevis.Location = new System.Drawing.Point(1520, 156);
             this.gpDevis.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gpDevis.Name = "gpDevis";
@@ -147,6 +147,7 @@
             // 
             // btnCancelDevis
             // 
+            this.btnCancelDevis.ForeColor = System.Drawing.Color.Black;
             this.btnCancelDevis.Location = new System.Drawing.Point(456, 1195);
             this.btnCancelDevis.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancelDevis.Name = "btnCancelDevis";
@@ -159,6 +160,7 @@
             // 
             // btnAddDevis
             // 
+            this.btnAddDevis.ForeColor = System.Drawing.Color.Black;
             this.btnAddDevis.Location = new System.Drawing.Point(192, 1195);
             this.btnAddDevis.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddDevis.Name = "btnAddDevis";
@@ -253,6 +255,7 @@
             // 
             // btnAddProduct
             // 
+            this.btnAddProduct.ForeColor = System.Drawing.Color.Black;
             this.btnAddProduct.Location = new System.Drawing.Point(674, 352);
             this.btnAddProduct.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddProduct.Name = "btnAddProduct";
@@ -373,6 +376,7 @@
             // 
             // btnModifyDevis
             // 
+            this.btnModifyDevis.ForeColor = System.Drawing.Color.Black;
             this.btnModifyDevis.Location = new System.Drawing.Point(192, 1088);
             this.btnModifyDevis.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnModifyDevis.Name = "btnModifyDevis";
@@ -384,6 +388,7 @@
             // 
             // btnSupDevis
             // 
+            this.btnSupDevis.ForeColor = System.Drawing.Color.Black;
             this.btnSupDevis.Location = new System.Drawing.Point(456, 1088);
             this.btnSupDevis.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSupDevis.Name = "btnSupDevis";
@@ -470,12 +475,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(2582, 1472);
             this.Controls.Add(this.btnRoutesClient);
             this.Controls.Add(this.btnPro);
             this.Controls.Add(this.gpDevis);
             this.Controls.Add(this.btnNewDevis);
             this.Controls.Add(this.dtgDevis);
+            this.ForeColor = System.Drawing.Color.Black;
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "FrmDevis";
             this.Text = "Devis form";

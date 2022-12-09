@@ -114,6 +114,10 @@ namespace CommercialGUI
             dtgDevisModify.Columns.Add(supprimerProduit);
             supprimerProduit.DisplayIndex = 5;
 
+            // Créez un nouvel objet Color pour définir la couleur du texte
+            Color textColor = Color.Black;
+            dtgDevisModify.RowsDefaultCellStyle.ForeColor = textColor;
+
 
             // injection valeur combobox Client
             List<Client> listeClient = new List<Client>();
