@@ -158,7 +158,7 @@ namespace CommercialDAL
             cmdUpdateProduitDevis.Parameters.Add(new SqlParameter("tva", unDevis.Tx_tva));
             cmdUpdateProduitDevis.Parameters.Add(new SqlParameter("date", unDevis.Date));
             cmdUpdateProduitDevis.Parameters.Add(new SqlParameter("cli", unDevis.Client.Code));
-            cmdUpdateProduitDevis.Parameters.Add(new SqlParameter("statut", unDevis.IdStatus));
+            cmdUpdateProduitDevis.Parameters.Add(new SqlParameter("statut", unDevis.Status.Id));
             cmdUpdateProduitDevis.Parameters.Add(new SqlParameter("codeDevis", unDevis.Id));
             cmdUpdateProduitDevis.ExecuteNonQuery();
             // Fermeture de la connexion
