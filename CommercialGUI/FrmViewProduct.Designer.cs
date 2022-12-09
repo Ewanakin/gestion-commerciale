@@ -44,8 +44,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnCli = new System.Windows.Forms.Button();
             this.btnPro = new System.Windows.Forms.Button();
+            this.btnRoutesDevis = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -214,18 +214,6 @@
             this.label4.TabIndex = 19;
             this.label4.Text = "Code Produit";
             // 
-            // btnCli
-            // 
-            this.btnCli.ForeColor = System.Drawing.Color.Black;
-            this.btnCli.Location = new System.Drawing.Point(1143, 834);
-            this.btnCli.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnCli.Name = "btnCli";
-            this.btnCli.Size = new System.Drawing.Size(292, 61);
-            this.btnCli.TabIndex = 20;
-            this.btnCli.Text = "Vers client >";
-            this.btnCli.UseVisualStyleBackColor = true;
-            this.btnCli.Click += new System.EventHandler(this.btnCli_Click);
-            // 
             // btnPro
             // 
             this.btnPro.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -237,6 +225,20 @@
             this.btnPro.TabIndex = 20;
             this.btnPro.Text = "vers client >";
             this.btnPro.UseVisualStyleBackColor = false;
+            this.btnPro.Click += new System.EventHandler(this.btnPro_Click);
+            // 
+            // btnRoutesDevis
+            // 
+            this.btnRoutesDevis.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnRoutesDevis.ForeColor = System.Drawing.Color.Lime;
+            this.btnRoutesDevis.Location = new System.Drawing.Point(797, 814);
+            this.btnRoutesDevis.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnRoutesDevis.Name = "btnRoutesDevis";
+            this.btnRoutesDevis.Size = new System.Drawing.Size(292, 61);
+            this.btnRoutesDevis.TabIndex = 21;
+            this.btnRoutesDevis.Text = "vers devis >";
+            this.btnRoutesDevis.UseVisualStyleBackColor = false;
+            this.btnRoutesDevis.Click += new System.EventHandler(this.btnRoutesDevis_Click);
             // 
             // FrmViewProduct
             // 
@@ -244,7 +246,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1461, 917);
-            this.Controls.Add(this.btnCli);
+            this.Controls.Add(this.btnRoutesDevis);
             this.Controls.Add(this.btnPro);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -290,9 +292,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
 
-        private System.Windows.Forms.Button btnCli;
-
         private System.Windows.Forms.Button btnPro;
-
+        private System.Windows.Forms.Button btnRoutesDevis;
     }
 }

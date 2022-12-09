@@ -69,6 +69,7 @@
             this.generalMessage = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblGeneralMessage = new System.Windows.Forms.Label();
+            this.btnRoutesDevis = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgCustomer)).BeginInit();
             this.SuspendLayout();
             // 
@@ -457,12 +458,26 @@
             this.lblGeneralMessage.Size = new System.Drawing.Size(0, 25);
             this.lblGeneralMessage.TabIndex = 36;
             // 
+            // btnRoutesDevis
+            // 
+            this.btnRoutesDevis.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnRoutesDevis.ForeColor = System.Drawing.Color.Lime;
+            this.btnRoutesDevis.Location = new System.Drawing.Point(358, 1159);
+            this.btnRoutesDevis.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnRoutesDevis.Name = "btnRoutesDevis";
+            this.btnRoutesDevis.Size = new System.Drawing.Size(292, 61);
+            this.btnRoutesDevis.TabIndex = 37;
+            this.btnRoutesDevis.Text = "vers devis >";
+            this.btnRoutesDevis.UseVisualStyleBackColor = false;
+            this.btnRoutesDevis.Click += new System.EventHandler(this.btnRoutesDevis_Click);
+            // 
             // FrmViewCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(2852, 1248);
+            this.Controls.Add(this.btnRoutesDevis);
             this.Controls.Add(this.lblGeneralMessage);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.generalMessage);
@@ -551,5 +566,6 @@
         private System.Windows.Forms.Label generalMessage;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblGeneralMessage;
+        private System.Windows.Forms.Button btnRoutesDevis;
     }
 }

@@ -508,5 +508,20 @@ namespace CommercialGUI
                 return;
             }
         }
+
+        private void btnRoutesClient_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmViewCustomer viewCustomer = new FrmViewCustomer();
+            viewCustomer.ShowDialog(); // ouverture du formulaire*
+        }
+
+        private void btnPro_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            FrmViewProduct viewProduct = new FrmViewProduct();
+            viewProduct.ShowDialog(); // ouverture du formulaire*
+        }
     }
 }

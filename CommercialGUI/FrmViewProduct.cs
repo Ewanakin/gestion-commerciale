@@ -235,5 +235,19 @@ namespace CommercialGUI
         {
 
         }
+
+        private void btnRoutesDevis_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmDevis viewDevis = new FrmDevis();
+            viewDevis.ShowDialog(); // ouverture du formulaire*
+        }
+
+        private void btnPro_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmViewCustomer viewCustomer = new FrmViewCustomer();
+            viewCustomer.ShowDialog(); // ouverture du formulaire*
+        }
     }
 }
