@@ -109,23 +109,24 @@ namespace CommercialDAL
 
         public static int AjoutDevis(Devis unDevis)
         {
-            int nbEnr;
+            Object nbEnr;
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
-            SqlCommand cmd = new SqlCommand(
-                "INSERT INTO Devis(tx_tva_devis, date_devis, code_cli, code_statut)" +
-                "values(@TVA, @date, @fk_code_stat, @fk_code_cli)",
-                maConnexion
-            );
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "INSERT INTO Devis(tx_tva_devis, date_devis, code_cli, code_statut) values(@TVA, @date, @fk_code_stat, @fk_code_cli); SELECT SCOPE_IDENTITY()";
             cmd.Parameters.AddWithValue("@TVA", unDevis.Tx_tva);
             cmd.Parameters.AddWithValue("@date", unDevis.Date);
             cmd.Parameters.AddWithValue("@fk_code_stat", unDevis.Client.Code);
             cmd.Parameters.AddWithValue("@fk_code_cli", unDevis.Status.Id);
             /* Exécution de la requête */
-            nbEnr = cmd.ExecuteNonQuery();
+            nbEnr = cmd.ExecuteScalar();
             // Fermeture de la connexion
             maConnexion.Close();
-            return nbEnr;
+            if (nbEnr != null)
+            {
+                return (int)(decimal)nbEnr;
+            } else { return 0; }
         }
         // Cette méthode supprime en BD un devis
         public static string DeleteDevis(int id)
@@ -153,12 +154,12 @@ namespace CommercialDAL
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmdUpdateProduitDevis = new SqlCommand();
             cmdUpdateProduitDevis.Connection = maConnexion;
-            cmdUpdateProduitDevis.CommandText = "INSERT INTO Devis(tx_tva_devis, date_devis, code_cli, code_statut) VALUES (@tva, @date, @cli, @statut) WHERE code_devis = @codeDevis";
+            cmdUpdateProduitDevis.CommandText = "Update Devis set tx_tva_devis = @tva, date_devis = @date, code_cli = @cli, code_statut = @statut where code_devis = @codeDevis";
             cmdUpdateProduitDevis.Parameters.Add(new SqlParameter("tva", unDevis.Tx_tva));
             cmdUpdateProduitDevis.Parameters.Add(new SqlParameter("date", unDevis.Date));
             cmdUpdateProduitDevis.Parameters.Add(new SqlParameter("cli", unDevis.Client.Code));
             cmdUpdateProduitDevis.Parameters.Add(new SqlParameter("statut", unDevis.IdStatus));
-            cmdUpdateProduitDevis.Parameters.Add(new SqlParameter("codeDevis", unDevis.IdClient));
+            cmdUpdateProduitDevis.Parameters.Add(new SqlParameter("codeDevis", unDevis.Id));
             cmdUpdateProduitDevis.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();

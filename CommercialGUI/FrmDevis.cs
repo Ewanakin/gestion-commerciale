@@ -70,6 +70,7 @@ namespace CommercialGUI
             // Blocage de la génération automatique des colonnes && création en-tete dtgModify Produit
             dtgDevisModify.AutoGenerateColumns = false;
             DataGridViewTextBoxColumn idProduitColumn = new DataGridViewTextBoxColumn();
+            dtgDevisModify.AllowUserToAddRows = false;
             idProduitColumn.Name = "idProduit";
             idProduitColumn.DataPropertyName = "idProduit";
             idProduitColumn.HeaderText = "idProduit";
@@ -141,10 +142,6 @@ namespace CommercialGUI
             // modif format dtpDateDevis
             dtpDateDevis.Format = DateTimePickerFormat.Custom;
             dtpDateDevis.CustomFormat = "MM-dd-yyyy";
-        }
-        private void dtgDevis_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
         }
         // refresh prix devis sur l'event modif case
         private void dtgProduitDevis_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -258,6 +255,30 @@ namespace CommercialGUI
             refreshPrixDevis();
         }
 
+        private void initialGraphicStateRightForm()
+        {
+            btnAddDevis.Visible = false;
+            btnCancelDevis.Visible = false;
+            btnModifyDevis.Visible = true;
+            btnSupDevis.Visible = true;
+            txtMontantHTAR.Text= string.Empty;
+            txtMontantHTHR.Text= string.Empty;
+            txtMontantTtc.Text= string.Empty;
+            txtMontantTva.Text= string.Empty;
+            txtQuantité.Text= string.Empty;
+            txtTauxRemise.Text= string.Empty;
+            dtgDevis.Refresh();
+            dtgDevisModify.Rows.Clear();
+            List<Devis> listeDevis = new List<Devis>();
+            listeDevis = GestionDevis.getDevis();
+            List<ProduitDevis> produitDevis = new List<ProduitDevis>();
+            produitDevis = GestionProduitDevis.getProduitDevis();
+            List<Produit> produits = new List<Produit>();
+            produits = GestionProduits.GetProduits();
+            listeDevis = GestionProduitDevis.sumProduitPrix(listeDevis, produitDevis, produits);
+            dtgDevis.DataSource = listeDevis;
+        }
+
         private void btnAddDevis_Click(object sender, EventArgs e)
         {
             Client unCli = new Client(cmbClient.SelectedIndex);
@@ -266,6 +287,11 @@ namespace CommercialGUI
             int codePro;
             float remisePro;
             int quantitéPro;
+            if (dtgDevisModify.RowCount == 0)
+            {
+                lblErrorAdd.Text = "Veuillez ajouter un produit";
+                return;
+            }
             if (txtTauxTva.Text == "")
             {
                 lblErrorAdd.Text= "renseigner le taux de tva";
@@ -273,7 +299,7 @@ namespace CommercialGUI
             }
             // insert du devis 
             Devis unDevis = new Devis(0, float.Parse(txtTauxTva.Text), dtpDateDevis.Value, unCli, unStatus);
-            int i = GestionDevis.ajoutDevis(unDevis);
+            int i = GestionDevis.AjoutDevis(unDevis);
 
             // ajout des produits dans un devis
             ProduitDevis unProduitDevis;
@@ -285,13 +311,10 @@ namespace CommercialGUI
                 remisePro   = Convert.ToSingle(row.Cells[4].Value);
                 quantitéPro = Convert.ToInt32(row.Cells[2].Value);
                 unProduitDevis = new ProduitDevis(codeDevis, codePro, remisePro, quantitéPro);
-                GestionDevis.ajoutProduitDansDevis(unProduitDevis);
+                GestionDevis.AjoutProduitDansDevis(unProduitDevis);
             }
-        }
-
-        private void gpDevis_Enter(object sender, EventArgs e)
-        {
-
+            initialGraphicStateRightForm();
+            lblErrorAdd.Text = "Ajout confirmé";
         }
         private void btnSupDevis_Click(object sender, EventArgs e)
         {
@@ -337,9 +360,8 @@ namespace CommercialGUI
             if (rowIndex == -1)
                 return;
 
-            DataGridViewRow row = dtgDevisModify.Rows[rowIndex];
 
-            if (row.IsNewRow)
+            if (dtgDevisModify.RowCount == 0)
             {
                 lblErrorAdd.Text = "Veuillez ajouter un produit";
                 return;
@@ -394,7 +416,7 @@ namespace CommercialGUI
             string codeDevis = dtgDevis.Rows[rowIndex].Cells["code"].Value.ToString();
             int codeDevisParse;
             int.TryParse(codeDevis, out codeDevisParse);
-            Devis unDevis = GestionDevis.getUnDevis(listeDevis, codeDevisParse);
+            Devis unDevis = GestionDevis.GetUnDevis(listeDevis, codeDevisParse);
             cmbStatutDevis.Text = unDevis.StatusDevisLib;
             txtTauxTva.Text = unDevis.Tx_tva.ToString();
             List<Produit> lesProduitsDuDevis = GestionProduitDevis.getProduitsPourUnDevis(produits, produitDevis, unDevis);
@@ -406,12 +428,6 @@ namespace CommercialGUI
                 refreshPrixDevis();
             }
         }
-
-        private void dtpDateDevis_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnModifyDevis_Click(object sender, EventArgs e)
         {
             if(txtCode.Text.Length == 0)
@@ -434,15 +450,18 @@ namespace CommercialGUI
             {
                 // decla var Devis
                 int codeDevis = Int32.Parse(txtCode.Text);
+                Client unCli = new Client(cmbClient.SelectedIndex);
+                StatusDevis unStatus = new StatusDevis(cmbStatutDevis.SelectedIndex);
+                float tauxTva = Convert.ToSingle(txtTauxTva.Text);
                 DateTime dateDevis = dtpDateDevis.Value;
-                Devis unDevis = new Devis(codeDevis, Int32.Parse(txtTauxTva.Text.ToString()), dateDevis, cmbClient.SelectedIndex, cmbStatutDevis.SelectedIndex);
+                Devis unDevis = new Devis(codeDevis, tauxTva, dateDevis, unCli, unStatus);
                 // decla var proDevis
                 int codePro;
                 float remisePro;
                 int quantitéPro;
 
                 // Update Devis
-                GestionDevis.updateDevis(unDevis);
+                GestionDevis.UpdateDevis(unDevis);
                 // Suppresion de tout les produits du devis
                 GestionProduitDevis.DeleteAllProduits(codeDevis);
 
@@ -455,8 +474,11 @@ namespace CommercialGUI
                     remisePro = Convert.ToSingle(row.Cells[4].Value);
                     quantitéPro = Convert.ToInt32(row.Cells[2].Value);
                     unProduitDevis = new ProduitDevis(codeDevis, codePro, remisePro, quantitéPro);
-                    GestionDevis.ajoutProduitDansDevis(unProduitDevis);
+                    GestionDevis.AjoutProduitDansDevis(unProduitDevis);
                 }
+                refreshPrixDevis();
+                initialGraphicStateRightForm();
+                lblErrorAdd.Text = "Le devis a bien étais modifié";
             }
             else
             {
@@ -464,10 +486,20 @@ namespace CommercialGUI
                 lblErrorAdd.Text = "modification annulé";
             }
         }
-
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        private void btnCancelDevis_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("Voulez-vous vraiment annuler l'ajout de ce devis ?", "Ajout Devis", MessageBoxButtons.YesNo);
 
+            // Vérifier la valeur retournée par la fenêtre de confirmation
+            if (result == DialogResult.Yes)
+            {
+                initialGraphicStateRightForm();
+                lblErrorAdd.Text = "ajout annulé";
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }

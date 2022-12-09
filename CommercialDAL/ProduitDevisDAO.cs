@@ -31,7 +31,7 @@ namespace CommercialDAL
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "DELETE * from ProduitDevis where code_devis = @codeDevis";
+            cmd.CommandText = "DELETE from ProduitDevis where code_devis = @codeDevis";
             cmd.Parameters.Add(new SqlParameter("@codeDevis", id));
             cmd.ExecuteNonQuery();
             // Fermeture de la connexion
