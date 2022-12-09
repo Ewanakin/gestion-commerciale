@@ -318,37 +318,44 @@ namespace CommercialGUI
         }
         private void btnSupDevis_Click(object sender, EventArgs e)
         {
-            string boxMessageDel = "Etes-vous certain de vouloir supprimer ce Devis ";
-            string boxTitleDel = "Supprimer";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show(boxMessageDel, boxTitleDel, buttons);
-            if (result == DialogResult.Yes)
+            if(txtCode.Text != string.Empty)
             {
-                int codePro;
-                string validMessage;
-                int.TryParse(txtCode.Text, out codePro); ;
-                validMessage = GestionDevis.SupprimerDevis(codePro);
-                lblErrorAdd.Text = validMessage;
-                List<Devis> listeDevis = new List<Devis>();
-                listeDevis = GestionDevis.getDevis();
-                List<ProduitDevis> produitDevis = new List<ProduitDevis>();
-                produitDevis = GestionProduitDevis.getProduitDevis();
-                List<Produit> produits = new List<Produit>();
-                produits = GestionProduits.GetProduits();
-                listeDevis = GestionProduitDevis.sumProduitPrix(listeDevis, produitDevis, produits);
-                // Rattachement de la List à la source de données du datagridview
-                dtgDevis.DataSource = listeDevis;
+                string boxMessageDel = "Etes-vous certain de vouloir supprimer ce Devis ";
+                string boxTitleDel = "Supprimer";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show(boxMessageDel, boxTitleDel, buttons);
+                if (result == DialogResult.Yes)
+                {
+                    int codePro;
+                    string validMessage;
+                    int.TryParse(txtCode.Text, out codePro); ;
+                    validMessage = GestionDevis.SupprimerDevis(codePro);
+                    lblErrorAdd.Text = validMessage;
+                    List<Devis> listeDevis = new List<Devis>();
+                    listeDevis = GestionDevis.getDevis();
+                    List<ProduitDevis> produitDevis = new List<ProduitDevis>();
+                    produitDevis = GestionProduitDevis.getProduitDevis();
+                    List<Produit> produits = new List<Produit>();
+                    produits = GestionProduits.GetProduits();
+                    listeDevis = GestionProduitDevis.sumProduitPrix(listeDevis, produitDevis, produits);
+                    // Rattachement de la List à la source de données du datagridview
+                    dtgDevis.DataSource = listeDevis;
 
-                // injection valeur combobox Produit
-                List<Produit> listeProduit = new List<Produit>();
-                listeProduit = GestionProduits.GetProduits();
+                    // injection valeur combobox Produit
+                    List<Produit> listeProduit = new List<Produit>();
+                    listeProduit = GestionProduits.GetProduits();
 
-                txtCode.Text = string.Empty;
-                txtTauxTva.Text = string.Empty;
+                    txtCode.Text = string.Empty;
+                    txtTauxTva.Text = string.Empty;
+                }
+                else
+                {
+                    lblErrorAdd.Text = "Le Devis n'a pas été supprimé";
+                }
             }
             else
             {
-                lblErrorAdd.Text = "Le Devis n'a pas été supprimé";
+                lblErrorAdd.Text = "Vous ne pouvez pas supprimer le devis \n car il n'y a pas de devis séléctionné";
             }
         }
 
