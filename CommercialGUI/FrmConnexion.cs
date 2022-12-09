@@ -20,12 +20,6 @@ namespace CommercialGUI
             InitializeComponent();
             GestionUtilisateurs.SetChaineConnexion(ConfigurationManager.ConnectionStrings["gestion-commerciale"]);
         }
-
-        private void FrmConnexion_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void lblError_Click(object sender, EventArgs e)
         {
 
@@ -50,11 +44,6 @@ namespace CommercialGUI
                 FrmViewProduct viewProduct = new FrmViewProduct();
                 viewProduct.ShowDialog(); // ouverture du formulaire*
             }
-        }
-
-        private void txtUser_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

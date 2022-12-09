@@ -129,7 +129,6 @@
             this.cmbCategorieProduct.Name = "cmbCategorieProduct";
             this.cmbCategorieProduct.Size = new System.Drawing.Size(214, 33);
             this.cmbCategorieProduct.TabIndex = 9;
-            this.cmbCategorieProduct.SelectedIndexChanged += new System.EventHandler(this.cmbCategorieProduct_SelectedIndexChanged);
             // 
             // btnUpdateProduct
             // 
@@ -267,7 +266,6 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmViewProduct";
             this.Text = "FrmViewProduct";
-            this.Load += new System.EventHandler(this.FrmViewProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgProducts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

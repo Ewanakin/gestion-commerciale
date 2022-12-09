@@ -145,22 +145,6 @@ namespace CommercialGUI
             FrmViewProduct viewProduct = new FrmViewProduct();
             viewProduct.ShowDialog(); // ouverture du formulaire*
         }
-
-        private void FrmViewCustomer_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblNomCli_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
             string boxMessageDel = "Etes-vous certain de vouloir supprimer ce Client ";
@@ -204,12 +188,6 @@ namespace CommercialGUI
                 lblStatus.Text = "suppresion annulée";
             }
         }
-
-        private void lblCodeCli_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             string generalMessage;
@@ -322,17 +300,6 @@ namespace CommercialGUI
                 txtVilleFact.Text = string.Empty;
             }
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNumRue_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnRoutesDevis_Click(object sender, EventArgs e)
         {
             this.Hide();

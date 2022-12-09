@@ -127,7 +127,6 @@
             this.lblNomCli.Size = new System.Drawing.Size(155, 25);
             this.lblNomCli.TabIndex = 2;
             this.lblNomCli.Text = "Nom du client :";
-            this.lblNomCli.Click += new System.EventHandler(this.lblNomCli_Click);
             // 
             // txtNom
             // 
@@ -209,7 +208,6 @@
             this.txtNumRue.Name = "txtNumRue";
             this.txtNumRue.Size = new System.Drawing.Size(288, 31);
             this.txtNumRue.TabIndex = 11;
-            this.txtNumRue.TextChanged += new System.EventHandler(this.txtNumRue_TextChanged);
             // 
             // lblNumRueLivr
             // 
@@ -257,7 +255,6 @@
             this.txtCodePostalLivr.Size = new System.Drawing.Size(288, 31);
             this.txtCodePostalLivr.TabIndex = 16;
             this.txtCodePostalLivr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtCodePostalLivr.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // lblVilleLivr
             // 
@@ -411,7 +408,6 @@
             this.lblCodeCli.Size = new System.Drawing.Size(132, 25);
             this.lblCodeCli.TabIndex = 31;
             this.lblCodeCli.Text = "Code client :";
-            this.lblCodeCli.Click += new System.EventHandler(this.lblCodeCli_Click);
             // 
             // txtCodeCli
             // 
@@ -447,7 +443,6 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 25);
             this.label2.TabIndex = 35;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // lblGeneralMessage
             // 
@@ -519,7 +514,6 @@
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FrmViewCustomer";
             this.Text = "FrmViewCustomer";
-            this.Load += new System.EventHandler(this.FrmViewCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgCustomer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

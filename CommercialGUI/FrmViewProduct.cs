@@ -85,17 +85,6 @@ namespace CommercialGUI
             txtLabelProduct.Clear();
             txtPrixHTProduct.Clear();
         }
-
-        private void lstCategProduct_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FrmViewProduct_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void dtgProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             dtgProducts.CurrentRow.Selected = true;
@@ -147,12 +136,6 @@ namespace CommercialGUI
                 }
             }
         }
-
-        private void btnRefreshDTG_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnDelProduct_Click(object sender, EventArgs e)
         {
             string boxMessageDel = "Etes-vous certain de vouloir supprimer ce produit ";
@@ -230,12 +213,6 @@ namespace CommercialGUI
             FrmViewCustomer viewClients = new FrmViewCustomer();
             viewClients.ShowDialog(); // ouverture du formulaire*
         }
-
-        private void cmbCategorieProduct_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnRoutesDevis_Click(object sender, EventArgs e)
         {
             this.Hide();
