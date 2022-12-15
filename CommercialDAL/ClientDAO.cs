@@ -159,5 +159,27 @@ namespace CommercialDAL
             maConnexion.Close();
             return nbEnr;
         }
+        public static List<int> GetClientsId()
+        {
+            int code;
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            // Création d'une liste vide d'objets Produits
+            List<int> lesClientsId = new List<int>();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = " SELECT code_cli FROM Client";
+            SqlDataReader monReader = cmd.ExecuteReader();
+            // Remplissage de la liste
+            while (monReader.Read())
+            {
+                code = Int32.Parse(monReader["code_cli"].ToString());
+                lesClientsId.Add(code);
+            }
+            // Fermeture de la connexion
+            maConnexion.Close();
+
+            return lesClientsId;
+        }
     }
 }
