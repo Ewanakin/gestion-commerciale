@@ -21,6 +21,7 @@ namespace CommercialBO
         private int codePostalAdresseFac;
         private string villeAdresseLiv;
         private string villeAdresseFac;
+        private List<Devis> lesDevis;
 
         public Client(int code, string nom, int numeroTel, int numeroFax, string email, int numAdresseLiv, int numAdresseFac, string rueAdresseLiv, string rueAdresseFac, int codePostalAdresseLiv, int codePostalAdresseFac, string villeAdresseLiv, string villeAdresseFac)
         {
@@ -57,5 +58,11 @@ namespace CommercialBO
         public int CodePostalAdresseFac { get => codePostalAdresseFac; set => codePostalAdresseFac = value; }
         public string VilleAdresseLiv { get => villeAdresseLiv; set => villeAdresseLiv = value; }
         public string VilleAdresseFac { get => villeAdresseFac; set => villeAdresseFac = value; }
+        public void addDevis(Devis unDevis)
+        {
+            this.lesDevis.Add(unDevis);
+        }
+
+        public List<Devis> LesDevis { get => lesDevis; set => lesDevis = value; }
     }
 }
