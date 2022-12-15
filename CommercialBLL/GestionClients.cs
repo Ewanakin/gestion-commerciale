@@ -37,5 +37,9 @@ namespace CommercialBLL
         {
             return ClientDAO.UpdateClient(unCli);
         }
+        public static List<int> GetClientsId()
+        {
+            return ClientDAO.GetClientsId();
+        }
     }
 }

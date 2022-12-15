@@ -62,8 +62,14 @@ namespace CommercialGUI
             dgvSummary.Columns.Add(montantTotalHTColumn);
 
             //Declation de la liste & injection des valeurs
+            List<int> lesClientsId = GestionClients.GetClientsId();
+            List<SyntheseDevis> lesSyntheseDevis = new List<SyntheseDevis>();
 
-            dgvSummary.DataSource =
+            foreach (int unCli in lesClientsId)
+            {
+                lesSyntheseDevis.Add(GestionSyntheseDevis.GetSyntheseDevis(unCli));
+            }
+            //dgvSummary.DataSource = 
 
         }
 
