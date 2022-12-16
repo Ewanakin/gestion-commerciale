@@ -12,36 +12,82 @@ namespace CommercialDAL
     {
         public static SyntheseDevis GetSyntheseDevis(int codeCli)
         {
-            int nomCli;
-            int nbDevis;
-            int nbDevisAcceptes;
+            List<int> listeCodeDevis = new List<int>();
+            int nbDevis, codeDevis = 0;
+            int nbDevisAcceptes, nbDevisAttente;
             float pourcentageDevisAcceptes;
             float pourcentageDevisEnAttente;
-            float montantTotal;
+            float montantTotal= 0;
+            float montantDevis = 0;
+            string nomCli = "";
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
-            // Création d'une liste vide d'objets Produits
-            List<SyntheseDevis> lesSyntheseDevis = new List<SyntheseDevis>();
+
+            // recup nom cli
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "SELECT * FROM Client WHERE code_cli = @codeCli";
+            cmd.CommandText = "SELECT num_cli FROM Client WHERE code_cli = @codeCli";
             cmd.Parameters.Add(new SqlParameter("@codeCli", codeCli));
-            SqlDataReader monReader = cmd.ExecuteReader();
-            // Remplissage de la liste
-            while (monReader.Read())
+            SqlDataReader readerNomCli = cmd.ExecuteReader();
+            while (readerNomCli.Read())
             {
-                code = Int32.Parse(monReader["code_pro"].ToString());
-                codeCateg = Int32.Parse(monReader["code_categ"].ToString());
-                libelle = monReader["lib_pro"].ToString();
-                float.TryParse(monReader["prix_vente_ht_pro"].ToString(), out prixHT);
-                libelleCategorie = monReader["lib_categ"].ToString();
-                CategorieProduit uneCategPro = new CategorieProduit(codeCateg, libelleCategorie);
-                Produit unProduit = new Produit(code, libelle, prixHT, uneCategPro);
-                lesUtilisateurs.Add(unProduit);
+                nomCli = readerNomCli["num_cli"].ToString();
             }
+            readerNomCli.Close();
+
+            // récupération du nombre de devis
+            SqlCommand cmdNbDevis = new SqlCommand();
+            cmdNbDevis.Connection = maConnexion;
+            cmdNbDevis.CommandText = "SELECT COUNT(code_devis) FROM Devis WHERE code_cli = @codeCli";
+            cmdNbDevis.Parameters.Add(new SqlParameter("@codeCli", codeCli));
+            nbDevis = (Int32)cmdNbDevis.ExecuteScalar();
+
+            // récupération du nimbre de devis accept
+            SqlCommand cmdNbDevisAcceptes = new SqlCommand();
+            cmdNbDevisAcceptes.Connection = maConnexion;
+            cmdNbDevisAcceptes.CommandText = "SELECT COUNT(code_statut) FROM Devis WHERE code_cli = @codeCli AND code_statut = 0";
+            cmdNbDevisAcceptes.Parameters.Add(new SqlParameter("@codeCli", codeCli));
+            nbDevisAcceptes = (Int32)cmdNbDevisAcceptes.ExecuteScalar();
+
+            // récupération du nimbre de devis en attente
+            SqlCommand cmdNbDevisAttente = new SqlCommand();
+            cmdNbDevisAttente.Connection = maConnexion;
+            cmdNbDevisAttente.CommandText = "SELECT COUNT(code_statut) FROM Devis WHERE code_cli = @codeCli AND code_statut = 2";
+            cmdNbDevisAttente.Parameters.Add(new SqlParameter("@codeCli", codeCli));
+            nbDevisAttente = (Int32)cmdNbDevisAttente.ExecuteScalar();
+
+            // récupération des codes devis
+            SqlCommand cmdDevis = new SqlCommand();
+            cmdDevis.Connection = maConnexion;
+            cmdDevis.CommandText = "SELECT * FROM Devis WHERE code_cli = @codeCli";
+            cmdDevis.Parameters.Add(new SqlParameter("@codeCli", codeCli));
+            SqlDataReader readerDevis = cmdDevis.ExecuteReader();
+            while (readerDevis.Read())
+            {
+                listeCodeDevis.Add(Int32.Parse(readerDevis["code_devis"].ToString()));
+            }
+            readerDevis.Close();
+
+            foreach(int unCodeDevis in listeCodeDevis)
+            {
+                // récupération des produits devis
+                SqlCommand cmdProduitDevis = new SqlCommand();
+                cmdProduitDevis.Connection = maConnexion;
+                cmdProduitDevis.CommandText = "SELECT SUM((prix_vente_ht_pro*qtt_produit)-(prix_vente_ht_pro*qtt_produit)*remise_produit/100)  FROM Produit INNER JOIN ProduitDevis ON Produit.code_pro = ProduitDevis.code_pro AND ProduitDevis.code_devis = @codeDevis";
+                cmdProduitDevis.Parameters.Add(new SqlParameter("@codeDevis", unCodeDevis));
+                float.TryParse(cmdProduitDevis.ExecuteScalar().ToString(), out montantDevis);
+                montantTotal += montantDevis; 
+            }
+
+
+
+            pourcentageDevisAcceptes = (nbDevisAcceptes / nbDevis) * 100;
+            pourcentageDevisEnAttente = (nbDevisAttente/ nbDevis) * 100;
+
+            SyntheseDevis uneSyntheseDevis = new SyntheseDevis(codeCli, nomCli, nbDevis, nbDevisAcceptes, pourcentageDevisAcceptes, pourcentageDevisEnAttente, montantTotal);
             // Fermeture de la connexion
             maConnexion.Close();
-            return lesUtilisateurs;
+            return uneSyntheseDevis;
         }
     }
 }

@@ -45,5 +45,10 @@ namespace CommercialGUI
                 viewProduct.ShowDialog(); // ouverture du formulaire*
             }
         }
+
+        private void FrmConnexion_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

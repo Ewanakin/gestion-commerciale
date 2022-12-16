@@ -69,11 +69,16 @@ namespace CommercialGUI
             {
                 lesSyntheseDevis.Add(GestionSyntheseDevis.GetSyntheseDevis(unCli));
             }
-            //dgvSummary.DataSource = 
+            dgvSummary.DataSource = lesSyntheseDevis;
 
         }
 
         private void dgvSummary_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void FrmViewSummary_Load(object sender, EventArgs e)
         {
 
         }

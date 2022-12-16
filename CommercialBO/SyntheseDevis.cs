@@ -14,10 +14,12 @@ namespace CommercialBO
         float pourcentageDevisAcceptes;
         float pourcentageDevisEnAttente;
         float montantTotal;
+        string nomCli;
 
-        public SyntheseDevis(int codeCli, int nbDevis, int nbDevisAcceptes, float pourcentageDevisAcceptes, float pourcentageDevisEnAttente, float montantTotal)
+        public SyntheseDevis(int codeCli, string nomCli, int nbDevis, int nbDevisAcceptes, float pourcentageDevisAcceptes, float pourcentageDevisEnAttente, float montantTotal)
         {
             this.CodeCli = codeCli;
+            this.NomCli = nomCli;
             this.NbDevis = nbDevis;
             this.NbDevisAcceptes = nbDevisAcceptes;
             this.PourcentageDevisAcceptes = pourcentageDevisAcceptes;
@@ -26,6 +28,7 @@ namespace CommercialBO
         }
 
         public int CodeCli { get => codeCli; set => codeCli = value; }
+        public string NomCli { get => nomCli; set => nomCli = value; }
         public int NbDevis { get => nbDevis; set => nbDevis = value; }
         public int NbDevisAcceptes { get => nbDevisAcceptes; set => nbDevisAcceptes = value; }
         public float PourcentageDevisAcceptes { get => pourcentageDevisAcceptes; set => pourcentageDevisAcceptes = value; }

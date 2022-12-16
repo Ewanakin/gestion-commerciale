@@ -42,7 +42,7 @@
             this.btnSubmitCo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.btnSubmitCo.ForeColor = System.Drawing.Color.Black;
             this.btnSubmitCo.Location = new System.Drawing.Point(550, 351);
-            this.btnSubmitCo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSubmitCo.Margin = new System.Windows.Forms.Padding(2);
             this.btnSubmitCo.Name = "btnSubmitCo";
             this.btnSubmitCo.Size = new System.Drawing.Size(128, 49);
             this.btnSubmitCo.TabIndex = 0;
@@ -85,7 +85,7 @@
             // txtUser
             // 
             this.txtUser.Location = new System.Drawing.Point(514, 189);
-            this.txtUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtUser.Margin = new System.Windows.Forms.Padding(2);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(199, 22);
             this.txtUser.TabIndex = 4;
@@ -93,7 +93,7 @@
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(514, 270);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(199, 22);
@@ -112,9 +112,10 @@
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.btnSubmitCo);
             this.ForeColor = System.Drawing.Color.SpringGreen;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmConnexion";
             this.Text = "Gestion_Commerciale";
+            this.Load += new System.EventHandler(this.FrmConnexion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
