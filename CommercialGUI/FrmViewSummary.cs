@@ -26,32 +26,32 @@ namespace CommercialGUI
             // Création d'une en-tête de colonne pour la colonne 1
             DataGridViewTextBoxColumn nomCliColumn = new DataGridViewTextBoxColumn();
             nomCliColumn.Name = "Nom Client";
-            nomCliColumn.DataPropertyName = "ClientNom";
+            nomCliColumn.DataPropertyName = "NomCli";
             nomCliColumn.HeaderText = "Nom Client";
             // Création d'une en-tête de colonne pour la colonne 2
             DataGridViewTextBoxColumn nbDevisColumn = new DataGridViewTextBoxColumn();
             nbDevisColumn.Name = "nombreDevis";
-            nbDevisColumn.DataPropertyName = "nombreDevis";
+            nbDevisColumn.DataPropertyName = "NbDevis";
             nbDevisColumn.HeaderText = "Nombre Devis";
             // Création d'une en-tête de colonne pour la colonne 3
             DataGridViewTextBoxColumn nbDevisAcceptésColumn = new DataGridViewTextBoxColumn();
             nbDevisAcceptésColumn.Name = "Nombre Devis Accepté";
-            nbDevisAcceptésColumn.DataPropertyName = "nbDevisAccepté";
+            nbDevisAcceptésColumn.DataPropertyName = "NbDevisAcceptes";
             nbDevisAcceptésColumn.HeaderText = "Nombre Devis Accepté";
             // Création d'une en-tête de colonne pour la colonne 4
             DataGridViewTextBoxColumn pourcentageAcceptéColumn = new DataGridViewTextBoxColumn();
             pourcentageAcceptéColumn.Name = "Pourcentage Devis Accepté";
-            pourcentageAcceptéColumn.DataPropertyName = "pourcentageAccepté";
+            pourcentageAcceptéColumn.DataPropertyName = "PourcentageDevisAcceptes";
             pourcentageAcceptéColumn.HeaderText = "Pourcentage Devis Accepté";
             // Création d'une en-tête de colonne pour la colonne 5
             DataGridViewTextBoxColumn pourcentageAttenteColumn = new DataGridViewTextBoxColumn();
             pourcentageAttenteColumn.Name = "Pourcentage Devis Attente";
-            pourcentageAttenteColumn.DataPropertyName = "pourcentaDevisAttente";
+            pourcentageAttenteColumn.DataPropertyName = "PourcentageDevisEnAttente";
             pourcentageAttenteColumn.HeaderText = "Pourcentage Devis Attente";
             // Création d'une en-tête de colonne pour la colonne 6
             DataGridViewTextBoxColumn montantTotalHTColumn = new DataGridViewTextBoxColumn();
             montantTotalHTColumn.Name = "montant Total facturé HT";
-            montantTotalHTColumn.DataPropertyName = "montantTotalHT";
+            montantTotalHTColumn.DataPropertyName = "MontantTotal";
             montantTotalHTColumn.HeaderText = "montant Total facturé HT";
             // Ajout des 6 en-têtes de colonne au datagridview
             dgvSummary.Columns.Add(nomCliColumn);

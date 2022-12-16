@@ -12,7 +12,7 @@ namespace CommercialBLL
     {
         public static SyntheseDevis GetSyntheseDevis(int codeCli)
         {
-            return SyntheseDevisDAO.GetSyntheseDevis(0);
+            return SyntheseDevisDAO.GetSyntheseDevis(codeCli);
         }
     }
 }
