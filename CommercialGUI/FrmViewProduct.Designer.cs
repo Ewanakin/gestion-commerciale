@@ -46,6 +46,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnPro = new System.Windows.Forms.Button();
             this.btnRoutesDevis = new System.Windows.Forms.Button();
+            this.btnRoutesSynthese = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -239,12 +240,26 @@
             this.btnRoutesDevis.UseVisualStyleBackColor = false;
             this.btnRoutesDevis.Click += new System.EventHandler(this.btnRoutesDevis_Click);
             // 
+            // btnRoutesSynthese
+            // 
+            this.btnRoutesSynthese.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnRoutesSynthese.ForeColor = System.Drawing.Color.Lime;
+            this.btnRoutesSynthese.Location = new System.Drawing.Point(477, 814);
+            this.btnRoutesSynthese.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnRoutesSynthese.Name = "btnRoutesSynthese";
+            this.btnRoutesSynthese.Size = new System.Drawing.Size(292, 61);
+            this.btnRoutesSynthese.TabIndex = 22;
+            this.btnRoutesSynthese.Text = "vers Synthese Devis >";
+            this.btnRoutesSynthese.UseVisualStyleBackColor = false;
+            this.btnRoutesSynthese.Click += new System.EventHandler(this.btnRoutesSynthese_Click);
+            // 
             // FrmViewProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1461, 917);
+            this.Controls.Add(this.btnRoutesSynthese);
             this.Controls.Add(this.btnRoutesDevis);
             this.Controls.Add(this.btnPro);
             this.Controls.Add(this.label4);
@@ -292,5 +307,6 @@
 
         private System.Windows.Forms.Button btnPro;
         private System.Windows.Forms.Button btnRoutesDevis;
+        private System.Windows.Forms.Button btnRoutesSynthese;
     }
 }

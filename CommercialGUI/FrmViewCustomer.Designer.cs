@@ -70,6 +70,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblGeneralMessage = new System.Windows.Forms.Label();
             this.btnRoutesDevis = new System.Windows.Forms.Button();
+            this.btnRoutesSynthese = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgCustomer)).BeginInit();
             this.SuspendLayout();
             // 
@@ -364,7 +365,7 @@
             // 
             this.btnSupprimer.BackColor = System.Drawing.Color.SpringGreen;
             this.btnSupprimer.ForeColor = System.Drawing.Color.Black;
-            this.btnSupprimer.Location = new System.Drawing.Point(818, 1128);
+            this.btnSupprimer.Location = new System.Drawing.Point(1002, 1120);
             this.btnSupprimer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(232, 42);
@@ -377,7 +378,7 @@
             // 
             this.btnModifier.BackColor = System.Drawing.Color.SpringGreen;
             this.btnModifier.ForeColor = System.Drawing.Color.Black;
-            this.btnModifier.Location = new System.Drawing.Point(1120, 1128);
+            this.btnModifier.Location = new System.Drawing.Point(1304, 1120);
             this.btnModifier.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(232, 42);
@@ -390,7 +391,7 @@
             // 
             this.btnAjouter.BackColor = System.Drawing.Color.SpringGreen;
             this.btnAjouter.ForeColor = System.Drawing.Color.Black;
-            this.btnAjouter.Location = new System.Drawing.Point(1420, 1128);
+            this.btnAjouter.Location = new System.Drawing.Point(1604, 1120);
             this.btnAjouter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(232, 42);
@@ -420,7 +421,7 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(1790, 1128);
+            this.lblStatus.Location = new System.Drawing.Point(1858, 1108);
             this.lblStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(0, 25);
@@ -466,12 +467,26 @@
             this.btnRoutesDevis.UseVisualStyleBackColor = false;
             this.btnRoutesDevis.Click += new System.EventHandler(this.btnRoutesDevis_Click);
             // 
+            // btnRoutesSynthese
+            // 
+            this.btnRoutesSynthese.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnRoutesSynthese.ForeColor = System.Drawing.Color.Lime;
+            this.btnRoutesSynthese.Location = new System.Drawing.Point(691, 1159);
+            this.btnRoutesSynthese.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnRoutesSynthese.Name = "btnRoutesSynthese";
+            this.btnRoutesSynthese.Size = new System.Drawing.Size(292, 61);
+            this.btnRoutesSynthese.TabIndex = 38;
+            this.btnRoutesSynthese.Text = "vers Synthese Devis >";
+            this.btnRoutesSynthese.UseVisualStyleBackColor = false;
+            this.btnRoutesSynthese.Click += new System.EventHandler(this.btnRoutesSynthese_Click);
+            // 
             // FrmViewCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(2852, 1248);
+            this.Controls.Add(this.btnRoutesSynthese);
             this.Controls.Add(this.btnRoutesDevis);
             this.Controls.Add(this.lblGeneralMessage);
             this.Controls.Add(this.label2);
@@ -561,5 +576,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblGeneralMessage;
         private System.Windows.Forms.Button btnRoutesDevis;
+        private System.Windows.Forms.Button btnRoutesSynthese;
     }
 }

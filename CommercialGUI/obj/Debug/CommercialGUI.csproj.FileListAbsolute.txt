@@ -101,3 +101,4 @@ C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\obj\Debug\Commer
 C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.csproj.CopyComplete
 C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.exe
 C:\Users\quioc\Desktop\ppe c#\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.pdb
+C:\Users\losko\Desktop\test\d\gestion-commerciale\CommercialGUI\obj\Debug\CommercialGUI.FrmViewSummary.resources

@@ -65,6 +65,7 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnRoutesClient = new System.Windows.Forms.Button();
             this.btnPro = new System.Windows.Forms.Button();
+            this.btnRoutesSynthese = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDevis)).BeginInit();
             this.gpDevis.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDevisModify)).BeginInit();
@@ -471,12 +472,26 @@
             this.btnPro.UseVisualStyleBackColor = false;
             this.btnPro.Click += new System.EventHandler(this.btnPro_Click);
             // 
+            // btnRoutesSynthese
+            // 
+            this.btnRoutesSynthese.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnRoutesSynthese.ForeColor = System.Drawing.Color.Lime;
+            this.btnRoutesSynthese.Location = new System.Drawing.Point(846, 1351);
+            this.btnRoutesSynthese.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnRoutesSynthese.Name = "btnRoutesSynthese";
+            this.btnRoutesSynthese.Size = new System.Drawing.Size(292, 61);
+            this.btnRoutesSynthese.TabIndex = 40;
+            this.btnRoutesSynthese.Text = "vers Synthese Devis >";
+            this.btnRoutesSynthese.UseVisualStyleBackColor = false;
+            this.btnRoutesSynthese.Click += new System.EventHandler(this.btnRoutesSynthese_Click);
+            // 
             // FrmDevis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(2582, 1472);
+            this.Controls.Add(this.btnRoutesSynthese);
             this.Controls.Add(this.btnRoutesClient);
             this.Controls.Add(this.btnPro);
             this.Controls.Add(this.gpDevis);
@@ -533,5 +548,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button btnRoutesClient;
         private System.Windows.Forms.Button btnPro;
+        private System.Windows.Forms.Button btnRoutesSynthese;
     }
 }

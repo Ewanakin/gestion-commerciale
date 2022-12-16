@@ -306,5 +306,12 @@ namespace CommercialGUI
             FrmDevis viewDevis = new FrmDevis();
             viewDevis.ShowDialog(); // ouverture du formulaire*
         }
+
+        private void btnRoutesSynthese_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmViewSummary viewSummary = new FrmViewSummary();
+            viewSummary.ShowDialog(); // ouverture du formulaire*
+        }
     }
 }
